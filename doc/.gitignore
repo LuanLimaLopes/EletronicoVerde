@@ -1,0 +1,68 @@
+# Banco de dados SQLite
+storage/database/*.db
+storage/database/*.db-shm
+storage/database/*.db-wal
+
+# Logs
+storage/logs/*.log
+*.log
+
+# Sistema Operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+nbproject/
+
+# Composer
+vendor/
+composer.lock
+
+# Cache
+cache/
+*.cache
+
+# Uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Configurações sensíveis
+.env
+.env.local
+.env.production
+config/local.php
+
+# Backups
+*.sql
+*.backup
+backup/
+
+# Node (se usar futuramente)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+
+# Arquivos compilados
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
