@@ -34,3 +34,14 @@ if (APP_ENV === 'development') {
     ini_set('log_errors', '1');
     ini_set('error_log', STORAGE_PATH . '/logs/error.log');
 }
+
+// Garante que o arquivo do banco existe
+if (!file_exists(DATABASE_PATH . '/database.sqlite')) {
+    if (!is_dir(DATABASE_PATH)) {
+        mkdir(DATABASE_PATH, 0777, true);
+    }
+    touch(DATABASE_PATH . '/database.sqlite');
+}
+
+echo "Conexão com banco de dados estabelecida com sucesso!";
+?>

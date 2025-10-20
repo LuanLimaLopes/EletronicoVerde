@@ -1,7 +1,18 @@
 <?php
-define('BASE_PATH', dirname(__DIR__));
-define('PUBLIC_PATH', __DIR__);
-define('BASE_URL', '/EletronicoVerde/public');
+require_once __DIR__ . '/../config/constants.php';
+require_once __DIR__ . '/../config/autoload.php';
+
+use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
+
+try {
+    $db = SQLiteConnection::getInstance();
+    $connection = $db->getConnection();
+} catch (Exception $e) {
+    die('Erro de conexão: ' . $e->getMessage());
+}
+
+// Inicializa a aplicação
+require_once __DIR__ . '/../config/routes.php';
 
 // Autoload (manual temporário - futuramente usar Composer)
 spl_autoload_register(function ($class) {
@@ -24,14 +35,6 @@ spl_autoload_register(function ($class) {
         require $file;
     }
 });
-
-// Carregar configurações
-require_once __DIR__ . '/../config/constants.php';
-require_once __DIR__ . '/../vendor/autoload.php';
-
-// Inicializar banco de dados
-use EletronicoVerde\Config\Database;
-Database::init();
 
 // Iniciar sessão
 if (session_status() === PHP_SESSION_NONE) {
