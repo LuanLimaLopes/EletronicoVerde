@@ -1,15 +1,20 @@
 <?php
-// config/constants.php
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', dirname(__DIR__));
+}
 
-// Caminhos da aplicação
-define('ROOT_PATH', dirname(__DIR__));
-define('SRC_PATH', ROOT_PATH . '/src');
-define('PUBLIC_PATH', ROOT_PATH . '/public');
-define('STORAGE_PATH', ROOT_PATH . '/storage');
-define('VIEWS_PATH', SRC_PATH . '/Presentation/Views');
+if (!defined('PUBLIC_PATH')) {
+    define('PUBLIC_PATH', BASE_PATH . '/public');
+}
 
-// URLs
-define('BASE_URL', 'http://localhost');
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/EletronicoVerde/public');
+}
+
+// Outras constantes necessárias
+define('VIEWS_PATH', BASE_PATH . '/src/Presentation/Views');
+define('STORAGE_PATH', BASE_PATH . '/storage');
+define('DATABASE_PATH', STORAGE_PATH . '/database');
 
 // Configurações da aplicação
 define('APP_NAME', 'Eletrônico Verde');

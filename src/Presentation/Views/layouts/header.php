@@ -1,5 +1,12 @@
+<?php
+<?php
+// Garante que não há saída antes do DOCTYPE
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,3 +66,6 @@
 <body class="font-inter-tight overflow-x-hidden">
 
 <?php require_once __DIR__ . '/menu.php'; ?>
+
+</body>
+</html>

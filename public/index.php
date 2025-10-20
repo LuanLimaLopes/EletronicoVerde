@@ -1,5 +1,7 @@
 <?php
-// public/index.php
+define('BASE_PATH', dirname(__DIR__));
+define('PUBLIC_PATH', __DIR__);
+define('BASE_URL', '/EletronicoVerde/public');
 
 // Autoload (manual temporário - futuramente usar Composer)
 spl_autoload_register(function ($class) {
@@ -25,6 +27,7 @@ spl_autoload_register(function ($class) {
 
 // Carregar configurações
 require_once __DIR__ . '/../config/constants.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Inicializar banco de dados
 use EletronicoVerde\Config\Database;

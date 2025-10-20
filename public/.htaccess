@@ -1,3 +1,17 @@
+RewriteEngine On
+RewriteBase /EletronicoVerde/public/
+
+# Redirecionar tudo que não é arquivo/diretório real para index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Permitir acesso direto a arquivos estáticos
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
 # Configurações de segurança
 <IfModule mod_headers.c>
     # Proteção XSS
