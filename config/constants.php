@@ -1,15 +1,17 @@
 <?php
-if (!defined('BASE_PATH')) {
-    define('BASE_PATH', dirname(__DIR__));
-}
+// Caminhos do sistema
+define('BASE_PATH', dirname(__DIR__));
+define('PUBLIC_PATH', BASE_PATH . '/public');
+define('BASE_URL', '/EletronicoVerde');
 
-if (!defined('PUBLIC_PATH')) {
-    define('PUBLIC_PATH', BASE_PATH . '/public');
-}
+// nova constante: URL pública do diretório public
+define('PUBLIC_URL', rtrim(BASE_URL, '/') . '/public');
 
-if (!defined('BASE_URL')) {
-    define('BASE_URL', '/EletronicoVerde/public');
-}
+
+// nova constante: pasta de assets (css, js, images)
+define('ASSETS_URL', PUBLIC_URL . '/assets');
+define('VIEWS_URL', BASE_URL . '/src/Presentation/Views');
+define('CONTROLLERS_URL', BASE_URL . '/src/Presentation/Controllers');
 
 // Outras constantes necessárias
 define('VIEWS_PATH', BASE_PATH . '/src/Presentation/Views');
@@ -43,5 +45,6 @@ if (!file_exists(DATABASE_PATH . '/database.sqlite')) {
     touch(DATABASE_PATH . '/database.sqlite');
 }
 
-echo "Conexão com banco de dados estabelecida com sucesso!";
+// remova/evite echo de debug aqui
+//echo "Conexão com banco de dados estabelecida com sucesso!";
 ?>

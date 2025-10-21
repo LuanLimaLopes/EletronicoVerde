@@ -1,10 +1,4 @@
-<?php
-<?php
-// Garante que não há saída antes do DOCTYPE
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,10 +17,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=north_east" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../../public/assets/images/Logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= ASSETS_URL ?>/images/favicon.ico">
     
     <!-- CSS Customizado -->
-    <link rel="stylesheet" href="../../../../public/assets/css/style.css">
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/style.css">
     
     <!-- Tailwind Config -->
     <style type="text/tailwindcss">

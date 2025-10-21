@@ -3,7 +3,7 @@
 <!-- HERO SECTION -->
 <header class="relative z-5">
     <div class="h-[100vh] w-full text-white relative">
-      <img src="../../../../public/assets/images/e-waste2.png" alt="Lixo Eletrônico"
+      <img src="<?= ASSETS_URL ?>/images/e-waste2.png" alt="Lixo Eletrônico"
         class="absolute top-0 left-0 w-full h-[100vh] object-cover brightness-30 z-1" />
       
       <div class="container mx-auto py-4 flex flex-col h-[100vh] gap-10 justify-center z-20 relative">

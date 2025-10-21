@@ -3,7 +3,7 @@
     <div class="flex flex-row w-full h-fit justify-between items-start">
       <a href="../home/index.php" class="group transition-all duration-150 h-fit">
         <h1 class="text-xl font-bold flex flex-row items-center gap-3.5">
-          <img src="../../../../public/assets/images/Logo branca.png" alt="Logo Eletrônico Verde" class="max-w-15 transition-all duration-150" />
+          <img src="<?= ASSETS_URL ?>/images/Logo branca.png" alt="Logo Eletrônico Verde" class="max-w-15 transition-all duration-150" />
           <span class="bg-white text-primary p-2 w-fit h-fit rounded-3xl rounded-tl-none border-2 border-white relative overflow-hidden z-1
           group-hover:rounded-tr-sm group-hover:rounded-tl-3xl group-hover:text-white transition-all duration-150
           before:absolute before:h-full before:-z-1 before:w-0 group-hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-250">

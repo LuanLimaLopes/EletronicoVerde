@@ -5,12 +5,11 @@ namespace EletronicoVerde\Presentation\Controllers;
 
 class HomeController
 {
-    /**
-     * Exibe a página inicial
-     */
-    public function index(): void
+    public function index()
     {
-        $pageTitle = 'Eletrônico Verde';
-        require_once __DIR__ . '/../Views/home/index.php';
+        $pageTitle = 'Eletrônico Verde' . APP_NAME;
+        require VIEWS_PATH . '/layouts/header.php';
+        require VIEWS_PATH . '/home/index.php';
+        require VIEWS_PATH . '/layouts/footer.php';
     }
 }

@@ -1,16 +1,17 @@
 <?php
-<?php
+
 namespace EletronicoVerde\Presentation\Helpers;
 
 class UrlHelper
 {
-    public static function asset($path)
+    public static function asset(string $path): string
     {
-        return BASE_URL . '/assets/' . ltrim($path, '/');
+        $baseUrl = '/EletronicoVerde';
+        return sprintf('%s/public/assets/%s', $baseUrl, ltrim($path, '/'));
     }
 
-    public static function route($path)
+    public static function css(string $filename): string
     {
-        return BASE_URL . '/' . ltrim($path, '/');
+        return self::asset('css/' . ltrim($filename, '/'));
     }
 }
