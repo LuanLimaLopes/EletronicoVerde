@@ -9,7 +9,7 @@ use EletronicoVerde\Presentation\Controllers\AuthController;
 
 // Obtém a URL atual
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$base = '/EletronicoVerde';
+$base = '/eletronicoverde';
 $route = str_replace($base, '/', $requestUri);
 
 // Remove barra final se existir
@@ -19,7 +19,7 @@ $route = rtrim($route, '/');
 $connection = SQLiteConnection::getInstance();
 
 // Define a rota atual
-$route = $_GET['route'] ?? 'home';
+$route = '/' . ($_GET['route'] ?? 'home');
 
 // Suas rotas aqui
 switch ($route) {

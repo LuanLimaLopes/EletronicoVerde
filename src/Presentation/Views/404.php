@@ -9,6 +9,6 @@
 <body>
     <h1>404 - Página não encontrada</h1>
     <p>A página que você está procurando não existe.</p>
-    <a href="/EletronicoVerde/public">Voltar para a página inicial</a>
+    <a href="<?= BASE_URL ?>/index.php">Voltar para a página inicial</a>
 </body>
 </html>

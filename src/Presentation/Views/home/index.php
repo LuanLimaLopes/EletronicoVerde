@@ -68,7 +68,7 @@
               Reciclar corretamente ajuda a reduzir esse impacto e reaproveitar materiais valiosos.
           </p>
         </div>
-        <a href="/reciclagem" class="group bg-[#49776b] w-full p-5 flex flex-row justify-between rounded-3xl font-bold text-md border-1 border-transparent text-white
+        <a href="<?= BASE_URL?>/reciclagem" class="group bg-[#49776b] w-full p-5 flex flex-row justify-between rounded-3xl font-bold text-md border-1 border-transparent text-white
         hover:bg-[#c0ece0] hover:text-black hover:border-second transition-all">
             Saiba mais <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all"></i>
         </a>
@@ -119,7 +119,7 @@
             <p class="text-xl text-amarelo">De toneladas de metais preciosos, como ouro, prata e cobre, são descartadas anualmente em dispositivos eletrônicos.</p>
           </div>
           <div>
-            <a href="/reciclagem" class="group absolute bg-[#141414] w-fit h-fit right-0 bottom-0 p-5 flex flex-row items-center justify-center gap-5 text-xl rounded-tl-3xl font-bold text-md border-1 border-transparent text-white
+            <a href="<?= BASE_URL?>/reciclagem" class="group absolute bg-[#141414] w-fit h-fit right-0 bottom-0 p-5 flex flex-row items-center justify-center gap-5 text-xl rounded-tl-3xl font-bold text-md border-1 border-transparent text-white
            hover:text-primary transition-all">
                 Saiba mais <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i>
             </a>

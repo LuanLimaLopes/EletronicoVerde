@@ -1,6 +1,7 @@
-eletronico-verde/
+eletronicoverde/
 │
 ├── config/
+│   ├── autoload.php
 │   ├── database.php          # Configuração do SQLite
 │   ├── constants.php          # Constantes da aplicação
 │   └── routes.php             # Definição de rotas

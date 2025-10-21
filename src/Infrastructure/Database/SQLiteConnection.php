@@ -11,7 +11,7 @@ class SQLiteConnection
     private function __construct()
     {
         try {
-            self::$instance = new PDO('sqlite:' . DATABASE_PATH . '/database.sqlite');
+            self::$instance = new PDO('sqlite:' . DATABASE_PATH . '/eletronicoverde.db');
             self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$instance->exec('PRAGMA foreign_keys = ON');
         } catch (PDOException $e) {

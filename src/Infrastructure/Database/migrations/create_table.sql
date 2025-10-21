@@ -92,4 +92,4 @@ INSERT OR IGNORE INTO materiais (nome, descricao, icone) VALUES
 -- Inserir usuário admin padrão (senha: admin123)
 -- Hash gerado com password_hash('admin123', PASSWORD_DEFAULT)
 INSERT OR IGNORE INTO usuarios (nome, email, senha) VALUES
-('Administrador', 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('admin', 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
