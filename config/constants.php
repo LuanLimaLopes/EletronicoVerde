@@ -15,6 +15,7 @@ define('CONTROLLERS_URL', BASE_URL . '/src/Presentation/Controllers');
 
 // Outras constantes necessárias
 define('VIEWS_PATH', BASE_PATH . '/src/Presentation/Views');
+define('MIGRATIONS_URL', BASE_URL . '/src/Infrastructure/DataBase/migrations');
 define('STORAGE_PATH', BASE_PATH . '/storage');
 define('DATABASE_PATH', STORAGE_PATH . '/database');
 
@@ -34,15 +35,7 @@ if (APP_ENV === 'development') {
     error_reporting(0);
     ini_set('display_errors', '0');
     ini_set('log_errors', '1');
-    ini_set('error_log', STORAGE_PATH . '/logs/error.log');
-}
-
-// Garante que o arquivo do banco existe
-if (!file_exists(DATABASE_PATH . '/database.sqlite')) {
-    if (!is_dir(DATABASE_PATH)) {
-        mkdir(DATABASE_PATH, 0777, true);
-    }
-    touch(DATABASE_PATH . '/database.sqlite');
+    ini_set('error_log', STORAGE_PATH . '/logs/app.log');
 }
 
 // remova/evite echo de debug aqui

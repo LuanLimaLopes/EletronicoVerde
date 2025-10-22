@@ -1,5 +1,9 @@
 eletronicoverde/
 │
+├──Doc
+│   ├──  README.md
+│   ├── .gitignore
+│
 ├── config/
 │   ├── autoload.php
 │   ├── database.php          # Configuração do SQLite
@@ -92,9 +96,7 @@ eletronicoverde/
 │           ├── ViewHelper.php
 │           └── FormHelper.php
 │
-├── public/                     # Pasta pública (único ponto de entrada)
-│   ├── index.php              # Front Controller
-│   ├── .htaccess              # Reescrita de URLs
+├── public/            Pasta pública (único ponto de entrada)
 │   │
 │   ├── assets/
 │   │   ├── css/
@@ -119,8 +121,7 @@ eletronicoverde/
 │   ├── Unit/
 │   └── Integration/
 │
-├── vendor/                     # Dependências Composer (futuro)
 │
-├── .gitignore
 ├── composer.json
-└── README.md
+└── index.php
+└── .htacess

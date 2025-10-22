@@ -4,6 +4,7 @@
 namespace EletronicoVerde\Config;
 
 use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
+use EletronicoVerde\Infrastructure\Logger;
 
 class Database
 {
@@ -12,9 +13,14 @@ class Database
      */
     public static function init(): void
     {
+        Logger::info("Iniciando verificação do banco de dados...");
+        
         // Verificar se banco existe, caso contrário criar
         if (!SQLiteConnection::databaseExists()) {
+            Logger::info("Banco de dados não encontrado. Criando...");
             self::createDatabase();
+        } else {
+            Logger::info("Banco de dados já existe.");
         }
     }
 
@@ -27,13 +33,14 @@ class Database
             $sucesso = SQLiteConnection::runMigrations();
             
             if ($sucesso) {
-                error_log("Banco de dados SQLite criado com sucesso!");
+                Logger::info("Banco de dados SQLite criado com sucesso!");
             } else {
-                error_log("Erro ao criar banco de dados SQLite");
+                Logger::error("Erro ao criar banco de dados SQLite");
+                throw new \Exception("Falha ao executar migrations");
             }
         } catch (\Exception $e) {
-            error_log("Erro fatal ao inicializar banco: " . $e->getMessage());
-            die("Erro ao inicializar banco de dados. Verifique os logs.");
+            Logger::error("Erro fatal ao inicializar banco: " . $e->getMessage());
+            die("Erro ao inicializar banco de dados. Verifique os logs em: ");
         }
     }
 }
