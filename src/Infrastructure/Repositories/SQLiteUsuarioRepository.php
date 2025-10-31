@@ -120,6 +120,30 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
     }
 
     /**
+     * Busca um usuário por nome (username)
+    */
+    public function buscarPorNome(string $nome): ?Usuario
+    {
+        try {
+            $sql = "SELECT * FROM usuarios WHERE nome = :nome";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([':nome' => $nome]);
+            
+            $dados = $stmt->fetch();
+
+            if (!$dados) {
+                return null;
+            }
+
+            return $this->converterParaEntidade($dados);
+
+        } catch (\PDOException $e) {
+            error_log("Erro ao buscar usuário por nome: " . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
      * Lista todos os usuários
      */
     public function listarTodos(): array

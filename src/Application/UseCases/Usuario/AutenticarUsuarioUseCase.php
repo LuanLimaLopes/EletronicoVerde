@@ -22,11 +22,11 @@ class AutenticarUsuarioUseCase
     /**
      * Executa a autenticação do usuário
      */
-    public function executar(string $email, string $senha): array
+    public function executar(string $emailOuUsername, string $senha): array
     {
         try {
             // Validar dados
-            if (empty($email) || empty($senha)) {
+            if (empty($emailOuUsername) || empty($senha)) {
                 return [
                     'sucesso' => false,
                     'mensagem' => 'Email e senha são obrigatórios.'
@@ -34,7 +34,7 @@ class AutenticarUsuarioUseCase
             }
 
             // Buscar usuário por email
-            $usuario = $this->usuarioRepository->buscarPorEmail($email);
+            $usuario = $this->usuarioRepository->buscarPorEmail($emailOuUsername);
 
             if (!$usuario) {
                 return [

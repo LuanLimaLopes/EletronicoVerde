@@ -41,6 +41,3 @@ if (APP_ENV === 'development') {
 // remova/evite echo de debug aqui
 //echo "Conexão com banco de dados estabelecida com sucesso!";
 ?>
-
-
-teste teste teste

@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once __DIR__ . '../../../../Infrastructure/security/CSRF.php';
+require_once __DIR__ . '/../../../Infrastructure/security/CSRF.php';
 require_once __DIR__ . '/../layouts/header.php'; 
 
 use EletronicoVerde\Infrastructure\Security\CSRF;
@@ -26,7 +26,7 @@ $csrf = new CSRF();
 
         <h1 class="text-4xl font-bold text-center mb-15">Entrar</h1>
         
-        <form action="/autenticar" method="post" class="flex flex-col gap-2 items-center lg:w-[50rem] md:w-[30rem] w-full">
+        <form action="<?= BASE_URL ?>/login" method="post" class="flex flex-col gap-2 items-center lg:w-[50rem] md:w-[30rem] w-full">
             
             <!-- Token CSRF -->
             <?php $csrf->gerarCampoInput() ?>

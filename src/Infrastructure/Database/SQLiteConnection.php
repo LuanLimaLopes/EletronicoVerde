@@ -70,7 +70,6 @@ class SQLiteConnection
         try {
             $pdo = self::getInstance();
             
-            // Caminho correto: /src/Infrastructure/Database/migrations/create_tables.sql
             $migrationFile = __DIR__ . '/migrations/create_table.sql';
             
             Logger::info("Procurando migration em: " . $migrationFile);
@@ -87,26 +86,95 @@ class SQLiteConnection
                 return false;
             }
             
-            // Executa cada statement separadamente
-            $statements = array_filter(
-                explode(';', $sql),
-                fn($stmt) => !empty(trim($stmt))
-            );
+            // Remove comentários SQL
+            $sql = preg_replace('/--.*$/m', '', $sql);
             
-            foreach ($statements as $statement) {
-                $statement = trim($statement);
-                if (!empty($statement)) {
-                    $pdo->exec($statement);
+            // Divide os statements de forma inteligente
+            $statements = self::parseSqlStatements($sql);
+            
+            $pdo->beginTransaction();
+            
+            try {
+                foreach ($statements as $index => $statement) {
+                    $statement = trim($statement);
+                    if (!empty($statement)) {
+                        Logger::info("Executando statement " . ($index + 1) . ": " . substr($statement, 0, 100) . "...");
+                        $pdo->exec($statement);
+                    }
                 }
+                
+                $pdo->commit();
+                Logger::info("Migrations executadas com sucesso!");
+                
+                // Verifica se os dados foram inseridos
+                $result = $pdo->query("SELECT COUNT(*) as total FROM materiais");
+                $count = $result->fetch(PDO::FETCH_ASSOC);
+                Logger::info("Total de materiais inseridos: " . $count['total']);
+                
+                $result = $pdo->query("SELECT COUNT(*) as total FROM usuarios");
+                $count = $result->fetch(PDO::FETCH_ASSOC);
+                Logger::info("Total de usuários inseridos: " . $count['total']);
+                
+                return true;
+                
+            } catch (\Exception $e) {
+                $pdo->rollBack();
+                throw $e;
             }
-            
-            Logger::info("Migrations executadas com sucesso!");
-            return true;
             
         } catch (\Exception $e) {
             Logger::error("Erro ao executar migrations: " . $e->getMessage());
             Logger::error("Stack trace: " . $e->getTraceAsString());
             return false;
         }
+    }
+
+    /**
+     * Parse SQL statements de forma inteligente, respeitando BEGIN/END
+     */
+    private static function parseSqlStatements(string $sql): array
+    {
+        $statements = [];
+        $current = '';
+        $inTrigger = false;
+        $lines = explode("\n", $sql);
+        
+        foreach ($lines as $line) {
+            $trimmed = trim($line);
+            
+            // Ignora linhas vazias e comentários
+            if (empty($trimmed) || strpos($trimmed, '--') === 0) {
+                continue;
+            }
+            
+            $current .= $line . "\n";
+            
+            // Detecta início de trigger
+            if (stripos($trimmed, 'CREATE TRIGGER') !== false || 
+                stripos($trimmed, 'BEGIN') !== false) {
+                $inTrigger = true;
+            }
+            
+            // Detecta fim de trigger
+            if ($inTrigger && stripos($trimmed, 'END;') !== false) {
+                $inTrigger = false;
+                $statements[] = trim($current);
+                $current = '';
+                continue;
+            }
+            
+            // Se não está em trigger e tem ponto e vírgula, finaliza o statement
+            if (!$inTrigger && substr($trimmed, -1) === ';') {
+                $statements[] = trim($current);
+                $current = '';
+            }
+        }
+        
+        // Adiciona o último statement se houver
+        if (!empty(trim($current))) {
+            $statements[] = trim($current);
+        }
+        
+        return $statements;
     }
 }

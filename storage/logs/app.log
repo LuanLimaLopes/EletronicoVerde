@@ -1,24 +1,148 @@
-[2025-10-22 03:06:11] [INFO] Iniciando verificação do banco de dados...
-[2025-10-22 03:06:11] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
-[2025-10-22 03:06:11] [INFO] Banco de dados já existe.
-[2025-10-22 03:06:11] [INFO] Aplicação iniciada com sucesso
-[2025-10-22 03:08:34] [INFO] Iniciando verificação do banco de dados...
-[2025-10-22 03:08:34] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
-[2025-10-22 03:08:34] [INFO] Banco de dados já existe.
-[2025-10-22 03:08:34] [INFO] Aplicação iniciada com sucesso
-[2025-10-22 03:08:37] [INFO] Iniciando verificação do banco de dados...
-[2025-10-22 03:08:37] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
-[2025-10-22 03:08:37] [INFO] Banco de dados já existe.
-[2025-10-22 03:08:37] [INFO] Aplicação iniciada com sucesso
-[2025-10-22 03:08:44] [INFO] Iniciando verificação do banco de dados...
-[2025-10-22 03:08:44] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
-[2025-10-22 03:08:44] [INFO] Banco de dados já existe.
-[2025-10-22 03:08:44] [INFO] Aplicação iniciada com sucesso
-[2025-10-22 03:13:48] [INFO] Iniciando verificação do banco de dados...
-[2025-10-22 03:13:48] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
-[2025-10-22 03:13:48] [INFO] Banco de dados já existe.
-[2025-10-22 03:13:48] [INFO] Aplicação iniciada com sucesso
-[2025-10-22 03:18:25] [INFO] Iniciando verificação do banco de dados...
-[2025-10-22 03:18:25] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
-[2025-10-22 03:18:25] [INFO] Banco de dados já existe.
-[2025-10-22 03:18:25] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:03:59] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:03:59] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:03:59] [INFO] Banco de dados já existe.
+[2025-10-31 01:03:59] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:06:08] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:06:08] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:06:08] [INFO] Banco de dados já existe.
+[2025-10-31 01:06:08] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:06:10] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:06:10] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:06:10] [INFO] Banco de dados já existe.
+[2025-10-31 01:06:10] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:06:50] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:06:50] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:06:50] [INFO] Banco de dados já existe.
+[2025-10-31 01:06:50] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:08:19] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:08:19] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:08:19] [INFO] Banco de dados já existe.
+[2025-10-31 01:08:19] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:13:13] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:13:13] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:13:13] [INFO] Banco de dados já existe.
+[2025-10-31 01:13:13] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:13:15] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:13:15] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:13:15] [INFO] Banco de dados já existe.
+[2025-10-31 01:13:15] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:13:16] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:13:16] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:13:16] [INFO] Banco de dados já existe.
+[2025-10-31 01:13:16] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:13:23] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:13:23] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:13:23] [INFO] Banco de dados já existe.
+[2025-10-31 01:13:23] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:24:14] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:24:14] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:24:14] [INFO] Banco de dados já existe.
+[2025-10-31 01:24:14] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:24:16] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:24:16] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:24:16] [INFO] Banco de dados já existe.
+[2025-10-31 01:24:16] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:24:19] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:24:19] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:24:19] [INFO] Banco de dados já existe.
+[2025-10-31 01:24:19] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:24:26] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:24:26] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:24:26] [INFO] Banco de dados já existe.
+[2025-10-31 01:24:26] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:25:55] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:25:55] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:25:55] [INFO] Banco de dados já existe.
+[2025-10-31 01:25:56] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:26:03] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:26:03] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:26:03] [INFO] Banco de dados já existe.
+[2025-10-31 01:26:03] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:26:09] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:26:09] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:26:09] [INFO] Banco de dados já existe.
+[2025-10-31 01:26:09] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:26:15] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:26:15] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:26:15] [INFO] Banco de dados já existe.
+[2025-10-31 01:26:15] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:26:33] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:26:33] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:26:33] [INFO] Banco de dados já existe.
+[2025-10-31 01:26:33] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:26:40] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:26:40] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:26:40] [INFO] Banco de dados já existe.
+[2025-10-31 01:26:40] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:30:20] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:30:20] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:30:20] [INFO] Banco de dados já existe.
+[2025-10-31 01:30:20] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:30:22] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:30:22] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:30:22] [INFO] Banco de dados já existe.
+[2025-10-31 01:30:22] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:30:29] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:30:29] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:30:29] [INFO] Banco de dados já existe.
+[2025-10-31 01:30:29] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:30:41] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:30:41] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:30:41] [INFO] Banco de dados já existe.
+[2025-10-31 01:30:41] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:30:48] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:30:48] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:30:48] [INFO] Banco de dados já existe.
+[2025-10-31 01:30:48] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:30:55] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:30:55] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:30:55] [INFO] Banco de dados já existe.
+[2025-10-31 01:30:55] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:32:26] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:32:26] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:32:26] [INFO] Banco de dados já existe.
+[2025-10-31 01:32:26] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:32:32] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:32:32] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:32:32] [INFO] Banco de dados já existe.
+[2025-10-31 01:32:32] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:37:29] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:37:29] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:37:29] [INFO] Banco de dados já existe.
+[2025-10-31 01:37:29] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:37:32] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:37:32] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:37:32] [INFO] Banco de dados já existe.
+[2025-10-31 01:37:32] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:37:38] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:37:38] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:37:38] [INFO] Banco de dados já existe.
+[2025-10-31 01:37:38] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:37:38] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:37:38] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:37:38] [INFO] Banco de dados já existe.
+[2025-10-31 01:37:38] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:37:50] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:37:50] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:37:50] [INFO] Banco de dados já existe.
+[2025-10-31 01:37:50] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:37:50] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:37:50] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:37:50] [INFO] Banco de dados já existe.
+[2025-10-31 01:37:50] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:38:08] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:38:08] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:38:08] [INFO] Banco de dados já existe.
+[2025-10-31 01:38:08] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:38:08] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:38:08] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:38:08] [INFO] Banco de dados já existe.
+[2025-10-31 01:38:08] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:39:44] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:39:44] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:39:44] [INFO] Banco de dados já existe.
+[2025-10-31 01:39:44] [INFO] Aplicação iniciada com sucesso
+[2025-10-31 01:39:44] [INFO] Iniciando verificação do banco de dados...
+[2025-10-31 01:39:44] [INFO] Conexão SQLite estabelecida: C:\xampp\htdocs\EletronicoVerde/storage/database/eletronicoverde.db
+[2025-10-31 01:39:44] [INFO] Banco de dados já existe.
+[2025-10-31 01:39:44] [INFO] Aplicação iniciada com sucesso

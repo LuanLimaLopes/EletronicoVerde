@@ -13,6 +13,7 @@ class AuthController
     private AutenticarUsuarioUseCase $autenticarUseCase;
     private Authentication $auth;
     private CSRF $csrf;
+    private string $baseUrl = '/eletronicoverde'; // ← ADICIONAR ESTA LINHA
 
     public function __construct()
     {
@@ -46,27 +47,27 @@ class AuthController
     public function autenticar(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /login');
+            header('Location: ' . $this->baseUrl . '/login');
             exit;
         }
 
         // Validar CSRF
         if (!$this->csrf->validarRequisicao()) {
             $_SESSION['erro'] = 'Token de segurança inválido. Tente novamente.';
-            header('Location: /login');
+            header('Location: ' . $this->baseUrl . '/login');
             exit;
         }
 
-        $email = $_POST['username'] ?? $_POST['email'] ?? '';
+        $emailOuUsername = $_POST['username'] ?? $_POST['email'] ?? '';
         $senha = $_POST['password'] ?? $_POST['senha'] ?? '';
 
-        $resultado = $this->autenticarUseCase->executar($email, $senha);
+        $resultado = $this->autenticarUseCase->executar($emailOuUsername, $senha);
 
         if ($resultado['sucesso']) {
-            header('Location: /acesso-restrito');
+            header('Location: ' . $this->baseUrl . '/acesso-restrito');
         } else {
             $_SESSION['erro'] = $resultado['mensagem'];
-            header('Location: /login');
+            header('Location: ' . $this->baseUrl . '/login');
         }
         exit;
     }
@@ -77,7 +78,7 @@ class AuthController
     public function logout(): void
     {
         $this->autenticarUseCase->logout();
-        header('Location: /');
+        header('Location: ' . $this->baseUrl . '/');
         exit;
     }
 
