@@ -98,7 +98,7 @@ class AuthController
     public function redirecionarSeAutenticado(string $redirectUrl = null): void
 {
     if ($this->verificarAutenticacao()) {
-        $url = $redirectUrl ?? (defined('BASE_URL') ? BASE_URL . '/acesso-restrito' : '/acesso-restrito');
+        $url = $redirectUrl ?? (defined('BASE_URL') ? BASE_URL . '/eletronicoverde/acesso-restrito' : '/eletronicoverde/acesso-restrito');
         header("Location: $url");
         exit;
     }

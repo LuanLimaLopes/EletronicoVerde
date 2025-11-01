@@ -29,7 +29,7 @@
 
 <div class="fixed top-0 z-50 w-full flex justify-center mx-auto">
   <div id="navbar" class="container py-2 flex flex-row justify-between items-center relative z-10 rounded-2xl p-5 px-8 transition-all duration-300 overflow-hidden">
-    <a href="<?= BASE_URL ?>/index.php" class="group transition-all duration-150 h-fit">
+    <a href="/eletronicoverde" class="group transition-all duration-150 h-fit">
       <h1 class="text-xl font-bold flex flex-row items-center gap-3.5">
         <img src="<?= ASSETS_URL ?>/images/Logo.png" alt="Logo Eletrônico Verde" class="max-w-15 transition-all duration-150" />
         <span id="logo" class="bg-primary text-white p-2 w-fit h-fit rounded-3xl rounded-tl-none border-2 border-primary relative overflow-hidden z-1
@@ -42,7 +42,7 @@
     
     <ul id="ul-menu" class="flex flex-row gap-10 text-white font-medium text-lg">
       <li class="relative group">
-        <a href="<?= BASE_URL ?>/index.php" class="hover:text-primary transition-all duration-150">Início</a>
+        <a href="/eletronicoverde" class="hover:text-primary transition-all duration-150">Início</a>
         <span class="nav-indicator"></span>
       </li>
       <li class="relative group">
