@@ -91,7 +91,7 @@ switch ($route) {
         break;
 
     case '/sucesso-cadastro':
-    case '/secesso_cadastro.php':
+    case '/sucesso_cadastro.php':
         $controller = new PontoColetaController();
         $controller->sucessoCadastro();
         break;

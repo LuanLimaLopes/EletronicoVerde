@@ -1,4 +1,11 @@
-<?php require_once __DIR__ . '/../layouts/header.php'; ?>
+<?php 
+require_once __DIR__ . '/../layouts/header.php';
+require_once __DIR__ . '/../../../Infrastructure/security/CSRF.php';
+use EletronicoVerde\Infrastructure\Security\CSRF;
+
+$csrf = new CSRF();
+
+?>
 
 <main class="relative z-2 bg-white">
     <div class="container mx-auto mt-20 pb-30 p-5">
@@ -24,7 +31,7 @@
           <div class="w-1/3"></div>
         </div>
 
-        <form method="post" action="/ponto-coleta/atualizar" id="form1" class="flex flex-col gap-8 items-center">
+        <form method="post" action="/eletronicoverde/ponto-coleta/atualizar" id="form1" class="flex flex-col gap-8 items-center">
             
             <!-- Token CSRF -->
             <?= $csrf->gerarCampoInput() ?>

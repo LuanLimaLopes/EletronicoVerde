@@ -20,7 +20,7 @@
 
       <div class="w-full flex items-center justify-between mb-10 flex-wrap">
         <div class="w-1/3">
-          <a href="/acesso-restrito" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary 
+          <a href="/eletronicoverde/acesso-restrito" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary 
                   before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">
             <i class="fa-solid fa-arrow-left"></i> Voltar
           </a>
@@ -67,13 +67,13 @@
                             <?php endif; ?>
                         </td>
                         <td class="border border-gray-300 p-0">
-                            <a href="/editar-ponto?id=<?= $ponto['id'] ?>" 
+                            <a href="/eletronicoverde/editar-ponto?id=<?= $ponto['id'] ?>" 
                                class="block w-full h-full p-2 text-center text-azul font-bold hover:bg-blue-100 transition-colors">
                                 Editar
                             </a>
                         </td>
                         <td class="border border-gray-300 p-0">
-                            <a href="/excluir-ponto?id=<?= $ponto['id'] ?>" 
+                            <a href="/eletronicoverde/excluir-ponto?id=<?= $ponto['id'] ?>" 
                                onclick="return confirm('Tem certeza que deseja excluir este ponto de coleta?')" 
                                class="block w-full h-full p-2 text-center text-red-500 font-bold hover:bg-red-100 transition-colors">
                                 Excluir
@@ -86,7 +86,7 @@
         <?php else: ?>
           <div class="text-center mt-20 flex flex-col items-center justify-center gap-5">
             <p class="text-xl">Nenhum ponto de coleta cadastrado.</p>
-            <a href="/cadastro-pontos" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-second transition font-bold">
+            <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-second transition font-bold">
                 Cadastrar Primeiro Ponto
             </a>
           </div>

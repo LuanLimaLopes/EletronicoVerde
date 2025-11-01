@@ -13,14 +13,11 @@ class Database
      */
     public static function init(): void
     {
-        Logger::info("Iniciando verificação do banco de dados...");
         
         // Verificar se banco existe, caso contrário criar
         if (!SQLiteConnection::databaseExists()) {
-            Logger::info("Banco de dados não encontrado. Criando...");
             self::createDatabase();
         } else {
-            Logger::info("Banco de dados já existe.");
         }
     }
 
@@ -33,9 +30,7 @@ class Database
             $sucesso = SQLiteConnection::runMigrations();
             
             if ($sucesso) {
-                Logger::info("Banco de dados SQLite criado com sucesso!");
             } else {
-                Logger::error("Erro ao criar banco de dados SQLite");
                 throw new \Exception("Falha ao executar migrations");
             }
         } catch (\Exception $e) {

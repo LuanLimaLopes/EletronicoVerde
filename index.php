@@ -51,7 +51,6 @@ try {
     // Conecta ao banco
     $connection = SQLiteConnection::getInstance();
     
-    Logger::info("Aplicação iniciada com sucesso");
     
     // Roteamento simples
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -60,9 +59,6 @@ try {
     require_once __DIR__ . '/config/routes.php';
     
 } catch (Exception $e) {
-    // Log do erro
-    Logger::error('Erro ao iniciar aplicação: '. $e->getMessage());
-    Logger::error('Stack trace: ' . $e->getTraceAsString());
     
     // Mensagem amigável
     http_response_code(500);

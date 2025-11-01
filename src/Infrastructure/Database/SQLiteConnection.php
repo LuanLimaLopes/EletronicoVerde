@@ -23,7 +23,6 @@ class SQLiteConnection
             self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$instance->exec('PRAGMA foreign_keys = ON');
             
-            Logger::info("Conexão SQLite estabelecida: " . $dbPath);
         } catch (PDOException $e) {
             Logger::error('Erro na conexão SQLite: ' . $e->getMessage());
             die('Erro na conexão com banco de dados. Verifique os logs.');
@@ -57,7 +56,6 @@ class SQLiteConnection
             
             return count($tables) > 0;
         } catch (\Exception $e) {
-            Logger::error("Erro ao verificar banco: " . $e->getMessage());
             return false;
         }
     }
@@ -72,17 +70,14 @@ class SQLiteConnection
             
             $migrationFile = __DIR__ . '/migrations/create_table.sql';
             
-            Logger::info("Procurando migration em: " . $migrationFile);
             
             if (!file_exists($migrationFile)) {
-                Logger::error("Arquivo de migration não encontrado: " . $migrationFile);
                 return false;
             }
             
             $sql = file_get_contents($migrationFile);
             
             if (empty($sql)) {
-                Logger::error("Arquivo de migration está vazio!");
                 return false;
             }
             
@@ -109,11 +104,9 @@ class SQLiteConnection
                 // Verifica se os dados foram inseridos
                 $result = $pdo->query("SELECT COUNT(*) as total FROM materiais");
                 $count = $result->fetch(PDO::FETCH_ASSOC);
-                Logger::info("Total de materiais inseridos: " . $count['total']);
                 
                 $result = $pdo->query("SELECT COUNT(*) as total FROM usuarios");
                 $count = $result->fetch(PDO::FETCH_ASSOC);
-                Logger::info("Total de usuários inseridos: " . $count['total']);
                 
                 return true;
                 

@@ -35,15 +35,15 @@
     </header>
 
     <div class="flex justify-center gap-6 items-center flex-wrap w-full min-h-[50vh] py-10">
-        <a href="/cadastro-pontos" class="bg-primary text-white px-10 py-8 rounded-lg hover:bg-primary/80 transition font-bold text-xl flex flex-row items-center justify-center gap-5">
+        <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-primary text-white px-10 py-8 rounded-lg hover:bg-primary/80 transition font-bold text-xl flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-plus"></i> Cadastrar ponto de coleta
         </a>
         
-        <a href="/consultar-pontos" class="bg-white border-2 border-primary text-primary px-10 py-8 rounded-lg hover:bg-primary hover:text-white transition font-bold text-xl flex flex-row items-center justify-center gap-5">
+        <a href="/eletronicoverde/consultar-pontos" class="bg-white border-2 border-primary text-primary px-10 py-8 rounded-lg hover:bg-primary hover:text-white transition font-bold text-xl flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-list"></i> Consultar pontos de coleta
         </a>
         
-        <a href="/logout" class="bg-red-500 text-white px-10 py-8 rounded-lg hover:bg-red-600 transition font-bold text-xl flex flex-row items-center justify-center gap-5">
+        <a href="/eletronicoverde/logout" class="bg-red-500 text-white px-10 py-8 rounded-lg hover:bg-red-600 transition font-bold text-xl flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-right-from-bracket"></i> Sair
         </a>
     </div>
