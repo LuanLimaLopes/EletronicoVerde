@@ -9,9 +9,15 @@ class CSRF
     private const TOKEN_TIME_KEY = 'csrf_token_time';
     private const TOKEN_LIFETIME = 3600; // 1 hora
 
+
+    /*
+    * Inicia sessão
+    */
     public function __construct()
     {
-        
+        if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+        }
     }
 
     /**

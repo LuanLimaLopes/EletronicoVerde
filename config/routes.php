@@ -142,11 +142,6 @@ switch ($route) {
         }
         break;
 
-    case '/autenticar':
-        $controller = new AuthController();
-        $controller->autenticar();
-        break;
-
     case '/logout':
         $controller = new AuthController();
         $controller->logout();

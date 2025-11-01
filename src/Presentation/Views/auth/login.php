@@ -29,7 +29,7 @@ $csrf = new CSRF();
         <form action="<?= BASE_URL ?>/login" method="post" class="flex flex-col gap-2 items-center lg:w-[50rem] md:w-[30rem] w-full">
             
             <!-- Token CSRF -->
-            <?php $csrf->gerarCampoInput() ?>
+            <?= $csrf->gerarCampoInput() ?>
             
             <label for="username" class="font-bold text-lg w-full text-cinza-txt">Usuário</label>
             <input type="text" id="username" name="username" required class="border border-gray-600 p-3 rounded-xl w-full mb-5">

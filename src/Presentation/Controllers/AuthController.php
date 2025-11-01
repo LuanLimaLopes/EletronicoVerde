@@ -94,4 +94,13 @@ class AuthController
         
         require_once __DIR__ . '/../Views/auth/acesso-restrito.php';
     }
+
+    public function redirecionarSeAutenticado(string $redirectUrl = null): void
+{
+    if ($this->verificarAutenticacao()) {
+        $url = $redirectUrl ?? (defined('BASE_URL') ? BASE_URL . '/acesso-restrito' : '/acesso-restrito');
+        header("Location: $url");
+        exit;
+    }
+}
 }

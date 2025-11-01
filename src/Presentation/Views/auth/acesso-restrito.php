@@ -1,6 +1,18 @@
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <main class="relative z-2 bg-white">
+
+    <!-- inicia a sessão -->
+    <?php 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['usuario_autenticado']) || $_SESSION['usuario_autenticado'] !== true) {
+        header('Location: ' . BASE_URL . '/login');
+        exit;
+    }
+    ?>
     
     <!-- Mensagens de Sucesso/Erro -->
     <?php if (isset($_SESSION['sucesso'])): ?>
