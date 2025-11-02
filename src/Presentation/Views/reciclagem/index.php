@@ -10,7 +10,7 @@
     }
 
     .texto-secao {
-        @apply text-xl text-gray-700 leading-7 w-4/5;
+        @apply text-xl text-gray-700 leading-7 w-4/5 ;
     }
     
     .secao-content{
@@ -83,7 +83,7 @@
                 
                 <div class="flex flex-col justify-center items-center border-2 border-second text-second font-bold rounded-2xl p-9 bg-white gap-7 flex-1 min-w-[250px]">
                     <i class="fa-solid fa-globe text-4xl"></i>
-                    <p class="text-xl text-center">Apenas 17% do lixo eletrônico é reciclado no mundo; o restante polui o planeta!</p>
+                    <p class="text-xl text-center">Apenas 17% do lixo eletrônico é reciclado no mundo. O restante polui o planeta!</p>
                 </div>
 
                 <div class="flex flex-col justify-center items-center border-2 border-primary text-primary font-bold rounded-2xl p-9 bg-white gap-7 flex-1 min-w-[250px]">

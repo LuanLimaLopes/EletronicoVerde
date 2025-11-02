@@ -1,20 +1,57 @@
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.getElementById("navbar");
-    const logo = document.getElementById("logo");
     const ulMenu = document.getElementById("ul-menu");
 
     window.addEventListener("scroll", function () {
       if (window.scrollY > 50) {
         navbar.classList.add("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
-        logo.classList.add("text-black");
         ulMenu.classList.remove("text-white", "text-shadow-xl");
         ulMenu.classList.add("text-black");
       } else {
         navbar.classList.remove("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
-        logo.classList.remove("text-black");
         ulMenu.classList.add("text-white", "text-shadow-xl");
         ulMenu.classList.remove("text-black");
+      }
+    });
+  });
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+  });
+</script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.getElementById("navbar");
+    const ulMenu = document.getElementById("ul-menu");
+    
+    // Verifica se estamos na página inicial
+    const isHomePage = window.location.pathname === '/eletronicoverde' || window.location.pathname === '/eletronicoverde/';
+    
+    // Define a cor inicial baseada na página
+    if (isHomePage) {
+      ulMenu.classList.add("text-white", "text-shadow-xl");
+    } else {
+      ulMenu.classList.add("text-black");
+    }
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        navbar.classList.add("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
+        if (isHomePage) {
+          ulMenu.classList.remove("text-white", "text-shadow-xl");
+          ulMenu.classList.add("text-black");
+        }
+      } else {
+        navbar.classList.remove("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
+        if (isHomePage) {
+          ulMenu.classList.remove("text-black");
+          ulMenu.classList.add("text-white", "text-shadow-xl");
+        }
       }
     });
   });
@@ -40,7 +77,7 @@
       </h1>
     </a>
     
-    <ul id="ul-menu" class="flex flex-row gap-10 text-white font-medium text-lg text-shadow-xl">
+    <ul id="ul-menu" class="flex flex-row gap-10 font-medium text-lg">
       <li class="relative group">
         <a href="/eletronicoverde" class="hover:text-primary transition-all duration-150">Início</a>
         <span class="nav-indicator"></span>
