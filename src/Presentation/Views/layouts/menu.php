@@ -40,13 +40,13 @@
       </h1>
     </a>
     
-    <ul id="ul-menu" class="flex flex-row gap-10 text-white font-medium text-lg">
+    <ul id="ul-menu" class="flex flex-row gap-10 text-white font-medium text-lg text-shadow-xl">
       <li class="relative group">
         <a href="/eletronicoverde" class="hover:text-primary transition-all duration-150">Início</a>
         <span class="nav-indicator"></span>
       </li>
       <li class="relative group">
-        <a href="<?= BASE_URL ?>/pontos-coleta" class="hover:text-primary transition-duration-150">Pontos de Coleta</a>
+        <a href="<?= BASE_URL ?>/pontos-coleta" class="hover:text-primary transition-all duration-150">Pontos de Coleta</a>
         <span class="nav-indicator"></span>
       </li>
       <li class="relative group">

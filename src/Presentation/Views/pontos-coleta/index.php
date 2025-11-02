@@ -37,8 +37,8 @@
             </div>
 
             <div>
-                <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-fit rounded-xl justify-center items-center flex gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
-                    Saiba quais são os <span class="text-primary group-hover:text-white">materiais aceitos</span>
+                <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-fit rounded-3xl justify-center items-center flex gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
+                    Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span>
                     <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i> 
                 </a>
             </div>

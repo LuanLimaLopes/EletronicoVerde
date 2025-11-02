@@ -233,32 +233,41 @@
       </h1>
 
       <div class="mx-auto container gap-5 flex flex-col h-full">
-        <div class="h-fit flex flex-row gap-5">
-          <input type="text" name="search" id="search" placeholder="Escreva aqui o endereço ou CEP" 
-                 class="text-xl border-primary border-2 bg-white p-4 font-bold rounded-lg w-full"> 
-          <button type="submit" class="bg-primary text-white text-lg px-8 rounded-lg cursor-pointer font-bold">
-              Pesquisar
-          </button>
-        </div>
+          <div class="h-fit flex flex-row gap-5">
+              <input type="text" name="search" id="search" placeholder="Escreva aqui o endereço ou CEP" 
+                     class="text-xl border-primary border-2 bg-white p-4 font-bold rounded-lg w-full"> 
+              <button type="submit" onclick="buscarPontos()" 
+                      class="bg-primary text-white text-lg px-8 rounded-lg cursor-pointer font-bold hover:bg-second transition-all">
+                  Pesquisar
+              </button>
+          </div>
 
-        <!-- MAPA -->
-        <div class="w-full h-[60vh] relative rounded-3xl">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14705.03362798809!2d-47.068513099475105!3d-22.86691079822433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c6732420f793%3A0x49a086172215a72a!2sUNISAL%20Campinas%20-%20Campus%20S%C3%A3o%20Jos%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1749054180508!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+          <!-- MAPA -->
+          <div class="w-full h-[60vh] relative rounded-3xl overflow-hidden">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14705.03362798809!2d-47.068513099475105!3d-22.86691079822433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c6732420f793%3A0x49a086172215a72a!2sUNISAL%20Campinas%20-%20Campus%20S%C3%A3o%20Jos%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1749054180508!5m2!1spt-BR!2sbr" 
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+          </div>
 
-        <div>
-          <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-fit rounded-xl justify-center items-center flex gap-2 font-bold text-cinza-txt">
-              Saiba quais são os <span class="text-primary">materiais aceitos</span>
-              <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i> 
-          </a>
+          <!-- Lista de Pontos Encontrados -->
+          <div id="resultados" class="hidden mt-5">
+              <h2 class="text-2xl font-bold mb-4">Pontos Encontrados:</h2>
+              <div id="lista-pontos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <!-- Será preenchido via JavaScript -->
+              </div>
+          </div>
+
+          <div>
+              <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-fit rounded-3xl justify-center items-center flex gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
+                  Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span>
+                  <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i> 
+              </a>
+          </div>
         </div>
-      </div>
     </section>
 </main>
