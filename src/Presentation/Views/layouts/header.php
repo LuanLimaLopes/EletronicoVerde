@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=north_east" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= ASSETS_URL ?>/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="<?= ASSETS_URL ?>/images/favicons/favicon.ico">
     
     <!-- CSS Customizado -->
     <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/style.css">
@@ -60,6 +60,3 @@
 <body class="font-inter-tight overflow-x-hidden">
 
 <?php require_once __DIR__ . '/menu.php'; ?>
-
-</body>
-</html>

@@ -46,7 +46,7 @@
         <span class="nav-indicator"></span>
       </li>
       <li class="relative group">
-        <a href="<?= BASE_URL ?>/pontos-coleta" class="hover:text-primary transition-duration-150">Pontos de Coleta</a
+        <a href="<?= BASE_URL ?>/pontos-coleta" class="hover:text-primary transition-duration-150">Pontos de Coleta</a>
         <span class="nav-indicator"></span>
       </li>
       <li class="relative group">
@@ -59,6 +59,6 @@
       </li>
     </ul>
     
-    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 6px; width: 0; background-color: var(--color-primary); z-index: 9999; transition: width 0.1s ease-out;"></div>
+    <div id="scroll-progress" style="position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background-color: var(--color-primary); z-index: 9999; transition: width 0.1s ease-out;"></div>
   </div>
 </div>
