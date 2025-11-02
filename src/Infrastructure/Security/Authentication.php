@@ -88,7 +88,7 @@ class Authentication
     /**
      * Redireciona se já estiver autenticado
      */
-    public function redirecionarSeAutenticado(string $redirectUrl = '/eletronicoverde/acesso_restrito.php'): void
+    public function redirecionarSeAutenticado(string $redirectUrl = '/eletronicoverde/acesso-restrito'): void
     {
         if ($this->verificarAutenticacao()) {
             header("Location: $redirectUrl");
