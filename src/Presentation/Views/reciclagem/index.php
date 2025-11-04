@@ -2,7 +2,8 @@
 
 <style type="text/tailwindcss">
     .titulo-secao{
-        @apply text-3xl font-bold text-primary mb-4 flex flex-row items-center gap-5;
+        @apply text-3xl font-bold text-primary mb-4 flex flex-row items-center 
+        gap-5 sticky p-2 px-5 bg-[#ffffff59] border-[#d2d2d2cc] top-[6rem] w-fit rounded-2xl shadow-lg backdrop-blur-md ;
     }
 
     .titulo-secao i {
@@ -137,7 +138,7 @@
                 <i class="fa-solid fa-lightbulb"></i>Dicas para reciclar
             </h1>
             <div class="texto-secao">
-                <ul class="dicas-text-ul w-4/5"> 
+                <ul class="dicas-text-ul"> 
                     <li><b>Proteção de Dados</b>
                         <ul class="dicas-text">
                             <li>Apague seus dados pessoais e remova itens perigosos: Antes de descartar, limpe completamente seus dispositivos eletrônicos e remova pilhas, baterias e cartuchos de tinta, descartando-os em locais apropriados.</li>

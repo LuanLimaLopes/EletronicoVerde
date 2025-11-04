@@ -8,7 +8,7 @@
     }
 
     .mat-aceitos-div:nth-child(odd){
-        background-color: var(--color-whitey);
+        background-color: #e6faf4;
     }
 
     .mat-aceitos-div:nth-child(odd) .mat-aceitos-div-2{
