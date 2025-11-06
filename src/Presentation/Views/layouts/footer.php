@@ -1,5 +1,5 @@
-<footer class="bg-whitey relative w-full h-[20rem] flex justify-center z-0">
-  <div class="bg-primary fixed bottom-0 h-[20rem] w-full rounded-t-4xl flex flex-col justify-between p-10">
+<footer class="bg-whitey relative w-full h-[20rem] flex justify-center z-0 ">
+  <div class="bg-primary fixed bottom-0 h-[20rem] w-full rounded-t-4xl flex flex-col justify-between p-10 ">
     <div class="flex flex-row w-full h-fit justify-between items-start">
       <a href="/eletronicoverde" class="group transition-all duration-150 h-fit">
         <h1 class="text-xl font-bold flex flex-row items-center gap-3.5">
@@ -12,7 +12,7 @@
         </h1>
       </a>
       
-      <div class="gap-10 flex flex-col items-start">
+      <div class="gap-10 flex flex-col items-start ">
         <ul class="flex flex-col gap-2 text-white text-lg h-fit">
           <li class="relative group">
             <a href="/eletronicoverde" class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:bottom-0 before:left-0 before:transition-all before:duration-150">Início</a>
@@ -36,6 +36,23 @@
     <p class="w-full text-center text-white">© 2025 Eletrônico Verde. Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<script>
+    const effectSelectors = ['.fade-section', '.fade-left', '.zoom-in','.fade-right','.fade-in','.fade-top','.fade-bottom', '.fade-diag-bottom-left'];
+
+    const targets = document.querySelectorAll(effectSelectors.join(','));
+
+    const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // obs.unobserve(entry.target); // opcional: anima só uma vez
+        }
+    });
+    }, { threshold: 0.4 });
+
+    targets.forEach(t => observer.observe(t));
+</script>
 
 </body>
 </html>

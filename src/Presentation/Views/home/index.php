@@ -6,7 +6,7 @@
       <img src="<?= ASSETS_URL ?>/images/e-waste2.png" alt="Lixo Eletrônico"
         class="absolute top-0 left-0 w-full h-[100vh] object-cover brightness-30 z-1" />
       
-      <div class="container mx-auto py-4 flex flex-col h-[100vh] gap-10 justify-center z-20 relative">
+      <div class="container mx-auto py-4 flex flex-col h-[100vh] gap-10 justify-center z-20 relative fade-left">
         <h2 class="text-4xl max-w-200 leading-12">
             Transforme seu
             <span class="text-[#02B97F] font-dm-serif-display italic font-normal">lixo eletrônico</span>
@@ -51,9 +51,9 @@
     </div>
 
     <!-- Seção: O que é lixo eletrônico -->
-    <section class="relative py-4 flex flex-col justify-center h-fit z-[10] bg-cinza">
-      <div class="mx-auto container flex flex-col justify-between items-center bg-[#1c3931] p-10 gap-20 h-fit rounded-3xl">
-        <div class="flex lg:flex-row gap-10 md:flex-col">
+    <section class="relative py-4 flex flex-col justify-center h-fit z-[10] bg-cinza ">
+      <div class="mx-auto container flex flex-col justify-between items-center bg-[#1c3931] p-10 gap-20 h-fit rounded-3xl zoom-in">
+        <div class="flex lg:flex-row gap-10 md:flex-col ">
           <h1 class="font-dm-serif-display text-7xl text-[#e4e4e4] w-fit">
               O que é 
               <span class="relative inline-block">
@@ -87,34 +87,34 @@
 
     <!-- Grid de Números -->
     <section class="h-[90vh] flex flex-col gap-15 bg-cinza relative z-[15]">
-      <h2 class="mx-auto text-4xl text-whitey font-bold">
+      <h2 class="mx-auto text-4xl text-whitey font-bold fade-section">
           Descarte eletrônico em <span class="text-primary italic font-dm-serif-display">números</span>
       </h2>
 
       <div class="grid lg:grid-cols-4 lg:grid-rows-2 lg:gap-4 mx-auto container h-full sm:grid-cols-2 sm:grid-rows-3 sm:gap-4">
         
-        <div class="rounded-3xl bg-emerald-950 p-5 gap-10 text-white text-center flex items-center justify-center flex-col lg:row-span-2 sm:row-span-2">
+        <div class="rounded-3xl bg-emerald-950 p-5 gap-10 text-white text-center flex items-center justify-center flex-col lg:row-span-2 sm:row-span-2 fade-left">
           <h2 class="text-5xl font-bold text-primary font-dm-serif-display">62 milhões</h2>
           <p class="text-xl">Toneladas de lixo eletrônico foram geradas no mundo em 2022</p>
         </div>
         
-        <div class="rounded-3xl bg-emerald-900 p-5 gap-5 text-white text-center flex items-center justify-center flex-col lg:col-span-2 sm:col-span-1">
+        <div class="rounded-3xl bg-emerald-900 p-5 gap-5 text-white text-center flex items-center justify-center flex-col lg:col-span-2 sm:col-span-1 fade-bottom">
           <h2 class="text-5xl font-bold text-amarelo font-dm-serif-display">5º</h2>
           <p class="text-xl">O Brasil é o 5º maior produtor de lixo eletrônico do mundo, gerando cerca de 2,4 milhões de toneladas por ano.</p>
         </div>
         
-        <div class="rounded-3xl bg-emerald-200 p-5 gap-5 text-white text-center flex items-center justify-center flex-col">
+        <div class="rounded-3xl bg-emerald-200 p-5 gap-5 text-white text-center flex items-center justify-center flex-col fade-diag-bottom-left">
           <h2 class="text-5xl font-bold text-emerald-700 font-dm-serif-display">22,3%</h2>
           <p class="text-xl text-black">Do lixo eletrônico global foi reciclado corretamente em 2022</p>
         </div>
         
-        <div class="rounded-3xl bg-amarelo p-5 gap-5 text-white text-center flex items-center justify-center flex-col">
+        <div class="rounded-3xl bg-amarelo p-5 gap-5 text-white text-center flex items-center justify-center flex-col fade-top">
           <h2 class="text-5xl font-bold text-emerald-900 font-dm-serif-display">87%</h2>
           <p class="text-xl text-black">Dos brasileiros afirmam guardar aparelhos eletrônicos sem uso em casa</p>
         </div>
 
-        <div class="rounded-3xl bg-emerald-600 p-5 gap-5 relative text-white text-center flex items-center justify-center flex-col lg:col-span-2 md:col-span-1">
-          <div class="flex flex-col gap-5">
+        <div class="rounded-3xl bg-emerald-600 p-5 gap-5 relative text-white text-center flex items-center justify-center flex-col lg:col-span-2 md:col-span-1 fade-right">
+          <div class="flex flex-col gap-5 ">
             <h2 class="text-5xl font-bold text-emerald-950 font-dm-serif-display">40 milhões</h2>
             <p class="text-xl text-amarelo">De toneladas de metais preciosos, como ouro, prata e cobre, são descartadas anualmente em dispositivos eletrônicos.</p>
           </div>
@@ -147,12 +147,12 @@
       </div>
       
       <div class="mx-auto container mt-[15vh] h-full relative flex flex-col gap-10">
-        <h1 class="text-4xl font-bold text-black text-center">
+        <h1 class="text-4xl font-bold text-black text-center fade-section">
             Contribua para a <span class="text-primary font-dm-serif-display italic">sustentabilidade</span>
         </h1>  
 
         <!-- Card 1 -->
-        <div class="sust-1 z-1 sticky h-[20rem] text-cinza-txt border-t-3 border-primary p-5 mb-[20rem] font-black">
+        <div class="sust-1 z-1 sticky h-[20rem] text-cinza-txt border-t-3 border-primary p-5 mb-[20rem] font-black fade-section">
             <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
             <div class="flex flex-row justify-between items-center">
               <span class="z-5 text-3xl flex flex-row gap-5 py-5 text-primary">
@@ -216,7 +216,7 @@
       </div>
     </section>
 
-    <!-- Separador -->
+    <!-- Separador --
     <div class="h-full bg-whitey py-[10vh]">
       <div class="relative flex justify-center items-center h-[10vh]">
         <div class="w-[2px] h-full bg-amarelo-dark relative">
@@ -228,11 +228,11 @@
 
     <!-- Pontos de Coleta -->
     <section id="pontos" class="flex flex-col gap-15 bg-whitey relative pb-10 min-h-[100vh]">
-      <h1 class="text-4xl font-bold text-black text-center">
+      <h1 class="text-4xl font-bold text-black text-center fade-section">
           Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
       </h1>
 
-      <div class="mx-auto container gap-5 flex flex-col h-full">
+      <div class="mx-auto container gap-5 flex flex-col h-full fade-section">
           <div class="h-fit flex flex-row gap-5">
               <input type="text" name="search" id="search" placeholder="Escreva aqui o endereço ou CEP" 
                      class="text-xl border-primary border-2 bg-white p-4 font-bold rounded-lg w-full"> 

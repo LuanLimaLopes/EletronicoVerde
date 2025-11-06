@@ -32,7 +32,7 @@
 </style>
 
 <header class="w-full h-[50vh] bg-fourth flex flex-col items-center z-1 relative">
-    <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left">
+    <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left fade-left">
         <p class="font-bold text-primary text-xl">RECICLAGEM</p>
         <p class="max-w-2/3 font-bold text-4xl leading-13">
             Reciclar eletrônicos é cuidar do planeta: descubra os benefícios, 
@@ -46,8 +46,8 @@
     <div class="h-full flex flex-col gap-[92px] pb-30">
         
         <!-- Benefícios da Reciclagem -->
-        <div class="container mx-auto secao-content">
-            <h1 class="titulo-secao">
+        <div class="container mx-auto secao-content fade-section">
+            <h1 class="titulo-secao ">
                 <i class="fa-solid fa-leaf"></i>Benefícios da reciclagem do lixo eletrônico
             </h1>
             <p class="texto-secao">
@@ -64,8 +64,8 @@
         </div>
 
         <!-- Malefícios do Descarte Incorreto -->
-        <div class="container mx-auto secao-content">
-            <h1 class="titulo-secao">
+        <div class="container mx-auto secao-content fade-section">
+            <h1 class="titulo-secao ">
                 <i class="fa-solid fa-triangle-exclamation"></i>Malefícios do descarte incorreto do lixo eletrônico
             </h1>
             <p class="texto-secao">
@@ -76,7 +76,7 @@
                 <b>Os riscos à saúde humana</b> também são significativos. A exposição prolongada às substâncias tóxicas presentes nos eletrônicos pode causar problemas graves, como distúrbios neurológicos, doenças respiratórias e até câncer, afetando especialmente os trabalhadores que manuseiam esses materiais de forma inadequada.
             </p>
             
-            <div class="flex flex-row items-center gap-5 mt-5 w-4/5 flex-wrap">
+            <div class="flex flex-row items-center gap-5 mt-5 w-4/5 flex-wrap zoom-in">
                 <div class="flex flex-col justify-center items-center border-2 border-third text-third font-bold rounded-2xl p-9 bg-white gap-7 flex-1 min-w-[250px]">
                     <i class="fa-solid fa-coins text-4xl"></i>
                     <p class="text-xl text-center">Reciclar uma tonelada de celulares pode recuperar cerca de 340 gramas de ouro.</p>
@@ -95,7 +95,7 @@
         </div>
 
         <!-- Como Ajudar a Reciclar -->
-        <div class="container mx-auto secao-content">
+        <div class="container mx-auto secao-content fade-section">
             <h1 class="titulo-secao">
                 <i class="fa-solid fa-recycle"></i>Como ajudar a reciclar o lixo eletrônico
             </h1>
@@ -117,7 +117,7 @@
         </div>
 
         <!-- Estatísticas -->
-        <div class="container mx-auto secao-content">
+        <div class="container mx-auto secao-content fade-section">
             <h1 class="titulo-secao">
                 <i class="fa-solid fa-chart-simple"></i>Estatísticas
             </h1>
@@ -133,7 +133,7 @@
         </div>
 
         <!-- Dicas para Reciclar -->
-        <div class="container mx-auto secao-content">
+        <div class="container mx-auto secao-content fade-section">
             <h1 class="titulo-secao">
                 <i class="fa-solid fa-lightbulb"></i>Dicas para reciclar
             </h1>
@@ -167,7 +167,7 @@
         </div>
 
         <!-- Impacto Positivo -->
-        <div class="container mx-auto secao-content">
+        <div class="container mx-auto secao-content fade-section">
             <h1 class="titulo-secao">
                 <i class="fa-solid fa-face-smile"></i>Impacto positivo para o futuro
             </h1>

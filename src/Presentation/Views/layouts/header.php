@@ -55,6 +55,73 @@
         }
         .group:hover .nav-indicator { @apply scale-100; }
       }
+
+        /* ---------- Classes de efeito reutilizáveis (fade, zoom, etc) ---------- */
+      /* Estado inicial (invisível) */
+      .fade-section {
+        @apply opacity-0 translate-y-8 transition-all duration-700;
+      }
+
+      /* Estado visível após a ativação */
+      .fade-section.is-visible {
+        @apply opacity-100 translate-y-0;
+      }
+
+      .fade-in{
+        @apply opacity-0 translate-x-8 transition-all duration-700;
+      }
+
+      .fade-in.is-visible{
+        @apply opacity-100 translate-x-0;
+      }
+
+      /* Exemplo: fade da esquerda */
+      .fade-left {
+        @apply opacity-0 -translate-x-8 transition-all duration-700;
+      }
+      .fade-left.is-visible {
+        @apply opacity-100 translate-x-0;
+      }
+
+        /* Exemplo: fade da direita */
+      .fade-right {
+        @apply opacity-0 translate-x-8 transition-all duration-700;
+      }
+      .fade-right.is-visible {
+        @apply opacity-100 translate-x-0;
+      }
+
+        /* Exemplo: fade de cima */
+      .fade-top {
+        @apply opacity-0 translate-y-8 transition-all duration-700;
+      }
+      .fade-top.is-visible {
+        @apply opacity-100 translate-y-0;
+      }
+
+        /* Exemplo: fade de baixo */
+      .fade-bottom {
+        @apply opacity-0 -translate-y-8 transition-all duration-700;
+      }
+      .fade-bottom.is-visible {
+        @apply opacity-100 translate-y-0;
+      }
+
+      /* Fade diagonal baixo esquerda */
+      .fade-diag-bottom-left {
+        @apply opacity-0 -translate-y-8 translate-x-8 transition-all duration-700;
+      }
+      .fade-diag-bottom-left.is-visible {
+        @apply opacity-100 translate-y-0 translate-x-0;
+      }
+
+      /* Exemplo: zoom */
+      .zoom-in {
+        @apply opacity-0 scale-95 transition-all duration-500;
+      }
+      .zoom-in.is-visible {
+        @apply opacity-100 scale-100;
+      }
     </style>
 </head>
 <body class="font-inter-tight overflow-x-hidden">

@@ -2,11 +2,11 @@
 
 <main class="relative z-2 bg-white">
     <section id="pontos" class="container flex flex-col gap-15 mx-auto bg-white relative mt-30 pb-10 min-h-[100vh]">
-        <h1 class="text-4xl font-bold text-black text-center">
+        <h1 class="text-4xl font-bold text-black text-center fade-section">
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>
 
-        <div class="mx-auto container gap-5 flex flex-col h-full">
+        <div class="mx-auto container gap-5 flex flex-col h-full fade-section">
             <div class="h-fit flex flex-row gap-5">
                 <input type="text" name="search" id="search" placeholder="Escreva aqui o endereço ou CEP" 
                        class="text-xl border-primary border-2 bg-white p-4 font-bold rounded-lg w-full"> 
