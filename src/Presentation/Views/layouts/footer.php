@@ -1,4 +1,4 @@
-<footer class="bg-whitey relative w-full h-[20rem] flex justify-center z-0 ">
+<footer class="bg-primary relative w-full h-[20rem] flex justify-center z-0 ">
   <div class="bg-primary fixed bottom-0 h-[20rem] w-full rounded-t-4xl flex flex-col justify-between p-10 ">
     <div class="flex flex-row w-full h-fit justify-between items-start">
       <a href="/eletronicoverde" class="group transition-all duration-150 h-fit">
@@ -38,7 +38,7 @@
 </footer>
 
 <script>
-    const effectSelectors = ['.fade-section', '.fade-left', '.zoom-in','.fade-right','.fade-in','.fade-top','.fade-bottom', '.fade-diag-bottom-left'];
+    const effectSelectors = ['.fade-section', '.fade-left', '.zoom-in','.fade-right','.fade-in','.fade-up','.fade-bottom', '.fade-diag-bottom-left'];
 
     const targets = document.querySelectorAll(effectSelectors.join(','));
 

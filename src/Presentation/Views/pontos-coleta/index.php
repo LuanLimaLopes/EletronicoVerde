@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
-<main class="relative z-2 bg-white">
-    <section id="pontos" class="container flex flex-col gap-15 mx-auto bg-white relative mt-30 pb-10 min-h-[100vh]">
+<main class="relative z-2 bg-white rounded-b-[30px]">
+    <section id="pontos" class="container flex flex-col gap-15 mx-auto bg-white relative pt-30 pb-10 min-h-[100vh]">
         <h1 class="text-4xl font-bold text-black text-center fade-section">
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>

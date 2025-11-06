@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
-<main class="relative z-2 bg-white container mx-auto mt-30 pb-30 p-5">
+<main class="relative z-2 container mx-auto pt-30 pb-30 p-5 rounded-b-[30px]">
     <div class="flex flex-col items-center justify-center min-h-[60vh] gap-8">
         
         <!-- Ícone de Sucesso -->

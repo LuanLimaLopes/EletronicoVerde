@@ -92,10 +92,10 @@
       }
 
         /* Exemplo: fade de cima */
-      .fade-top {
+      .fade-up {
         @apply opacity-0 translate-y-8 transition-all duration-700;
       }
-      .fade-top.is-visible {
+      .fade-up.is-visible {
         @apply opacity-100 translate-y-0;
       }
 
@@ -124,6 +124,6 @@
       }
     </style>
 </head>
-<body class="font-inter-tight overflow-x-hidden">
+<body class="font-inter-tight overflow-x-hidden bg-primary">
 
 <?php require_once __DIR__ . '/menu.php'; ?>

@@ -108,7 +108,7 @@
           <p class="text-xl text-black">Do lixo eletrônico global foi reciclado corretamente em 2022</p>
         </div>
         
-        <div class="rounded-3xl bg-amarelo p-5 gap-5 text-white text-center flex items-center justify-center flex-col fade-top">
+        <div class="rounded-3xl bg-amarelo p-5 gap-5 text-white text-center flex items-center justify-center flex-col fade-up">
           <h2 class="text-5xl font-bold text-emerald-900 font-dm-serif-display">87%</h2>
           <p class="text-xl text-black">Dos brasileiros afirmam guardar aparelhos eletrônicos sem uso em casa</p>
         </div>
@@ -155,7 +155,7 @@
         <div class="sust-1 z-1 sticky h-[20rem] text-cinza-txt border-t-3 border-primary p-5 mb-[20rem] font-black fade-section">
             <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
             <div class="flex flex-row justify-between items-center">
-              <span class="z-5 text-3xl flex flex-row gap-5 py-5 text-primary">
+              <span class="z-5 text-3xl flex flex-row gap-5 py-5 text-primary fade-up">
                   <i class="fa-solid fa-handshake-simple text-primary"></i> Contribuição Social
               </span>
               <span class="text-3xl text-primary">(01)</span>
@@ -176,7 +176,7 @@
         <div class="sust-2 z-2 sticky h-[20rem] text-cinza-txt border-t-3 border-second p-5 mb-[14rem] font-black">
             <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
             <div class="flex flex-row justify-between items-center">
-              <span class="z-[5] text-3xl flex flex-row gap-5 py-5 text-second">
+              <span class="z-[5] text-3xl flex flex-row gap-5 py-5 text-second fade-up">
                   <i class="fa-solid fa-brain text-second"></i> Conscientização
               </span>
               <span class="text-3xl text-second">(02)</span>
@@ -197,10 +197,10 @@
         <div class="z-3 sticky h-[20rem] top-[calc(20vh + 8.5em)] text-cinza-txt border-t-3 border-third p-5 mb-[7.5rem] font-black">
             <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
             <div class="flex flex-row justify-between items-center">
-              <span class="z-[5] text-3xl flex flex-row gap-5 py-5 text-third">
+              <span class="z-[5] text-3xl flex flex-row gap-5 py-5 text-third fade-up">
                   <i class="fa-solid fa-hand-pointer text-third"></i> Facilidade de Uso
               </span>
-              <span class="text-3xl text-third">(03)</span>
+              <span class="text-3xl text-third fade-up">(03)</span>
             </div>
             <div class="flex flex-col justify-between gap-10">
               <p class="text-2xl z-[5] max-w-2/3 font-bold">
@@ -216,7 +216,7 @@
       </div>
     </section>
 
-    <!-- Separador --
+    <!-- Separador -->
     <div class="h-full bg-whitey py-[10vh]">
       <div class="relative flex justify-center items-center h-[10vh]">
         <div class="w-[2px] h-full bg-amarelo-dark relative">
@@ -227,7 +227,7 @@
     </div>
 
     <!-- Pontos de Coleta -->
-    <section id="pontos" class="flex flex-col gap-15 bg-whitey relative pb-10 min-h-[100vh]">
+    <section id="pontos" class="flex flex-col gap-15 bg-whitey relative pb-10 min-h-[100vh] rounded-b-[30px]">
       <h1 class="text-4xl font-bold text-black text-center fade-section">
           Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
       </h1>

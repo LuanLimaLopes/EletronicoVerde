@@ -50,26 +50,29 @@ $csrf = new CSRF();
         cursor: pointer;
         margin-top: 2rem;
         font-size: 1.25rem;
-        transition: background-color 0.2s ease;
+        transition: 0.2s ease;
+        border: 2px solid var(--color-primary);
     }
 
     .btn_cad:hover{
-        background-color: var(--color-second);
+        background-color: var(--color-white);
+        border: 2px solid var(--color-third);
+        color: var(--color-third);
     }
 </style>
 
-<main class="relative z-2 bg-white">
-  <div class="container mx-auto mt-30 pb-30 p-5">
+<main class="relative z-2 bg-white rounded-b-[30px]">
+  <div class="container mx-auto pt-30 pb-30 p-5">
     
     <!-- Mensagens de Erro/Sucesso -->
     <?php if (isset($_SESSION['erro'])): ?>
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded pb-4">
         <?= htmlspecialchars($_SESSION['erro']) ?>
         <?php unset($_SESSION['erro']); ?>
       </div>
     <?php endif; ?>
 
-    <div class="w-full flex items-center justify-between mb-10 flex-wrap">
+    <div class="w-full flex items-center justify-between pb-10 flex-wrap">
       <div class="w-1/3">
         <a href="/eletronicoverde/acesso-restrito" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
           before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">

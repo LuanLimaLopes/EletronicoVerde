@@ -7,8 +7,8 @@ $csrf = new CSRF();
 
 ?>
 
-<main class="relative z-2 bg-white">
-    <div class="container mx-auto mt-20 pb-30 p-5">
+<main class="relative z-2 bg-white rounded-b-[30px]">
+    <div class="container mx-auto pt-20 pb-30 p-5">
       
         <!-- Mensagens de Erro -->
         <?php if (isset($_SESSION['erro'])): ?>
@@ -18,7 +18,7 @@ $csrf = new CSRF();
             </div>
         <?php endif; ?>
 
-        <div class="w-full flex items-center justify-between mb-10 flex-wrap">
+        <div class="w-full flex items-center justify-between pb-10 flex-wrap">
           <div class="w-1/3">
             <a href="/consultar-pontos" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
                     before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">

@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
-<main class="relative z-2 bg-white">
+<main class="relative z-2 bg-white rounded-b-[30px]">
 
     <!-- inicia a sessão -->
     <?php 
@@ -25,7 +25,7 @@
     <?php endif; ?>
 
     <header class="w-full min-h-[50vh] h-[30rem] bg-fourth flex flex-col items-center z-1 relative">
-        <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left">
+        <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left fade-left">
             <p class="font-bold text-primary text-xl">ACESSO RESTRITO</p>
             <p class="max-w-2/3 font-bold text-4xl leading-13">
                 Olá, <?= htmlspecialchars($nomeUsuario ?? 'Administrador') ?>! 
@@ -34,7 +34,7 @@
         </div>
     </header>
 
-    <div class="flex justify-center gap-6 items-center flex-wrap w-full min-h-[50vh] py-10">
+    <div class="flex justify-center gap-6 items-center flex-wrap w-full min-h-[50vh] py-10 fade-section">
         <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-primary text-white px-10 py-8 rounded-lg hover:bg-primary/80 transition font-bold text-xl flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-plus"></i> Cadastrar ponto de coleta
         </a>

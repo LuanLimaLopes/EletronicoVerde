@@ -44,7 +44,8 @@
 
   /* Título H2 */
   .mat-aceitos-div-content h2 {
-    @apply flex items-center gap-8 max-w-[80%] font-black text-[var(--color-primary)];
+    @apply text-3xl font-bold text-primary mb-4 flex flex-row items-center 
+        gap-5 p-2 px-5 bg-[#d3fff252] border-[#d2d2d2cc] top-[6rem] w-fit rounded-2xl backdrop-blur-md ;
   }
 
   /* Ícone dentro do H2 */
@@ -77,7 +78,7 @@
 </header>
 
 <!-- MAIN CONTENT -->
-<section class="pt-[10rem] z-1 relative bg-white">
+<section class="pt-[10rem] z-1 relative bg-white rounded-b-[30px]">
     <div class="h-full">
         <div class="container mx-auto fade-section">
             <p class="max-w-2/3 text-justify font-medium mb-[5rem] text-cinza-txt text-2xl">

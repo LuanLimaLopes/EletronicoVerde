@@ -3,7 +3,7 @@
 <style type="text/tailwindcss">
     .titulo-secao{
         @apply text-3xl font-bold text-primary mb-4 flex flex-row items-center 
-        gap-5 sticky p-2 px-5 bg-[#ffffff59] border-[#d2d2d2cc] top-[6rem] w-fit rounded-2xl shadow-lg backdrop-blur-md ;
+        gap-5 sticky p-2 px-5 bg-[#d3fff252] border-[#d2d2d2cc] top-[6rem] w-fit rounded-2xl backdrop-blur-md z-10;
     }
 
     .titulo-secao i {
@@ -42,7 +42,7 @@
     </div>
 </header>
 
-<section class="pt-[10rem] z-1 relative bg-white">
+<section class="pt-[10rem] z-1 relative bg-white rounded-b-[30px]">
     <div class="h-full flex flex-col gap-[92px] pb-30">
         
         <!-- Benefícios da Reciclagem -->

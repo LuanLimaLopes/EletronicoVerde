@@ -13,7 +13,7 @@ $csrf = new CSRF();
 ?>
 
 
-<main class="relative z-2 bg-white">
+<main class="relative z-2 bg-white rounded-b-[30px]">
     <div class="container mx-auto p-5 flex flex-col items-center justify-center min-h-screen">
         
         <!-- Mensagens de Erro -->
