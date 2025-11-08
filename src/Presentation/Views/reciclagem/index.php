@@ -47,7 +47,7 @@
         
         <!-- Benefícios da Reciclagem -->
         <div class="container mx-auto secao-content ">
-            <h1 class="titulo-secao fade-in ">
+            <h1 class="titulo-secao fade-up ">
                 <i class="fa-solid fa-leaf "></i>Benefícios da reciclagem do lixo eletrônico
             </h1>
             <p class="texto-secao fade-up">
@@ -65,7 +65,7 @@
 
         <!-- Malefícios do Descarte Incorreto -->
         <div class="container mx-auto secao-content ">
-            <h1 class="titulo-secao fade-in ">
+            <h1 class="titulo-secao fade-up ">
                 <i class="fa-solid fa-triangle-exclamation"></i>Malefícios do descarte incorreto do lixo eletrônico
             </h1>
             <p class="texto-secao fade-up">
@@ -96,7 +96,7 @@
 
         <!-- Como Ajudar a Reciclar -->
         <div class="container mx-auto secao-content ">
-            <h1 class="titulo-secao fade-in">
+            <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-recycle"></i>Como ajudar a reciclar o lixo eletrônico
             </h1>
             <p class="texto-secao fade-up">
@@ -118,7 +118,7 @@
 
         <!-- Estatísticas -->
         <div class="container mx-auto secao-content ">
-            <h1 class="titulo-secao fade-in">
+            <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-chart-simple"></i>Estatísticas
             </h1>
             <p class="texto-secao fade-up">
@@ -134,7 +134,7 @@
 
         <!-- Dicas para Reciclar -->
         <div class="container mx-auto secao-content ">
-            <h1 class="titulo-secao fade-in">
+            <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-lightbulb"></i>Dicas para reciclar
             </h1>
             <div class="texto-secao fade-up">
@@ -168,7 +168,7 @@
 
         <!-- Impacto Positivo -->
         <div class="container mx-auto secao-content ">
-            <h1 class="titulo-secao fade-in">
+            <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-face-smile"></i>Impacto positivo para o futuro
             </h1>
             <p class="texto-secao fade-up">

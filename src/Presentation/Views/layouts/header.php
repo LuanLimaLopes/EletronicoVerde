@@ -21,6 +21,9 @@
     
     <!-- CSS Customizado -->
     <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/style.css">
+
+    <!-- Model Viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     
     <!-- Tailwind Config -->
     <style type="text/tailwindcss">
