@@ -29,8 +29,12 @@
     const navbar = document.getElementById("navbar");
     const ulMenu = document.getElementById("ul-menu");
     
-    // Verifica se estamos na página inicial
-    const isHomePage = window.location.pathname === '/eletronicoverde' || window.location.pathname === '/eletronicoverde/';
+    // 1. Definição do caminho atual e da página inicial
+    const currentPath = window.location.pathname;
+    // Ajuste: Certifique-se de que a verificação de caminhos com e sem barra final funcione
+    const normalizedPath = currentPath.endsWith('/') && currentPath.length > 1 ? currentPath.slice(0, -1) : currentPath;
+
+    const isHomePage = normalizedPath === '/eletronicoverde' || normalizedPath === '/eletronicoverde/';
     
     // Define a cor inicial baseada na página
     if (isHomePage) {
@@ -39,29 +43,71 @@
       ulMenu.classList.add("text-black");
     }
 
+    // ----------------------------------------------------
+    // 2. Lógica de Destaque do Link Ativo (Movida para DENTRO do DOMContentLoaded)
+    // ----------------------------------------------------
+    const navLinks = ulMenu.querySelectorAll('a');
+    
+    navLinks.forEach(link => {
+        // Pega o caminho do link (ex: /eletronicoverde/materiais-aceitos)
+        const linkPath = new URL(link.href).pathname; 
+        
+        // Normaliza o linkPath para lidar com barras finais, se necessário
+        const normalizedLinkPath = linkPath.endsWith('/') && linkPath.length > 1 ? linkPath.slice(0, -1) : linkPath;
+
+        // Verifica se o linkPath corresponde ao caminho atual normalizado
+        if (normalizedPath === normalizedLinkPath) {
+            // Se o link corresponde à página atual, aplica o destaque:
+            link.classList.add("text-primary"); // Classe Tailwind
+            link.classList.remove("hover:text-primary"); // Remove o hover
+        } else {
+            // Garante que o link não-ativo tenha a classe hover
+            link.classList.add("hover:text-primary");
+        }
+    });
+    // ----------------------------------------------------
+
     window.addEventListener("scroll", function () {
       if (window.scrollY > 50) {
         navbar.classList.add("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
         if (isHomePage) {
           ulMenu.classList.remove("text-white", "text-shadow-xl");
-          ulMenu.classList.add("text-black");
+          // Re-aplica a classe de texto preto, mas com cuidado para não sobrescrever o text-primary do link ativo
+          navLinks.forEach(link => {
+              if (!link.classList.contains('text-primary')) {
+                  link.classList.remove('text-white', 'text-shadow-xl');
+                  link.classList.add('text-black');
+              }
+          });
+
         }
       } else {
         navbar.classList.remove("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
         if (isHomePage) {
           ulMenu.classList.remove("text-black");
-          ulMenu.classList.add("text-white", "text-shadow-xl");
+          // Re-aplica a classe de texto branco/shadow, exceto no link ativo (text-primary)
+          navLinks.forEach(link => {
+              if (!link.classList.contains('text-primary')) {
+                  link.classList.remove('text-black');
+                  link.classList.add('text-white', 'text-shadow-xl');
+              }
+          });
         }
       }
     });
-  });
+});
 
-  window.addEventListener('scroll', function () {
+window.addEventListener('scroll', function () {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
-    document.getElementById('scroll-progress').style.width = scrollPercent + '%';
-  });
+    
+    // Adicione esta verificação, pois o elemento pode não existir em todas as páginas se for global
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+      scrollProgress.style.width = scrollPercent + '%';
+    }
+});
 </script>
 
 <div class="fixed top-0 z-50 w-full flex justify-center mx-auto">

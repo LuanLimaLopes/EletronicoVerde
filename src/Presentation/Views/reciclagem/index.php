@@ -29,24 +29,46 @@
     .dicas-text-ul{
         @apply list-none pl-0 text-xl text-gray-700 leading-7 flex flex-col gap-5;
     }
+
 </style>
 
-<header class="w-full h-[50vh] bg-fourth flex flex-col items-center z-1 relative">
-    <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left fade-left">
-        <p class="font-bold text-primary text-xl">RECICLAGEM</p>
-        <p class="max-w-2/3 font-bold text-4xl leading-13">
-            Reciclar eletrônicos é cuidar do planeta: descubra os benefícios, 
-            evite os danos do descarte incorreto e aprenda como fazer a sua parte 
-            para um futuro mais sustentável.
-        </p>
+<header class="w-full h-[50vh] bg-fourth flex flex-row items-center z-1 relative mx-auto">
+    <div class="container mx-auto h-full flex flex-row justify-between items-center gap-10 p-6">
+        <div class="flex flex-col gap-2 justify-center h-full w-fit text-left fade-left">
+            <p class="font-bold text-primary text-xl">RECICLAGEM</p>
+            <p class="max-w-2/3 font-bold text-4xl leading-13">
+                Reciclar eletrônicos é cuidar do planeta: descubra os benefícios, 
+                evite os danos do descarte incorreto e aprenda como fazer a sua parte 
+                para um futuro mais sustentável.
+            </p>
+        </div>
+
+        
     </div>
+    
 </header>
 
-<section class="pt-[10rem] z-1 relative bg-white rounded-b-[30px]">
-    <div class="h-full flex flex-col gap-[92px] pb-30">
+<section class="z-1 relative bg-white rounded-b-[30px]">
+    <div class="flex justify-end absolute h-full w-full top-0 left-0 -z-1 pointer-events-none">
+        <model-viewer src="<?= ASSETS_URL ?>/source/leaf3.glb"
+            alt="Bota velha com broto de planta"
+            auto-rotate
+            disable-tap
+            disable-zoom
+            class="fade-up sticky top-70 left-0 mb-120 z-0"
+            auto-rotate-delay="0"
+            rotation-per-second="0deg"
+            id="bota-3d"
+            camera-orbit="10deg 80deg"
+            data-initial-orbit="10deg 80deg"
+            style="width: 350px; height: 350px;">
+        </model-viewer>
+    </div>
+
+    <div class="h-full flex flex-col gap-30 py-30">
         
         <!-- Benefícios da Reciclagem -->
-        <div class="container mx-auto secao-content ">
+        <div class=" container mx-auto secao-content ">
             <h1 class="titulo-secao fade-up ">
                 <i class="fa-solid fa-leaf "></i>Benefícios da reciclagem do lixo eletrônico
             </h1>
@@ -64,7 +86,7 @@
         </div>
 
         <!-- Malefícios do Descarte Incorreto -->
-        <div class="container mx-auto secao-content ">
+        <div class=" container mx-auto secao-content ">
             <h1 class="titulo-secao fade-up ">
                 <i class="fa-solid fa-triangle-exclamation"></i>Malefícios do descarte incorreto do lixo eletrônico
             </h1>
@@ -76,7 +98,7 @@
                 <b>Os riscos à saúde humana</b> também são significativos. A exposição prolongada às substâncias tóxicas presentes nos eletrônicos pode causar problemas graves, como distúrbios neurológicos, doenças respiratórias e até câncer, afetando especialmente os trabalhadores que manuseiam esses materiais de forma inadequada.
             </p>
             
-            <div class="flex flex-row items-center gap-5 mt-5 w-4/5 flex-wrap zoom-in">
+            <div class="flex flex-row items-center gap-5 mt-5 w-4/5 flex-wrap zoom-in" >
                 <div class="flex flex-col justify-center items-center border-2 border-third text-third font-bold rounded-2xl p-9 bg-white gap-7 flex-1 min-w-[250px] fade-left">
                     <i class="fa-solid fa-coins text-4xl"></i>
                     <p class="text-xl text-center">Reciclar uma tonelada de celulares pode recuperar cerca de 340 gramas de ouro.</p>
@@ -95,11 +117,11 @@
         </div>
 
         <!-- Como Ajudar a Reciclar -->
-        <div class="container mx-auto secao-content ">
+        <div class=" container mx-auto secao-content ">
             <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-recycle"></i>Como ajudar a reciclar o lixo eletrônico
             </h1>
-            <p class="texto-secao fade-up">
+            <p class="texto-secao  fade-up">
                 <b>7 Métodos Eficazes para o Descarte Correto de Lixo Eletrônico</b>
                 <ol class="metodos w-4/5 fade-up">
                     <li><b>Centros de Coleta Especializados</b>: Estes locais são preparados para garantir que o e-lixo seja reciclado de forma segura e responsável, evitando a contaminação ambiental.</li>
@@ -117,7 +139,7 @@
         </div>
 
         <!-- Estatísticas -->
-        <div class="container mx-auto secao-content ">
+        <div class=" container mx-auto secao-content ">
             <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-chart-simple"></i>Estatísticas
             </h1>
@@ -133,7 +155,7 @@
         </div>
 
         <!-- Dicas para Reciclar -->
-        <div class="container mx-auto secao-content ">
+        <div class=" container mx-auto secao-content ">
             <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-lightbulb"></i>Dicas para reciclar
             </h1>
@@ -167,7 +189,7 @@
         </div>
 
         <!-- Impacto Positivo -->
-        <div class="container mx-auto secao-content ">
+        <div class=" container mx-auto secao-content ">
             <h1 class="titulo-secao fade-up">
                 <i class="fa-solid fa-face-smile"></i>Impacto positivo para o futuro
             </h1>
@@ -175,8 +197,8 @@
                 <b>A reciclagem de lixo eletrônico traz inúmeros benefícios para o futuro</b>. Ela <b>reduz a poluição</b>, impedindo a liberação de toxinas no meio ambiente, e <b>conserva recursos naturais</b> ao recuperar metais, o que diminui a necessidade de mineração. Além disso, <b>promove uma economia circular</b>, onde materiais são reutilizados, e <b>gera empregos no setor de reciclagem</b>. A reciclagem também <b>estimula inovações tecnológicas</b>, aumenta a <b>conscientização ambiental</b> e <b>contribui para os Objetivos de Desenvolvimento Sustentável (ODS) da ONU</b>, ajudando a reduzir a quantidade de lixo em aterros. <b>Esses fatores juntos promovem um futuro mais sustentável e responsável</b>.
             </p>
         </div>
-
-        <div class="container mx-auto mb-10 p-10 gap-15 bg-third rounded-2xl flex flex-col justify-center items-center text-center fade-up">
+        
+        <div class="container mx-auto mb-10 p-10 w-4/5 gap-15 bg-third rounded-2xl flex flex-col justify-center items-center text-center fade-up">
             <p class="text-2xl font-bold fade-section is-visible text-white">
                 Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo e faça sua parte para um planeta mais verde!
             </p>
@@ -189,5 +211,45 @@
 
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const modelViewer = document.getElementById('bota-3d');
+    
+    // Altura total do scroll que você quer usar para a animação
+    // Ex: 3000 pixels (isso deve ser ajustado ao tamanho do seu conteúdo)
+    const scrollHeightToAnimate = 5000; 
+    
+    // Rotação total desejada (ex: girar 360 graus)
+    const rotationTotal = 360; 
+
+    // Ouve o evento de scroll
+    window.addEventListener('scroll', () => {
+        
+        // 1. Obter a Posição Atual do Scroll
+        // (Verifique window.scrollY ou document.documentElement.scrollTop para compatibilidade)
+        const scrollY = window.scrollY;
+
+        // 2. Calcular o Progresso da Animação (de 0 a 1)
+        // O scroll progress indica o quão longe o usuário rolou dentro do range
+        const scrollProgress = Math.min(1, scrollY / scrollHeightToAnimate);
+
+        // 3. Calcular a Nova Rotação (em graus)
+        // Ex: Se o progresso for 0.5, a rotação será 180 graus (360 * 0.5)
+        const newRotation = rotationTotal * scrollProgress;
+
+        // 4. Aplicar a Nova Rotação ao modelo 3D
+        // A sintaxe de camera-orbit é "azimuth inclination distance"
+        // Estamos mudando apenas o azimuth (rotação horizontal)
+        const newOrbit = `${newRotation}deg 80deg`;
+
+        modelViewer.setAttribute('camera-orbit', newOrbit);
+
+        // Opcional: Para fazer a bota "subir" ou "descer" com o scroll (movimento vertical)
+        // Você também pode manipular os atributos CSS (top, transform)
+    });
+});
+</script>
+
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

@@ -160,7 +160,7 @@
               </span>
               <span class="text-3xl text-primary">(01)</span>
             </div>
-            <div class="flex flex-col justify-between gap-10">
+            <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="z-5 text-2xl max-w-2/3 font-bold">
                   O descarte correto de eletrônicos apoia iniciativas que reaproveitam materiais, beneficiam comunidades locais e promovem uma economia mais justa e sustentável.
               </p>
@@ -181,7 +181,7 @@
               </span>
               <span class="text-3xl text-second">(02)</span>
             </div>
-            <div class="flex flex-col justify-between gap-10">
+            <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="text-2xl z-[5] max-w-2/3 font-bold">
                   Descarte correto de eletrônicos é um passo essencial para proteger o meio ambiente, preservar recursos naturais e garantir um futuro sustentável para as próximas gerações.
               </p>
@@ -202,7 +202,7 @@
               </span>
               <span class="text-3xl text-third fade-up">(03)</span>
             </div>
-            <div class="flex flex-col justify-between gap-10">
+            <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="text-2xl z-[5] max-w-2/3 font-bold">
                   Encontre rapidamente o ponto de coleta mais próximo com uma interface intuitiva e fácil de navegar.
               </p>
