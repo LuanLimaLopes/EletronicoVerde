@@ -214,7 +214,8 @@ class PontoColetaController
     }
 
     /**
-     * Busca pontos por CEP (AJAX)
+     * Busca pontos por CEP (AJAX) - DEPRECATED
+     * Use buscarProximos() ao invés deste método
      */
     public function buscarPorCep(): void
     {
@@ -233,6 +234,97 @@ class PontoColetaController
     }
 
     /**
+     * API: Busca pontos próximos a uma localização (lat/lng)
+     */
+    public function buscarProximos(): void
+    {
+        header('Content-Type: application/json');
+        
+        $latitude = $_GET['lat'] ?? null;
+        $longitude = $_GET['lng'] ?? null;
+        $raio = $_GET['raio'] ?? 10; // raio em km
+        
+        if (!$latitude || !$longitude) {
+            echo json_encode([
+                'sucesso' => false,
+                'mensagem' => 'Latitude e longitude são obrigatórias'
+            ]);
+            exit;
+        }
+        
+        try {
+            // Buscar todos os pontos ativos
+            $resultado = $this->listarUseCase->executar(true);
+            $pontos = $resultado['dados'] ?? [];
+            
+            // Filtrar pontos próximos usando fórmula de Haversine
+            $pontosProximos = array_filter($pontos, function($ponto) use ($latitude, $longitude, $raio) {
+                if (!$ponto['latitude'] || !$ponto['longitude']) {
+                    return false;
+                }
+                
+                $distancia = $this->calcularDistancia(
+                    $latitude, 
+                    $longitude, 
+                    $ponto['latitude'], 
+                    $ponto['longitude']
+                );
+                
+                return $distancia <= $raio;
+            });
+            
+            // Adicionar distância a cada ponto
+            $pontosComDistancia = array_map(function($ponto) use ($latitude, $longitude) {
+                $ponto['distancia'] = round($this->calcularDistancia(
+                    $latitude, 
+                    $longitude, 
+                    $ponto['latitude'], 
+                    $ponto['longitude']
+                ), 2);
+                return $ponto;
+            }, $pontosProximos);
+            
+            // Ordenar por distância
+            usort($pontosComDistancia, fn($a, $b) => $a['distancia'] <=> $b['distancia']);
+            
+            echo json_encode([
+                'sucesso' => true,
+                'dados' => array_values($pontosComDistancia),
+                'total' => count($pontosComDistancia)
+            ]);
+            
+        } catch (\Exception $e) {
+            error_log("Erro ao buscar pontos próximos: " . $e->getMessage());
+            echo json_encode([
+                'sucesso' => false,
+                'mensagem' => 'Erro ao buscar pontos de coleta.'
+            ]);
+        }
+        exit;
+    }
+
+    /**
+     * API: Lista todos os pontos de coleta (JSON)
+     */
+    public function listarTodos(): void
+    {
+        header('Content-Type: application/json');
+        
+        try {
+            $resultado = $this->listarUseCase->executar(true);
+            echo json_encode($resultado);
+        } catch (\Exception $e) {
+            error_log("Erro ao listar pontos: " . $e->getMessage());
+            echo json_encode([
+                'sucesso' => false,
+                'mensagem' => 'Erro ao buscar pontos de coleta.',
+                'dados' => []
+            ]);
+        }
+        exit;
+    }
+
+    /**
      * Página de sucesso
      */
     public function sucessoCadastro(): void
@@ -241,5 +333,31 @@ class PontoColetaController
         
         $pageTitle = 'Cadastro Realizado - Eletrônico Verde';
         require_once __DIR__ . '/../Views/pontos-coleta/sucesso.php';
+    }
+
+    /**
+     * Calcula distância entre dois pontos usando fórmula de Haversine
+     * 
+     * @param float $lat1 Latitude do ponto 1
+     * @param float $lon1 Longitude do ponto 1
+     * @param float $lat2 Latitude do ponto 2
+     * @param float $lon2 Longitude do ponto 2
+     * @return float Distância em quilômetros
+     */
+    private function calcularDistancia($lat1, $lon1, $lat2, $lon2): float
+    {
+        $raioTerra = 6371; // Raio da Terra em km
+        
+        $dLat = deg2rad($lat2 - $lat1);
+        $dLon = deg2rad($lon2 - $lon1);
+        
+        $a = sin($dLat/2) * sin($dLat/2) +
+             cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+             sin($dLon/2) * sin($dLon/2);
+        
+        $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+        $distancia = $raioTerra * $c;
+        
+        return $distancia;
     }
 }

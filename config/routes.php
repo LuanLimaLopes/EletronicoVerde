@@ -40,7 +40,9 @@ $connection = SQLiteConnection::getInstance();
 // 4. ROTEAMENTO
 // ========================================
 switch ($route) {
-    // Home
+    // ========================================
+    // HOME
+    // ========================================
     case '/':
     case '/home':
     case '/index.php':
@@ -57,6 +59,7 @@ switch ($route) {
         break;
 
     case '/pontos-coleta/cadastro':
+    case '/cadastro-pontos':
         $controller = new PontoColetaController();
         $controller->cadastro();
         break;
@@ -96,6 +99,23 @@ switch ($route) {
         $controller->sucessoCadastro();
         break;
 
+    // ========================================
+    // APIs DE PONTOS DE COLETA
+    // ========================================
+    
+    // API: Busca pontos próximos (por coordenadas)
+    case '/api/pontos/buscar-proximos':
+        $controller = new PontoColetaController();
+        $controller->buscarProximos();
+        break;
+
+    // API: Lista todos os pontos ativos
+    case '/api/pontos/listar-todos':
+        $controller = new PontoColetaController();
+        $controller->listarTodos();
+        break;
+
+    // API: Busca por CEP (deprecated - use buscar-proximos)
     case '/api/pontos/buscar-cep':
         $controller = new PontoColetaController();
         $controller->buscarPorCep();
