@@ -74,6 +74,9 @@ class EditarPontoColetaUseCase
             $pontoColeta->setNumero($dto->numero);
             $pontoColeta->setComplemento($dto->complemento);
             $pontoColeta->setCep($dto->cep);
+            $pontoColeta->setCidade($dto->cidade);
+            $pontoColeta->setEstado($dto->estado);
+            $pontoColeta->setBairro($dto->bairro);
             $pontoColeta->setHoraInicio($dto->horaInicio);
             $pontoColeta->setHoraEncerrar($dto->horaEncerrar);
             $pontoColeta->setTelefone($dto->telefone);
@@ -84,7 +87,6 @@ class EditarPontoColetaUseCase
             $pontoColeta->setLongitude($dto->longitude);
             
             // Atualizar materiais
-            // Limpa materiais antigos
             $pontoColeta->setMateriais([]);
             
             if (!empty($dto->materiaisIds)) {

@@ -27,11 +27,11 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
             $this->db->beginTransaction();
 
             $sql = "INSERT INTO pontos_coleta 
-                    (empresa, endereco, numero, complemento, cep, hora_inicio, 
-                     hora_encerrar, telefone, email, latitude, longitude, ativo) 
+                    (empresa, endereco, numero, complemento, cep, cidade, estado, bairro,
+                     hora_inicio, hora_encerrar, telefone, email, latitude, longitude, ativo) 
                     VALUES 
-                    (:empresa, :endereco, :numero, :complemento, :cep, :hora_inicio,
-                     :hora_encerrar, :telefone, :email, :latitude, :longitude, :ativo)";
+                    (:empresa, :endereco, :numero, :complemento, :cep, :cidade, :estado, :bairro,
+                     :hora_inicio, :hora_encerrar, :telefone, :email, :latitude, :longitude, :ativo)";
 
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
@@ -40,6 +40,9 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
                 ':numero' => $pontoColeta->getNumero(),
                 ':complemento' => $pontoColeta->getComplemento(),
                 ':cep' => $pontoColeta->getCep(),
+                ':cidade' => $pontoColeta->getCidade(),
+                ':estado' => $pontoColeta->getEstado(),
+                ':bairro' => $pontoColeta->getBairro(),
                 ':hora_inicio' => $pontoColeta->getHoraInicio(),
                 ':hora_encerrar' => $pontoColeta->getHoraEncerrar(),
                 ':telefone' => $pontoColeta->getTelefone(),
@@ -81,6 +84,9 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
                     numero = :numero,
                     complemento = :complemento,
                     cep = :cep,
+                    cidade = :cidade,
+                    estado = :estado,
+                    bairro = :bairro,
                     hora_inicio = :hora_inicio,
                     hora_encerrar = :hora_encerrar,
                     telefone = :telefone,
@@ -97,6 +103,9 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
                 ':numero' => $pontoColeta->getNumero(),
                 ':complemento' => $pontoColeta->getComplemento(),
                 ':cep' => $pontoColeta->getCep(),
+                ':cidade' => $pontoColeta->getCidade(),
+                ':estado' => $pontoColeta->getEstado(),
+                ':bairro' => $pontoColeta->getBairro(),
                 ':hora_inicio' => $pontoColeta->getHoraInicio(),
                 ':hora_encerrar' => $pontoColeta->getHoraEncerrar(),
                 ':telefone' => $pontoColeta->getTelefone(),
@@ -323,6 +332,9 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
             $dados['complemento'],
             $dados['latitude'],
             $dados['longitude'],
+            $dados['cidade'] ?? null,
+            $dados['estado'] ?? null,
+            $dados['bairro'] ?? null,
             (bool) $dados['ativo'],
             $dados['id']
         );

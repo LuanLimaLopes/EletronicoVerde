@@ -40,6 +40,11 @@ $csrf = new CSRF();
         outline: none;
     }
 
+    #form1 div input:disabled {
+        background-color: #f3f4f6;
+        cursor: not-allowed;
+    }
+
     #form1 div label{
         font-weight: bold;
         font-size: 1.125rem;
@@ -174,8 +179,23 @@ $csrf = new CSRF();
       </div>
 
       <div>
-        <label for="endereco">Endereço</label>
+        <label for="endereco">Endereço (Rua)</label>
         <input type="text" id="endereco" name="txtendereco" required>
+      </div>
+
+      <div>
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" name="txtbairro" required>
+      </div>
+
+      <div>
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" name="txtcidade" required>
+      </div>
+
+      <div>
+        <label for="estado">Estado (UF)</label>
+        <input type="text" id="estado" name="txtestado" maxlength="2" placeholder="SP" required>
       </div>
 
       <div>
@@ -224,5 +244,5 @@ $csrf = new CSRF();
 </main>
 
 
-<script src="/Eletronicoverde/scripts/geocode_pontos.js"></script>
+<script src="/eletronicoverde/scripts/geocode_pontos.js"></script>
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

@@ -10,6 +10,9 @@ class PontoColetaDTO
     public string $numero;
     public ?string $complemento;
     public string $cep;
+    public ?string $cidade;
+    public ?string $estado;
+    public ?string $bairro;
     public string $horaInicio;
     public string $horaEncerrar;
     public string $telefone;
@@ -25,6 +28,9 @@ class PontoColetaDTO
         $this->numero = $dados['numero'] ?? '';
         $this->complemento = $dados['complemento'] ?? null;
         $this->cep = $dados['cep'] ?? '';
+        $this->cidade = $dados['cidade'] ?? null;
+        $this->estado = $dados['estado'] ?? null;
+        $this->bairro = $dados['bairro'] ?? null;
         $this->horaInicio = $dados['hora_inicio'] ?? '';
         $this->horaEncerrar = $dados['hora_encerrar'] ?? '';
         $this->telefone = $dados['telefone'] ?? '';
@@ -56,6 +62,9 @@ class PontoColetaDTO
             'numero' => $post['txtnumero'] ?? $post['numero'] ?? '',
             'complemento' => $post['txtcomplemento'] ?? $post['complemento'] ?? null,
             'cep' => $post['txtcep'] ?? $post['cep'] ?? '',
+            'cidade' => $post['txtcidade'] ?? $post['cidade'] ?? null,
+            'estado' => $post['txtestado'] ?? $post['estado'] ?? null,
+            'bairro' => $post['txtbairro'] ?? $post['bairro'] ?? null,
             'hora_inicio' => $post['txthora_inicio'] ?? $post['hora_inicio'] ?? '',
             'hora_encerrar' => $post['txthora_encerrar'] ?? $post['hora_encerrar'] ?? '',
             'telefone' => $post['txttelefone'] ?? $post['telefone'] ?? '',

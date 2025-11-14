@@ -21,6 +21,9 @@ class PontoColeta
     private array $materiais = [];
     private ?string $createdAt;
     private ?string $updatedAt;
+    private ?string $cidade;
+    private ?string $estado;
+    private ?string $bairro;
 
     public function __construct(
         string $empresa,
@@ -34,6 +37,9 @@ class PontoColeta
         ?string $complemento = null,
         ?float $latitude = null,
         ?float $longitude = null,
+        ?string $cidade = null,
+        ?string $estado = null,
+        ?string $bairro = null,
         bool $ativo = true,
         ?int $id = null
     ) {
@@ -48,6 +54,9 @@ class PontoColeta
         $this->complemento = $complemento;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
+        $this->cidade = $cidade;
+        $this->estado = $estado;
+        $this->bairro = $bairro;
         $this->ativo = $ativo;
         $this->id = $id;
         
@@ -71,9 +80,15 @@ class PontoColeta
     public function getMateriais(): array { return $this->materiais; }
     public function getCreatedAt(): ?string { return $this->createdAt; }
     public function getUpdatedAt(): ?string { return $this->updatedAt; }
+    public function getCidade(): ?string { return $this->cidade; }
+    public function getEstado(): ?string { return $this->estado; }
+    public function getBairro(): ?string { return $this->bairro; }
 
     // Setters
     public function setId(int $id): void { $this->id = $id; }
+    public function setCidade(?string $cidade): void { $this->cidade = $cidade; }
+    public function setEstado(?string $estado): void { $this->estado = $estado; }
+    public function setBairro(?string $bairro): void { $this->bairro = $bairro; }
     
     public function setEmpresa(string $empresa): void 
     { 
@@ -187,12 +202,20 @@ class PontoColeta
     /**
      * Retorna endereço completo formatado
      */
-    public function getEnderecoCompleto(): string
+     public function getEnderecoCompleto(): string
     {
         $endereco = $this->endereco . ', ' . $this->numero;
         
         if ($this->complemento) {
             $endereco .= ' - ' . $this->complemento;
+        }
+        
+        if ($this->bairro) {
+            $endereco .= ' - ' . $this->bairro;
+        }
+        
+        if ($this->cidade && $this->estado) {
+            $endereco .= ' - ' . $this->cidade . '/' . $this->estado;
         }
         
         return $endereco . ' - CEP: ' . $this->getCepFormatado();
@@ -240,6 +263,9 @@ class PontoColeta
             'numero' => $this->numero,
             'complemento' => $this->complemento,
             'cep' => $this->cep,
+            'cidade' => $this->cidade,
+            'estado' => $this->estado,
+            'bairro' => $this->bairro,
             'hora_inicio' => $this->horaInicio,
             'hora_encerrar' => $this->horaEncerrar,
             'telefone' => $this->telefone,

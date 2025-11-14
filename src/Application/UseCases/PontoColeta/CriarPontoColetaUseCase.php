@@ -24,7 +24,7 @@ class CriarPontoColetaUseCase
     /**
      * Executa o caso de uso de criação de ponto de coleta
      */
-    public function executar(PontoColetaDTO $dto): array
+     public function executar(PontoColetaDTO $dto): array
     {
         try {
             // Validar dados obrigatórios
@@ -42,7 +42,10 @@ class CriarPontoColetaUseCase
                 $dto->email,
                 $dto->complemento,
                 $dto->latitude,
-                $dto->longitude
+                $dto->longitude,
+                $dto->cidade,
+                $dto->estado,
+                $dto->bairro
             );
 
             // Adicionar materiais se fornecidos

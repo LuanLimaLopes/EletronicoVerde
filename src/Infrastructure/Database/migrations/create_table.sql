@@ -93,3 +93,7 @@ INSERT OR IGNORE INTO materiais (nome, descricao, icone) VALUES
 -- Hash gerado com password_hash('admin123', PASSWORD_DEFAULT)
 INSERT OR IGNORE INTO usuarios (nome, email, senha) VALUES
 ('admin', 'admin@admin.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+
+ALTER TABLE pontos_coleta ADD COLUMN cidade VARCHAR(100);
+ALTER TABLE pontos_coleta ADD COLUMN estado VARCHAR(2);
+ALTER TABLE pontos_coleta ADD COLUMN bairro VARCHAR(100);
