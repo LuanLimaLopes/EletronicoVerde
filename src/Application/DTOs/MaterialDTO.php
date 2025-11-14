@@ -7,13 +7,13 @@ class MaterialDTO
 {
     public string $nome;
     public ?string $descricao;
-    public ?string $icone;
+    
 
     public function __construct(array $dados)
     {
         $this->nome = $dados['nome'] ?? '';
         $this->descricao = $dados['descricao'] ?? null;
-        $this->icone = $dados['icone'] ?? null;
+        
     }
 
     /**
@@ -24,7 +24,7 @@ class MaterialDTO
         return new self([
             'nome' => $post['material'] ?? $post['nome'] ?? '',
             'descricao' => $post['descricao'] ?? null,
-            'icone' => $post['icone'] ?? null
+            
         ]);
     }
 }
