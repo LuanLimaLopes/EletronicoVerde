@@ -72,7 +72,7 @@ class EditarPontoColetaUseCase
             $pontoColeta->setCep($dto->cep);
             $pontoColeta->setTelefone($dto->telefone);
             $pontoColeta->setEmail($dto->email);
-
+            
             // Atualizar materiais
             if (!empty($dto->materiaisIds)) {
                 $materiais = $this->materialRepository->buscarPorIds($dto->materiaisIds);

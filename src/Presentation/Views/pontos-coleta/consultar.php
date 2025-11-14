@@ -95,14 +95,4 @@
     </div>
 </main>
 
-<?php require_once __DIR__ . '/../layouts/footer.php'; ?>primary text-black font-bold">ID</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Empresa</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Endereço</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Número</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Complemento</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">CEP</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Horário Início</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Horário Encerramento</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Telefone</th>
-                        <th class="border border-gray-300 p-2 bg-primary text-black font-bold">Email</th>
-                        <th class="border border-gray-300 p-2 bg-
+<?php require_once __DIR__ . '/../layouts/footer.php'; 
