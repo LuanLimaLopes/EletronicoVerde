@@ -79,8 +79,9 @@
   }
 
   .filtro-btn{
-    @apply transition-all duration-200 bg-transparent text-base border border-gray-300 text-cinza-txt px-4 py-2 rounded-full cursor-pointer;
+    @apply transition-all h-full duration-200 bg-transparent text-base border border-gray-300 text-cinza-txt px-4 py-2 rounded-full cursor-pointer flex flex-row items-center gap-2 hover:bg-fourth hover:text-black;
   }
+  
 }
 </style>
 
@@ -288,12 +289,12 @@
         <div class="container mx-auto">
             <ul class="filtro-container flex space-x-4 mb-8">
                 <li><button class="filtro-btn active" data-filtro="todos">Todos</button></li>
-                <li><button class="filtro-btn" data-filtro="aparelhos">Aparelhos eletrônicos</button></li>
-                <li><button class="filtro-btn" data-filtro="componentes">Componentes de computador</button></li>
-                <li><button class="filtro-btn" data-filtro="eletrodomesticos">Eletrodomésticos</button></li>
-                <li><button class="filtro-btn" data-filtro="pilhas">Baterias e pilhas</button></li>
-                <li><button class="filtro-btn" data-filtro="cabos">Cabos e fios</button></li>
-                <li><button class="filtro-btn" data-filtro="acessorios">Acessórios e Periféricos</button></li>
+                <li><button class="filtro-btn" data-filtro="aparelhos"><i class="fa-solid fa-computer"></i>Aparelhos eletrônicos</button></li>
+                <li><button class="filtro-btn" data-filtro="componentes"><i class="fa-solid fa-microchip"></i>Componentes de computador</button></li>
+                <li><button class="filtro-btn" data-filtro="eletrodomesticos"><i class="fa-solid fa-blender"></i>Eletrodomésticos</button></li>
+                <li><button class="filtro-btn" data-filtro="pilhas"><i class="fa-solid fa-battery-full"></i>Baterias e pilhas</button></li>
+                <li><button class="filtro-btn" data-filtro="cabos"><i class="fa-solid fa-plug"></i>Cabos e fios</button></li>
+                <li><button class="filtro-btn" data-filtro="acessorios"><i class="fa-solid fa-keyboard"></i>Acessórios e Periféricos</button></li>
             </ul>
         </div>
         
@@ -332,8 +333,8 @@
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/impressora.webp" alt="Impressora" class="mat-aceitos-imgs" /></div>
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/televisao.webp" alt="Televisão" class="mat-aceitos-imgs" /></div>
                 </div>
-            </div>
-        </div>
+            </div>            
+        </div>      
 
         <div class="mat-aceitos-div card" data-filter-item="componentes">
             <div class="container mat-aceitos-div-2 fade-left">
@@ -477,6 +478,7 @@
             </div>
         </div>
 
+        
         <div class="mat-aceitos-div card" data-filter-item="acessorios">
             <div class="container mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content">
@@ -513,10 +515,10 @@
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/relogio.webp" alt="Relógio" class="mat-aceitos-imgs" /></div>
                 </div>
             </div>
-        </div>
+        </div>  
 
         <div class="container mx-auto fade-section">
-            <p class="max-w-5/6 text-left font-medium py-[8rem] text-cinza-txt text-2xl">
+            <p class="max-w-5/6 text-left font-medium py-30 text-cinza-txt text-2xl">
                 <b>Esses materiais contêm metais valiosos como cobre, alumínio, ouro e prata, além de plásticos que podem ser reaproveitados.</b> 
                 No entanto, <b>componentes como baterias e placas eletrônicas</b> também carregam <b>substâncias tóxicas</b> (como chumbo e mercúrio), 
                 que <b>devem ser descartados em pontos de coleta específicos</b> para evitar a contaminação ambiental. 

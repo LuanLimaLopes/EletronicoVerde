@@ -49,7 +49,7 @@
 </header>
 
 <section class="z-1 relative bg-white rounded-b-[30px]">
-    <div class="flex justify-end absolute h-full w-full top-0 left-0 -z-1 pointer-events-none">
+    <div class="flex justify-end absolute h-full w-full top-0 left-0 z-1 pointer-events-none">
         <model-viewer src="<?= ASSETS_URL ?>/source/leaf3.glb"
             alt="Bota velha com broto de planta"
             auto-rotate
@@ -83,7 +83,7 @@
 
                 Por fim, <b>a conscientização sobre a reciclagem</b> de eletrônicos incentiva hábitos mais responsáveis entre os consumidores. Ao compreenderem a importância do descarte correto, as pessoas se tornam mais engajadas em práticas sustentáveis.
             </p>
-        </div>
+        </div>       
 
         <!-- Malefícios do Descarte Incorreto -->
         <div class=" container mx-auto secao-content ">
@@ -136,7 +136,7 @@
             <p class="texto-secao fade-up mt-5">
                 Esses métodos não só minimizam os impactos ambientais, mas também promovem a sustentabilidade ao reduzir o desperdício e reutilizar materiais valiosos. A <b>conscientização e a responsabilidade coletiva</b> são essenciais para garantir um futuro mais sustentável.
             </p>
-        </div>
+        </div>  
 
         <!-- Estatísticas -->
         <div class=" container mx-auto secao-content ">
@@ -152,7 +152,7 @@
 
                 Por outro lado, <b>66% dos consumidores</b> afirmam que prefeririam devolver seus dispositivos antigos para programas de reciclagem, caso tivessem essa opção disponível (Fonte: Electronics TakeBack Coalition). Esse dado destaca a importância de criar mais programas acessíveis e conscientizar a população sobre o descarte correto.
             </p>
-        </div>
+        </div>        
 
         <!-- Dicas para Reciclar -->
         <div class=" container mx-auto secao-content ">

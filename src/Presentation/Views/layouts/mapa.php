@@ -20,8 +20,8 @@
     }
 </style>
 
-<main class="relative z-2 bg-white rounded-b-[30px]">
-    <section id="pontos" class="container flex flex-col gap-15 mx-auto bg-white relative pt-30 pb-10 min-h-[100vh]">
+<main class="relative z-2 bg-whitey rounded-b-[30px]">
+    <section id="pontos" class="container flex flex-col gap-15 mx-auto relative pt-30 pb-30 min-h-screen">
         <h1 class="text-4xl font-bold text-black text-center fade-section">
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>
@@ -33,12 +33,12 @@
                        name="search" 
                        id="search" 
                        placeholder="Digite seu CEP (ex: 13087-280)" 
-                       class="text-xl border-primary border-2 bg-white p-4 font-bold rounded-lg w-full"
+                       class="text-xl border-primary border-3 bg-white p-4 font-bold text-cinza-txt rounded-xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_5px_#04A77750]"
                        maxlength="9"> 
                 <button type="button" 
                         onclick="buscarPorCep()" 
                         id="btnBuscar"
-                        class="bg-primary text-white text-lg px-8 rounded-lg cursor-pointer font-bold hover:bg-second transition-all">
+                        class="bg-primary text-white text-lg px-8 rounded-xl cursor-pointer font-bold hover:bg-second transition-all focus:outline-0 ">
                     Pesquisar
                 </button>
             </div>
@@ -62,7 +62,7 @@
             <div>
                 <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-fit rounded-3xl justify-center items-center flex gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
                     Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span>
-                    <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i> 
+                    <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all rounded-full"></i> 
                 </a>
             </div>
         </div>
