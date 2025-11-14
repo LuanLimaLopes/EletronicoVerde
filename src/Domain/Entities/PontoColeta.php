@@ -252,4 +252,25 @@ class PontoColeta
             'updated_at' => $this->updatedAt
         ];
     }
+    
+    public function setNumero(string $numero): void 
+    { 
+        $this->numero = $numero;
+        $this->validate();
+    }
+    
+    public function setComplemento(?string $complemento): void 
+    { 
+        $this->complemento = $complemento;
+    }
+    
+    public function setHoraInicio(string $horaInicio): void 
+    { 
+        $this->horaInicio = $horaInicio;
+    }
+    
+    public function setHoraEncerrar(string $horaEncerrar): void 
+    { 
+        $this->horaEncerrar = $horaEncerrar;
+    }
 }
