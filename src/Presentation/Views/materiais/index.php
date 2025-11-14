@@ -79,31 +79,8 @@
   }
 
   .filtro-btn{
-    @apply transition-all duration-200 bg-transparent border border-gray-300 text-gray-800 px-4 py-2 rounded-full cursor-pointer;
+    @apply transition-all duration-200 bg-transparent text-base border border-gray-300 text-cinza-txt px-4 py-2 rounded-full cursor-pointer;
   }
-
-   .fade-item {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 400ms ease, transform 400ms ease;
-      /* mantém o fluxo (ocupa espaço) mesmo invisível */
-      will-change: opacity, transform;
-    }
-
-    .fade-item.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* se quiser esconder completamente antes de mostrar (opcional),
-       mas sem usar display:none para não bloquear a transição */
-    .fade-item.hidden-completely {
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(3px);
-      transition: height 300ms ease, opacity 300ms ease;
-    }
 }
 </style>
 
@@ -137,7 +114,7 @@
                         <i class="fa-solid fa-computer"></i> Aparelhos eletrônicos
                     </h2>
                     <p class="text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
-                    <p class="text-md italic">Esses dispositivos contêm metais valiosos e componentes que podem ser reaproveitados, reduzindo o desperdício e a poluição.</p>
+                    <p class="text-base italic">Esses dispositivos contêm metais valiosos e componentes que podem ser reaproveitados, reduzindo o desperdício e a poluição.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-400 h-full is-visible p-5">
                     <div>
@@ -163,7 +140,7 @@
                         <i class="fa-solid fa-microchip "></i> Componentes de computador
                     </h2>
                     <p class="text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
-                    <p class="text-md italic">Partes internas como placas e processadores possuem metais e materiais recicláveis que ajudam a economizar recursos naturais.</p>
+                    <p class="text-base italic">Partes internas como placas e processadores possuem metais e materiais recicláveis que ajudam a economizar recursos naturais.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-500 h-full is-visible p-5">
                     <div>
@@ -189,7 +166,7 @@
                         <i class="fa-solid fa-blender"></i> Eletrodomésticos
                     </h2>
                     <p class="text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
-                    <p class="text-md italic">Mesmo os eletrodomésticos antigos podem ter peças reaproveitadas e metais recicláveis que diminuem o impacto ambiental.</p>
+                    <p class="text-base italic">Mesmo os eletrodomésticos antigos podem ter peças reaproveitadas e metais recicláveis que diminuem o impacto ambiental.</p>
                 </div>
 
                 <div class="mat-aceitos-div-imgs  bg-emerald-600 h-full is-visible p-5">
@@ -216,7 +193,7 @@
                         <i class="fa-solid fa-battery-full"></i> Baterias e pilhas
                     </h2>
                     <p class="text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
-                    <p class="text-md italic">Esses itens contêm substâncias tóxicas que poluem o solo e a água, o descarte correto evita danos à natureza.</p>
+                    <p class="text-base italic">Esses itens contêm substâncias tóxicas que poluem o solo e a água, o descarte correto evita danos à natureza.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-700! h-full is-visible p-5">
                     <div>
@@ -242,7 +219,7 @@
                         <i class="fa-solid fa-plug"></i> Cabos e fios
                     </h2>
                     <p class="text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
-                    <p class="text-md italic">Cabos e fios possuem cobre e outros metais valiosos que podem ser recuperados e reutilizados na indústria.</p>
+                    <p class="text-base italic">Cabos e fios possuem cobre e outros metais valiosos que podem ser recuperados e reutilizados na indústria.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-800 h-full is-visible p-5">
                     <div>
@@ -343,11 +320,11 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-sm cursor-pointer font-bold mb-2" data-target="list-aparelhos">
+                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-aparelhos">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
-                    <p class="text-md italic frase">Esses dispositivos contêm metais valiosos e componentes que podem ser reaproveitados, reduzindo o desperdício e a poluição.</p>
+                    <p class="text-base italic frase">Esses dispositivos contêm metais valiosos e componentes que podem ser reaproveitados, reduzindo o desperdício e a poluição.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs ">
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/celular2.webp" alt="Celular" class="mat-aceitos-imgs" /></div>
@@ -379,11 +356,11 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-sm cursor-pointer font-bold mb-2" data-target="list-componentes">
+                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-componentes">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
-                    <p class="text-md italic frase">Partes internas como placas e processadores possuem metais e materiais recicláveis que ajudam a economizar recursos naturais.</p>
+                    <p class="text-base italic frase">Partes internas como placas e processadores possuem metais e materiais recicláveis que ajudam a economizar recursos naturais.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs ">
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/placa-mae.webp" alt="Placa-mãe" class="mat-aceitos-imgs" /></div>
@@ -417,11 +394,11 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-sm cursor-pointer font-bold mb-2" data-target="list-eletrodomesticos">
+                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-eletrodomesticos">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
-                    <p class="text-md italic frase">Mesmo os eletrodomésticos antigos podem ter peças reaproveitadas e metais recicláveis que diminuem o impacto ambiental.</p>
+                    <p class="text-base italic frase">Mesmo os eletrodomésticos antigos podem ter peças reaproveitadas e metais recicláveis que diminuem o impacto ambiental.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs ">
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/microondas.webp" alt="Micro-ondas" class="mat-aceitos-imgs" /></div>
@@ -451,11 +428,11 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-sm cursor-pointer font-bold mb-2" data-target="list-pilhas">
+                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-pilhas">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
-                    <p class="text-md italic frase">Esses itens contêm substâncias tóxicas que poluem o solo e a água, o descarte correto evita danos à natureza.</p>
+                    <p class="text-base italic frase">Esses itens contêm substâncias tóxicas que poluem o solo e a água, o descarte correto evita danos à natureza.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs ">
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/bateria.webp" alt="Bateria" class="mat-aceitos-imgs" /></div>
@@ -485,11 +462,11 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-sm cursor-pointer font-bold mb-2" data-target="list-cabos">
+                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-cabos">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
                     
-                    <p class="text-md italic frase">Cabos e fios possuem cobre e outros metais valiosos que podem ser recuperados e reutilizados na indústria.</p>
+                    <p class="text-base italic frase">Cabos e fios possuem cobre e outros metais valiosos que podem ser recuperados e reutilizados na indústria.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs ">
                     <div><img src="<?= ASSETS_URL ?>/images/MateriaisAceitos/cabo-energia.webp" alt="Cabo de energia" class="mat-aceitos-imgs" /></div>
@@ -523,7 +500,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-sm cursor-pointer font-bold mb-2" data-target="list-acessorios">
+                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-acessorios">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
