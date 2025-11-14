@@ -198,14 +198,14 @@
             </p>
         </div>
         
-        <div class="container mx-auto mb-10 p-10 w-4/5 gap-15 bg-third rounded-2xl flex flex-col justify-center items-center text-center fade-up">
+        <div class="container mx-auto mb-10 p-10 gap-15 bg-third rounded-2xl flex flex-col justify-center items-center text-center fade-up">
             <p class="text-2xl font-bold fade-section is-visible text-white">
                 Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo e faça sua parte para um planeta mais verde!
             </p>
             <a href="<?= BASE_URL?>/pontos-coleta" class="group p-5 bg-[#49776b] w-full text-lg rounded-2xl justify-between items-center flex gap-2 font-bold text-white
             hover:bg-fourth hover:text-black transition-all">
                   Ver no mapa
-                  <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i> 
+                  <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45deg transition-all rounded-full"></i> 
             </a>
         </div>
 

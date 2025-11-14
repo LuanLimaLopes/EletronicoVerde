@@ -305,7 +305,7 @@
                     <p class="text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-aparelhos">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5">
+                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Celulares e smartphones</li>
                             <li>Tablets</li>
                             <li>Notebooks e ultrabooks</li>
@@ -321,7 +321,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-aparelhos">
+                    <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-aparelhos">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
@@ -343,7 +343,7 @@
                     <p class="text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-componentes">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5">
+                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Placa-mãe</li>
                             <li>Memória RAM</li>
                             <li>HD e SSDs</li>
@@ -357,7 +357,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-componentes">
+                    <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-componentes">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
@@ -379,7 +379,7 @@
                     <p class="text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-eletrodomesticos">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5">
+                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Liquidificadores</li>
                             <li>Batedeiras</li>
                             <li>Cafeteiras elétricas</li>
@@ -395,7 +395,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-eletrodomesticos">
+                    <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-eletrodomesticos">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
@@ -417,7 +417,7 @@
                     <p class="text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-pilhas">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5">
+                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Pilhas comuns</li>
                             <li>Baterias de celular</li>
                             <li>Baterias de notebook</li>
@@ -429,7 +429,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-pilhas">
+                    <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-pilhas">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 
@@ -451,7 +451,7 @@
                     <p class="text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-cabos">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5">
+                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Cabos USB</li>
                             <li>Cabos HDMI</li>
                             <li>Cabos de energia elétrica</li>
@@ -463,7 +463,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-cabos">
+                    <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-cabos">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
                     
@@ -486,7 +486,7 @@
                     <p class="text-2xl">Fones de ouvido, mouses, teclados e relógios digitais.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-acessorios">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5">
+                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Teclados</li>
                             <li>Mouses</li>
                             <li>Fones de ouvido e headsets</li>
@@ -502,7 +502,7 @@
                         </ul>
                     </div>
 
-                    <button class="text-second hover:text-second transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-acessorios">
+                    <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-acessorios">
                         Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
                     </button>
 

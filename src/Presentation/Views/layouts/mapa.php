@@ -221,7 +221,7 @@ function adicionarMarcadorUsuario(lat, lng) {
     
     userMarker = L.marker([lat, lng], { icon: userIcon })
         .addTo(map)
-        .bindPopup('<div style="text-align: center; font-weight: bold;">📍 Sua localização</div>');
+        .bindPopup('<div style="text-align: center; font-weight: bold;"><i class="fa-solid fa-location-dot text-primary"></i> Sua localização</div>');
 }
 
 // Adiciona marcador de ponto de coleta
@@ -246,11 +246,11 @@ function adicionarMarcadorPonto(ponto) {
     const popupContent = `
         <div style="max-width: 300px;">
             <h3 style="color: #04A777; font-weight: bold; margin-bottom: 8px;">${ponto.empresa}</h3>
-            ${ponto.distancia ? `<p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong>📍 Distância:</strong> ${ponto.distancia} km</p>` : ''}
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong>📍</strong> ${ponto.endereco}, ${ponto.numero}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong>📞</strong> ${ponto.telefone}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong>✉️</strong> ${ponto.email}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 8px;"><strong>🕒</strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+            ${ponto.distancia ? `<p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
+            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
+            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${ponto.telefone}</p>
+            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
+            <p style="color: #666; font-size: 14px; margin-bottom: 8px;"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
             ${ponto.materiais && ponto.materiais.length > 0 ? `
                 <div style="margin-top: 8px;">
                     <p style="font-weight: bold; color: #333; font-size: 13px; margin-bottom: 5px;">Materiais aceitos:</p>
@@ -281,13 +281,13 @@ function exibirListaPontos(pontos) {
     
     pontos.forEach((ponto, index) => {
         const card = `
-            <div class="bg-white border-2 border-primary rounded-lg p-4 hover:shadow-lg transition-all cursor-pointer" onclick="focusPonto(${index})">
+            <div class="bg-white border-2 border-primary rounded-3xl p-4 hover:shadow-[0px_0px_0px_4px_#04A77750] transition-all duration-300 cursor-pointer" onclick="focusPonto(${index})">
                 <h3 class="text-xl font-bold text-primary mb-2">${ponto.empresa}</h3>
-                ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2">📍 <strong>${ponto.distancia} km</strong> de distância</p>` : ''}
-                <p class="text-gray-700"><i class="fa-solid fa-location-dot"></i> ${ponto.endereco}, ${ponto.numero}</p>
-                <p class="text-gray-700"><i class="fa-solid fa-phone"></i> ${ponto.telefone}</p>
-                <p class="text-gray-700"><i class="fa-solid fa-envelope"></i> ${ponto.email}</p>
-                <p class="text-gray-700"><i class="fa-solid fa-clock"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+                ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2"><i class="fa-solid fa-location-pin text-second"></i> <strong>${ponto.distancia} km</strong> de distância</p>` : ''}
+                <p class="text-gray-700"><i class="fa-solid fa-location-dot text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
+                <p class="text-gray-700"><i class="fa-solid fa-phone text-second"></i> ${ponto.telefone}</p>
+                <p class="text-gray-700"><i class="fa-solid fa-envelope text-second"></i> ${ponto.email}</p>
+                <p class="text-gray-700"><i class="fa-solid fa-clock text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
                 ${ponto.materiais && ponto.materiais.length > 0 ? `
                     <div class="mt-2">
                         <p class="font-bold text-sm">Materiais aceitos:</p>

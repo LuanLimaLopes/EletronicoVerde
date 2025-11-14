@@ -2,11 +2,11 @@
 
 <!-- HERO SECTION -->
 <header class="relative z-5">
-    <div class="h-[100vh] w-full text-white relative">
+    <div class="h-screen w-full text-white relative">
       <img src="<?= ASSETS_URL ?>/images/e-waste2.png" alt="Lixo Eletrônico"
-        class="absolute top-0 left-0 w-full h-[100vh] object-cover brightness-30 z-1" />
+        class="absolute top-0 left-0 w-full h-screen object-cover brightness-30 z-1" />
       
-      <div class="container mx-auto py-4 flex flex-col h-[100vh] gap-10 justify-center z-20 relative fade-left">
+      <div class="container mx-auto py-4 flex flex-col h-screen gap-10 justify-center z-20 relative fade-left">
         <h2 class="text-4xl max-w-200 leading-12">
             Transforme seu
             <span class="text-[#02B97F] font-dm-serif-display italic font-normal">lixo eletrônico</span>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Seção: O que é lixo eletrônico -->
-    <section class="relative py-4 flex flex-col justify-center h-fit z-[10] bg-cinza ">
+    <section class="relative py-4 flex flex-col justify-center h-fit z-10 bg-cinza ">
       <div class="mx-auto container flex flex-col justify-between items-center bg-[#1c3931] p-10 gap-20 h-fit rounded-3xl zoom-in">
         <div class="flex lg:flex-row gap-10 md:flex-col ">
           <h1 class="font-dm-serif-display text-7xl text-[#e4e4e4] w-fit">
@@ -68,9 +68,9 @@
               Reciclar corretamente ajuda a reduzir esse impacto e reaproveitar materiais valiosos.
           </p>
         </div>
-        <a href="<?= BASE_URL?>/reciclagem" class="group bg-[#49776b] w-full p-5 flex flex-row justify-between rounded-3xl font-bold text-md border-1 border-transparent text-white
+        <a href="<?= BASE_URL?>/reciclagem" class="group bg-[#49776b] w-full p-5 flex flex-row justify-between rounded-3xl font-bold text-md border border-transparent text-white
         hover:bg-[#c0ece0] hover:text-black hover:border-second transition-all">
-            Saiba mais <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all"></i>
+            Saiba mais <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all"></i>
         </a>
       </div>  
     </section>
@@ -86,7 +86,7 @@
     </div>
 
     <!-- Grid de Números -->
-    <section class="h-[90vh] flex flex-col gap-15 bg-cinza relative z-[15]">
+    <section class="h-[90vh] flex flex-col gap-15 bg-cinza relative z-15">
       <h2 class="mx-auto text-4xl text-whitey font-bold fade-section">
           Descarte eletrônico em <span class="text-primary italic font-dm-serif-display">números</span>
       </h2>
@@ -119,9 +119,9 @@
             <p class="text-xl text-amarelo">De toneladas de metais preciosos, como ouro, prata e cobre, são descartadas anualmente em dispositivos eletrônicos.</p>
           </div>
           <div>
-            <a href="<?= BASE_URL?>/reciclagem" class="group absolute bg-[#141414] w-fit h-fit right-0 bottom-0 p-5 flex flex-row items-center justify-center gap-5 text-xl rounded-tl-3xl font-bold text-md border-1 border-transparent text-white
+            <a href="<?= BASE_URL?>/reciclagem" class="group absolute bg-cinza w-fit h-fit right-0 bottom-0 p-5 flex flex-row items-center justify-center gap-5 text-xl rounded-tl-3xl font-bold text-md border border-transparent text-white
            hover:text-primary transition-all">
-                Saiba mais <i class="fa-solid fa-arrow-right text-2xl group-hover:rotate-[-45deg] transition-all rounded-full"></i>
+                Saiba mais <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all rounded-full"></i>
             </a>
           </div>
         </div>
@@ -129,7 +129,7 @@
     </section>
     
     <!-- Separador -->
-    <div class="relative flex justify-center items-center h-[10vh] bg-whitey z-[11] mt-[5vh]">
+    <div class="relative flex justify-center items-center h-[10vh] bg-whitey z-11 mt-[5vh]">
       <div class="absolute w-full h-[20vh] bg-cinza -skew-y-3 bottom-5 left-0 z-10"></div>
       <div class="w-[2px] h-full bg-amarelo relative z-13">
         <div class="absolute top-0 left-1/2 w-3 h-3 bg-amarelo rounded-full transform -translate-x-1/2 shadow-lg shadow-amarelo z-12"></div>
@@ -176,13 +176,13 @@
         <div class="sust-2 z-2 sticky h-[20rem] text-cinza-txt border-t-3 border-second p-5 mb-[14rem] font-black">
             <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
             <div class="flex flex-row justify-between items-center">
-              <span class="z-[5] text-3xl flex flex-row gap-5 py-5 text-second fade-up">
+              <span class="z-5 text-3xl flex flex-row gap-5 py-5 text-second fade-up">
                   <i class="fa-solid fa-brain text-second"></i> Conscientização
               </span>
               <span class="text-3xl text-second">(02)</span>
             </div>
             <div class="flex flex-col justify-between gap-10 fade-up">
-              <p class="text-2xl z-[5] max-w-2/3 font-bold">
+              <p class="text-2xl z-5 max-w-2/3 font-bold">
                   Descarte correto de eletrônicos é um passo essencial para proteger o meio ambiente, preservar recursos naturais e garantir um futuro sustentável para as próximas gerações.
               </p>
               <ol class="list-decimal list-inside flex flex-col font-medium">
@@ -197,13 +197,13 @@
         <div class="z-3 sticky h-[20rem] top-[calc(20vh + 8.5em)] text-cinza-txt border-t-3 border-third p-5 mb-[7.5rem] font-black">
             <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
             <div class="flex flex-row justify-between items-center">
-              <span class="z-[5] text-3xl flex flex-row gap-5 py-5 text-third fade-up">
+              <span class="z-5 text-3xl flex flex-row gap-5 py-5 text-third fade-up">
                   <i class="fa-solid fa-hand-pointer text-third"></i> Facilidade de Uso
               </span>
               <span class="text-3xl text-third fade-up">(03)</span>
             </div>
             <div class="flex flex-col justify-between gap-10 fade-up">
-              <p class="text-2xl z-[5] max-w-2/3 font-bold">
+              <p class="text-2xl z-5 max-w-2/3 font-bold">
                   Encontre rapidamente o ponto de coleta mais próximo com uma interface intuitiva e fácil de navegar.
               </p>
               <ol class="list-decimal list-inside flex flex-col font-medium">
