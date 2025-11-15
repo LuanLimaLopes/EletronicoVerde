@@ -28,7 +28,11 @@ CREATE TABLE IF NOT EXISTS pontos_coleta (
     longitude DECIMAL(11, 8),
     ativo BOOLEAN DEFAULT 1,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    cidade VARCHAR(100),
+    estado VARCHAR(2),
+    bairro VARCHAR(100)
+
 );
 
 -- Tabela de Materiais
@@ -92,8 +96,4 @@ INSERT OR IGNORE INTO materiais (nome, descricao, icone) VALUES
 -- Inserir usuário admin padrão (senha: admin123)
 -- Hash gerado com password_hash('admin123', PASSWORD_DEFAULT)
 INSERT OR IGNORE INTO usuarios (nome, email, senha) VALUES
-('admin', 'admin@admin.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
-
-ALTER TABLE pontos_coleta ADD COLUMN cidade VARCHAR(100);
-ALTER TABLE pontos_coleta ADD COLUMN estado VARCHAR(2);
-ALTER TABLE pontos_coleta ADD COLUMN bairro VARCHAR(100);
+('admin', 'admin@admin.com', '$2b$12$eLXfaVXxyE9iOULVkcHuUeZN5HSvi8Lzv4er.HQDqI/69NX2RxnGi');

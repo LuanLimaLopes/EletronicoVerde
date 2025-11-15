@@ -13,7 +13,7 @@ class AuthController
     private AutenticarUsuarioUseCase $autenticarUseCase;
     private Authentication $auth;
     private CSRF $csrf;
-    private string $baseUrl = '/eletronicoverde'; // ← ADICIONAR ESTA LINHA
+    private string $baseUrl = '/eletronicoverde'; 
 
     public function __construct()
     {

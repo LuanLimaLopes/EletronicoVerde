@@ -6,6 +6,7 @@ use EletronicoVerde\Presentation\Controllers\PontoColetaController;
 use EletronicoVerde\Presentation\Controllers\MaterialController;
 use EletronicoVerde\Presentation\Controllers\ReciclagemController;
 use EletronicoVerde\Presentation\Controllers\AuthController;
+use EletronicoVerde\Infrastructure\Logger;
 
 // ========================================
 // 1. CAPTURA MÉTODO HTTP
@@ -153,11 +154,11 @@ switch ($route) {
         
         if ($method === 'POST') {
             // Processa o login quando for POST
-            error_log("🔐 Processando autenticação via POST");
+            logger::error("🔐 Processando autenticação via POST");
             $controller->autenticar();
         } else {
             // Exibe o formulário quando for GET
-            error_log("📄 Exibindo formulário de login via GET");
+            logger::error("📄 Exibindo formulário de login via GET");
             $controller->login();
         }
         break;
