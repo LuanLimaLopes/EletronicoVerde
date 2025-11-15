@@ -22,9 +22,7 @@ class CriarUsuarioUseCase
         $this->passwordHasher = $passwordHasher;
     }
 
-    /**
-     * Executa a criação de um novo usuário
-     */
+    //Executa a criação de um novo usuário
     public function executar(UsuarioDTO $dto): array
     {
         try {
@@ -79,9 +77,7 @@ class CriarUsuarioUseCase
         }
     }
 
-    /**
-     * Valida os dados do DTO
-     */
+    //Valida os dados do DTO
     private function validarDados(UsuarioDTO $dto): void
     {
         if (empty($dto->nome)) {

@@ -37,9 +37,7 @@ class SQLiteConnection
         return self::$instance;
     }
 
-    /**
-     * Verifica se o banco de dados existe e tem as tabelas
-     */
+    //Verifica se o banco de dados existe e tem as tabelas
     public static function databaseExists(): bool
     {
         try {
@@ -60,9 +58,7 @@ class SQLiteConnection
         }
     }
 
-    /**
-     * Executa as migrations do banco de dados
-     */
+    //Executa as migrations do banco de dados
     public static function runMigrations(): bool
     {
         try {
@@ -122,9 +118,7 @@ class SQLiteConnection
         }
     }
 
-    /**
-     * Parse SQL statements de forma inteligente, respeitando BEGIN/END
-     */
+    //Parse SQL statements de forma inteligente, respeitando BEGIN/END
     private static function parseSqlStatements(string $sql): array
     {
         $statements = [];

@@ -14,9 +14,7 @@ class MaterialController
         $this->materialRepository = new SQLiteMaterialRepository();
     }
 
-    /**
-     * Exibe página de materiais aceitos
-     */
+    //Exibe página de materiais aceitos
     public function index(): void
     {
         $pageTitle = 'Materiais Aceitos - Eletrônico Verde';
@@ -25,9 +23,7 @@ class MaterialController
         require_once __DIR__ . '/../Views/materiais/index.php';
     }
 
-    /**
-     * API para listar materiais (JSON)
-     */
+    //API para listar materiais (JSON)
     public function listar(): void
     {
         header('Content-Type: application/json');

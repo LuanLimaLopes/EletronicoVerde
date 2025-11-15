@@ -21,9 +21,7 @@ class CriarPontoColetaUseCase
         $this->materialRepository = $materialRepository;
     }
 
-    /**
-     * Executa o caso de uso de criação de ponto de coleta
-     */
+    //Executa o caso de uso de criação de ponto de coleta
      public function executar(PontoColetaDTO $dto): array
     {
         try {
@@ -94,9 +92,7 @@ class CriarPontoColetaUseCase
         }
     }
 
-    /**
-     * Valida os dados do DTO
-     */
+    //Valida os dados do DTO
     private function validarDados(PontoColetaDTO $dto): void
     {
         if (empty($dto->empresa)) {

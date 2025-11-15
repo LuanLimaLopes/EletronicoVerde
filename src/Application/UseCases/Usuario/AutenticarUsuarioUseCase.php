@@ -20,16 +20,14 @@ class AutenticarUsuarioUseCase
         $this->authentication = $authentication;
     }
 
-    /**
-     * Executa a autenticação do usuário
-     */
+    
+    //Executa a autenticação do usuário 
     public function executar(string $emailOuUsername, string $senha): array
     {
         try {
             // LOG 1: Dados recebidos
             logger::info("=== INÍCIO AUTENTICAÇÃO ===");
             logger::info("Login tentado com: " . $emailOuUsername);
-            logger::info("Senha recebida (length): " . strlen($senha));
             
             // Validar dados
             if (empty($emailOuUsername) || empty($senha)) {
@@ -40,8 +38,6 @@ class AutenticarUsuarioUseCase
                 ];
             }
 
-            // LOG 2: Tentando buscar por email
-            logger::info("🔍 Buscando por EMAIL: " . $emailOuUsername);
             $usuario = $this->usuarioRepository->buscarPorEmail($emailOuUsername);
             
             // Se não encontrou por email, tenta buscar por nome (username)
@@ -60,19 +56,14 @@ class AutenticarUsuarioUseCase
             }
             
             logger::info("✅ Usuário encontrado: ID=" . $usuario->getId() . ", Nome=" . $usuario->getNome());
-            logger::info("Hash no banco: " . substr($usuario->getSenha(), 0, 30) . "...");
 
             // LOG 4: Verificando senha
-            logger::info("🔐 Verificando senha...");
             $senhaCorreta = $usuario->verificarSenha($senha);
-            logger::info("Resultado verificação: " . ($senhaCorreta ? "✅ CORRETA" : "❌ INCORRETA"));
+            logger::info("Resultado verificação de senha: " . ($senhaCorreta ? "✅ CORRETA" : "❌ INCORRETA"));
             
             if (!$senhaCorreta) {
                 logger::error("❌ Senha incorreta para usuário: " . $usuario->getNome());
                 
-                // DEBUG EXTRA: Testar password_verify direto
-                $testeDirecto = password_verify($senha, $usuario->getSenha());
-                logger::info("Teste direto password_verify: " . ($testeDirecto ? "PASSOU" : "FALHOU"));
                 
                 return [
                     'sucesso' => false,
@@ -81,7 +72,6 @@ class AutenticarUsuarioUseCase
             }
 
             // LOG 5: Criando sessão
-            logger::info("✅ Senha correta! Criando sessão...");
             $this->authentication->login($usuario);
             logger::info("✅ Login realizado com sucesso!");
             logger::info("=== FIM AUTENTICAÇÃO ===");
@@ -102,17 +92,15 @@ class AutenticarUsuarioUseCase
         }
     }
 
-    /**
-     * Verifica se usuário está autenticado
-     */
+    
+    // Verifica se usuário está autenticado
     public function verificarAutenticacao(): bool
     {
         return $this->authentication->verificarAutenticacao();
     }
 
-    /**
-     * Realiza logout
-     */
+    
+    // Realiza logout
     public function logout(): void
     {
         $this->authentication->logout();

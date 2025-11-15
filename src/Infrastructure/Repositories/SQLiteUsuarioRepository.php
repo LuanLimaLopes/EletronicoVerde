@@ -7,6 +7,7 @@ use EletronicoVerde\Domain\Entities\Usuario;
 use EletronicoVerde\Domain\Interfaces\UsuarioRepositoryInterface;
 use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
 use PDO;
+use EletronicoVerde\Infrastructure\Logger;
 
 class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
 {
@@ -17,9 +18,7 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
         $this->db = SQLiteConnection::getInstance();
     }
 
-    /**
-     * Salva um novo usuário
-     */
+    //Salva um novo usuário
     public function salvar(Usuario $usuario): bool
     {
         try {
@@ -40,14 +39,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $result;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao salvar usuário: " . $e->getMessage());
+            logger::error("Erro ao salvar usuário: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Atualiza um usuário existente
-     */
+    //Atualiza um usuário existente
     public function atualizar(Usuario $usuario): bool
     {
         try {
@@ -66,14 +63,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             ]);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao atualizar usuário: " . $e->getMessage());
+            logger::error("Erro ao atualizar usuário: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Busca um usuário por ID
-     */
+    //Busca um usuário por ID
     public function buscarPorId(int $id): ?Usuario
     {
         try {
@@ -90,14 +85,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $this->converterParaEntidade($dados);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar usuário: " . $e->getMessage());
+            logger::error("Erro ao buscar usuário: " . $e->getMessage());
             return null;
         }
     }
 
-    /**
-     * Busca um usuário por email
-     */
+    //Busca um usuário por email
     public function buscarPorEmail(string $email): ?Usuario
     {
         try {
@@ -114,14 +107,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $this->converterParaEntidade($dados);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar usuário por email: " . $e->getMessage());
+            logger::error("Erro ao buscar usuário por email: " . $e->getMessage());
             return null;
         }
     }
 
-    /**
-     * Busca um usuário por nome (username)
-    */
+    //Busca um usuário por nome (username)
     public function buscarPorNome(string $nome): ?Usuario
     {
         try {
@@ -138,14 +129,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $this->converterParaEntidade($dados);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar usuário por nome: " . $e->getMessage());
+            logger::error("Erro ao buscar usuário por nome: " . $e->getMessage());
             return null;
         }
     }
 
-    /**
-     * Lista todos os usuários
-     */
+    //Lista todos os usuários
     public function listarTodos(): array
     {
         try {
@@ -161,14 +150,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $usuarios;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao listar usuários: " . $e->getMessage());
+            logger::error("Erro ao listar usuários: " . $e->getMessage());
             return [];
         }
     }
 
-    /**
-     * Exclui um usuário
-     */
+    //Exclui um usuário
     public function excluir(int $id): bool
     {
         try {
@@ -177,14 +164,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $stmt->execute([':id' => $id]);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao excluir usuário: " . $e->getMessage());
+            logger::error("Erro ao excluir usuário: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Verifica se email já está em uso
-     */
+    //Verifica se email já está em uso
     public function emailExiste(string $email, ?int $excluirId = null): bool
     {
         try {
@@ -205,14 +190,12 @@ class SQLiteUsuarioRepository implements UsuarioRepositoryInterface
             return $stmt->fetchColumn() > 0;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao verificar email: " . $e->getMessage());
+            logger::error("Erro ao verificar email: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Converte array do banco para Entidade
-     */
+    //Converte array do banco para Entidade
     private function converterParaEntidade(array $dados): Usuario
     {
         $usuario = new Usuario(

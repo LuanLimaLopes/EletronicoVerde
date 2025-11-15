@@ -27,9 +27,8 @@ class AuthController
         );
     }
 
-    /**
-     * Exibe página de login
-     */
+    
+    //Exibe página de login 
     public function login(): void
     {
         // Redireciona se já estiver autenticado
@@ -41,9 +40,8 @@ class AuthController
         require_once __DIR__ . '/../Views/auth/login.php';
     }
 
-    /**
-     * Processa login
-     */
+    
+    //Processa login
     public function autenticar(): void
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -72,9 +70,7 @@ class AuthController
         exit;
     }
 
-    /**
-     * Realiza logout
-     */
+    //Realiza logout
     public function logout(): void
     {
         $this->autenticarUseCase->logout();
@@ -82,9 +78,7 @@ class AuthController
         exit;
     }
 
-    /**
-     * Exibe página de acesso restrito
-     */
+    //Exibe página de acesso restrito
     public function acessoRestrito(): void
     {
         $this->auth->requerAutenticacao();

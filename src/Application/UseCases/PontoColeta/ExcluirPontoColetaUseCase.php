@@ -15,9 +15,7 @@ class ExcluirPontoColetaUseCase
         $this->pontoColetaRepository = $pontoColetaRepository;
     }
 
-    /**
-     * Executa a exclusão do ponto de coleta
-     */
+    //Executa a exclusão do ponto de coleta
     public function executar(int $id): array
     {
         try {

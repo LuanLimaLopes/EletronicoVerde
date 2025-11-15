@@ -38,6 +38,4 @@ if (APP_ENV === 'development') {
     ini_set('error_log', STORAGE_PATH . '/logs/app.log');
 }
 
-// remova/evite echo de debug aqui
-//echo "Conexão com banco de dados estabelecida com sucesso!";
 ?>

@@ -8,6 +8,7 @@ use EletronicoVerde\Domain\Entities\Material;
 use EletronicoVerde\Domain\Interfaces\PontoColetaRepositoryInterface;
 use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
 use PDO;
+use EletronicoVerde\Infrastructure\Logger;
 
 class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
 {
@@ -18,9 +19,7 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
         $this->db = SQLiteConnection::getInstance();
     }
 
-    /**
-     * Salva um novo ponto de coleta
-     */
+    //Salva um novo ponto de coleta
     public function salvar(PontoColeta $pontoColeta): bool
     {
         try {
@@ -65,14 +64,12 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
 
         } catch (\PDOException $e) {
             $this->db->rollBack();
-            error_log("Erro ao salvar ponto de coleta: " . $e->getMessage());
+            logger::error("Erro ao salvar ponto de coleta: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Atualiza um ponto de coleta existente
-     */
+    //Atualiza um ponto de coleta existente
     public function atualizar(PontoColeta $pontoColeta): bool
     {
         try {
@@ -127,14 +124,12 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
 
         } catch (\PDOException $e) {
             $this->db->rollBack();
-            error_log("Erro ao atualizar ponto de coleta: " . $e->getMessage());
+            logger::error("Erro ao atualizar ponto de coleta: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Busca um ponto de coleta por ID
-     */
+    //Busca um ponto de coleta por ID
     public function buscarPorId(int $id): ?PontoColeta
     {
         try {
@@ -159,14 +154,12 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
             return $pontoColeta;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar ponto de coleta: " . $e->getMessage());
+            logger::error("Erro ao buscar ponto de coleta: " . $e->getMessage());
             return null;
         }
     }
 
-    /**
-     * Lista todos os pontos de coleta
-     */
+    //Lista todos os pontos de coleta
     public function listarTodos(bool $apenasAtivos = true): array
     {
         try {
@@ -197,14 +190,12 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
             return $pontosColeta;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao listar pontos de coleta: " . $e->getMessage());
+            logger::error("Erro ao listar pontos de coleta: " . $e->getMessage());
             return [];
         }
     }
 
-    /**
-     * Busca pontos por CEP
-     */
+    //Busca pontos por CEP
     public function buscarPorCep(string $cep): array
     {
         try {
@@ -251,14 +242,12 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
             return $stmt->execute([':id' => $id]);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao excluir ponto de coleta: " . $e->getMessage());
+            logger::error("Erro ao excluir ponto de coleta: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Vincula materiais a um ponto de coleta
-     */
+    //Vincula materiais a um ponto de coleta
     private function vincularMateriais(int $pontoColetaId, array $materiais): void
     {
         $sql = "INSERT INTO ponto_coleta_materiais (ponto_coleta_id, material_id) 
@@ -274,9 +263,7 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
         }
     }
 
-    /**
-     * Remove todos os materiais de um ponto de coleta
-     */
+    //Remove todos os materiais de um ponto de coleta
     private function removerTodosMateriais(int $pontoColetaId): void
     {
         $sql = "DELETE FROM ponto_coleta_materiais WHERE ponto_coleta_id = :ponto_coleta_id";
@@ -284,9 +271,7 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
         $stmt->execute([':ponto_coleta_id' => $pontoColetaId]);
     }
 
-    /**
-     * Busca materiais relacionados a um ponto de coleta
-     */
+    //Busca materiais relacionados a um ponto de coleta
     private function buscarMateriaisPorPontoColeta(int $pontoColetaId): array
     {
         $sql = "SELECT m.* FROM materiais m
@@ -315,9 +300,7 @@ class SQLitePontoColetaRepository implements PontoColetaRepositoryInterface
         return $materiais;
     }
 
-    /**
-     * Converte array do banco para Entidade
-     */
+    //Converte array do banco para Entidade
     private function converterParaEntidade(array $dados): PontoColeta
     {
         $pontoColeta = new PontoColeta(

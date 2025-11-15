@@ -3,7 +3,7 @@
 
 # Logs
 storage/logs/*.log
-*.log
+.log
 
 # Sistema Operacional
 .DS_Store

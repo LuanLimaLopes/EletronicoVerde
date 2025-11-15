@@ -57,9 +57,7 @@ class Usuario
     public function setCreatedAt(string $createdAt): void { $this->createdAt = $createdAt; }
     public function setUpdatedAt(string $updatedAt): void { $this->updatedAt = $updatedAt; }
 
-    /**
-     * Valida os dados da entidade
-     */
+    //Valida os dados da entidade
     private function validate(): void
     {
         if (empty($this->nome)) {
@@ -75,25 +73,19 @@ class Usuario
         }
     }
 
-    /**
-     * Verifica se a senha fornecida corresponde ao hash armazenado
-     */
+    //Verifica se a senha fornecida corresponde ao hash armazenado
     public function verificarSenha(string $senhaFornecida): bool
     {
         return password_verify($senhaFornecida, $this->senha);
     }
 
-    /**
-     * Define uma nova senha (já deve vir hasheada)
-     */
+    //Define uma nova senha (já deve vir hasheada)
     public function alterarSenha(string $novaSenhaHash): void
     {
         $this->senha = $novaSenhaHash;
     }
 
-    /**
-     * Converte para array (sem incluir senha)
-     */
+    //Converte para array (sem incluir senha)
     public function toArray(bool $incluirSenha = false): array
     {
         $data = [

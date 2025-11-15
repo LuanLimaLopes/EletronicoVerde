@@ -127,9 +127,7 @@ class PontoColeta
     public function setCreatedAt(string $createdAt): void { $this->createdAt = $createdAt; }
     public function setUpdatedAt(string $updatedAt): void { $this->updatedAt = $updatedAt; }
 
-    /**
-     * Adiciona um material à lista de materiais aceitos
-     */
+    //Adiciona um material à lista de materiais aceitos
     public function adicionarMaterial(Material $material): void
     {
         if (!$this->temMaterial($material->getId())) {
@@ -137,9 +135,7 @@ class PontoColeta
         }
     }
 
-    /**
-     * Remove um material da lista
-     */
+    //Remove um material da lista
     public function removerMaterial(int $materialId): void
     {
         $this->materiais = array_filter(
@@ -148,9 +144,7 @@ class PontoColeta
         );
     }
 
-    /**
-     * Verifica se possui um material específico
-     */
+    //Verifica se possui um material específico
     public function temMaterial(int $materialId): bool
     {
         foreach ($this->materiais as $material) {
@@ -161,9 +155,7 @@ class PontoColeta
         return false;
     }
 
-    /**
-     * Valida os dados da entidade
-     */
+    //Valida os dados da entidade
     private function validate(): void
     {
         if (empty($this->empresa)) {
@@ -183,25 +175,19 @@ class PontoColeta
         }
     }
 
-    /**
-     * Remove caracteres especiais do CEP
-     */
+    //Remove caracteres especiais do CEP
     private function sanitizeCep(string $cep): string
     {
         return preg_replace('/[^0-9]/', '', $cep);
     }
 
-    /**
-     * Remove caracteres especiais do telefone
-     */
+    //Remove caracteres especiais do telefone
     private function sanitizeTelefone(string $telefone): string
     {
         return preg_replace('/[^0-9]/', '', $telefone);
     }
 
-    /**
-     * Retorna endereço completo formatado
-     */
+    //Retorna endereço completo formatado
      public function getEnderecoCompleto(): string
     {
         $endereco = $this->endereco . ', ' . $this->numero;
@@ -221,17 +207,13 @@ class PontoColeta
         return $endereco . ' - CEP: ' . $this->getCepFormatado();
     }
 
-    /**
-     * Retorna CEP formatado (00000-000)
-     */
+    //Retorna CEP formatado (00000-000)
     public function getCepFormatado(): string
     {
         return substr($this->cep, 0, 5) . '-' . substr($this->cep, 5);
     }
 
-    /**
-     * Retorna telefone formatado
-     */
+    //Retorna telefone formatado
     public function getTelefoneFormatado(): string
     {
         $length = strlen($this->telefone);
@@ -251,9 +233,7 @@ class PontoColeta
         return $this->telefone;
     }
 
-    /**
-     * Converte para array
-     */
+    //Converte para array
     public function toArray(): array
     {
         return [

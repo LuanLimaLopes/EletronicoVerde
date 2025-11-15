@@ -7,6 +7,7 @@ use EletronicoVerde\Domain\Entities\Material;
 use EletronicoVerde\Domain\Interfaces\MaterialRepositoryInterface;
 use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
 use PDO;
+use EletronicoVerde\Infrastructure\Logger;
 
 class SQLiteMaterialRepository implements MaterialRepositoryInterface
 {
@@ -17,9 +18,7 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
         $this->db = SQLiteConnection::getInstance();
     }
 
-    /**
-     * Salva um novo material
-     */
+    //Salva um novo material
     public function salvar(Material $material): bool
     {
         try {
@@ -40,14 +39,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $result;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao salvar material: " . $e->getMessage());
+            logger::error("Erro ao salvar material: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Atualiza um material existente
-     */
+    //Atualiza um material existente
     public function atualizar(Material $material): bool
     {
         try {
@@ -66,14 +63,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             ]);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao atualizar material: " . $e->getMessage());
+            logger::error("Erro ao atualizar material: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Busca um material por ID
-     */
+    //Busca um material por ID
     public function buscarPorId(int $id): ?Material
     {
         try {
@@ -90,14 +85,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $this->converterParaEntidade($dados);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar material: " . $e->getMessage());
+            logger::error("Erro ao buscar material: " . $e->getMessage());
             return null;
         }
     }
 
-    /**
-     * Busca um material por nome
-     */
+    //Busca um material por nome
     public function buscarPorNome(string $nome): ?Material
     {
         try {
@@ -114,14 +107,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $this->converterParaEntidade($dados);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar material por nome: " . $e->getMessage());
+            logger::error("Erro ao buscar material por nome: " . $e->getMessage());
             return null;
         }
     }
 
-    /**
-     * Lista todos os materiais
-     */
+    //Lista todos os materiais
     public function listarTodos(): array
     {
         try {
@@ -137,14 +128,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $materiais;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao listar materiais: " . $e->getMessage());
+            logger::error("Erro ao listar materiais: " . $e->getMessage());
             return [];
         }
     }
 
-    /**
-     * Busca materiais por IDs
-     */
+    //Busca materiais por IDs
     public function buscarPorIds(array $ids): array
     {
         if (empty($ids)) {
@@ -168,14 +157,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $materiais;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao buscar materiais por IDs: " . $e->getMessage());
+            logger::error("Erro ao buscar materiais por IDs: " . $e->getMessage());
             return [];
         }
     }
 
-    /**
-     * Exclui um material
-     */
+    //Exclui um material
     public function excluir(int $id): bool
     {
         try {
@@ -184,14 +171,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $stmt->execute([':id' => $id]);
 
         } catch (\PDOException $e) {
-            error_log("Erro ao excluir material: " . $e->getMessage());
+            logger::error("Erro ao excluir material: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Verifica se material existe por nome
-     */
+    //Verifica se material existe por nome
     public function existePorNome(string $nome, ?int $excluirId = null): bool
     {
         try {
@@ -212,14 +197,12 @@ class SQLiteMaterialRepository implements MaterialRepositoryInterface
             return $stmt->fetchColumn() > 0;
 
         } catch (\PDOException $e) {
-            error_log("Erro ao verificar existência de material: " . $e->getMessage());
+            logger::error("Erro ao verificar existência de material: " . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Converte array do banco para Entidade
-     */
+    //Converte array do banco para Entidade
     private function converterParaEntidade(array $dados): Material
     {
         $material = new Material(

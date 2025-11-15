@@ -14,9 +14,7 @@ class ListarPontosColetaUseCase
         $this->pontoColetaRepository = $pontoColetaRepository;
     }
 
-    /**
-     * Lista todos os pontos de coleta
-     */
+    //Lista todos os pontos de coleta
     public function executar(bool $apenasAtivos = true): array
     {
         try {
@@ -38,9 +36,7 @@ class ListarPontosColetaUseCase
         }
     }
 
-    /**
-     * Busca pontos por CEP
-     */
+    //Busca pontos por CEP
     public function buscarPorCep(string $cep): array
     {
         try {

@@ -40,9 +40,7 @@ class PontoColetaDTO
         $this->materiaisIds = $dados['materiais_ids'] ?? [];
     }
 
-    /**
-     * Cria DTO a partir de dados POST
-     */
+    //Cria DTO a partir de dados POST
     public static function fromPost(array $post): self
     {
         $materiaisIds = [];

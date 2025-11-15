@@ -8,14 +8,10 @@ use EletronicoVerde\Presentation\Controllers\ReciclagemController;
 use EletronicoVerde\Presentation\Controllers\AuthController;
 use EletronicoVerde\Infrastructure\Logger;
 
-// ========================================
 // 1. CAPTURA MÉTODO HTTP
-// ========================================
 $method = $_SERVER['REQUEST_METHOD'];
 
-// ========================================
 // 2. PROCESSA A ROTA
-// ========================================
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $base = '/eletronicoverde';
 
@@ -32,18 +28,11 @@ if ($route !== '/' && substr($route, -1) === '/') {
     $route = rtrim($route, '/');
 }
 
-// ========================================
 // 3. CONEXÃO COM BANCO
-// ========================================
 $connection = SQLiteConnection::getInstance();
 
-// ========================================
 // 4. ROTEAMENTO
-// ========================================
 switch ($route) {
-    // ========================================
-    // HOME
-    // ========================================
     case '/':
     case '/home':
     case '/index.php':
@@ -51,9 +40,7 @@ switch ($route) {
         $controller->index();
         break;
 
-    // ========================================
     // PONTOS DE COLETA
-    // ========================================
     case '/pontos-coleta':
         $controller = new PontoColetaController();
         $controller->index();
@@ -100,9 +87,7 @@ switch ($route) {
         $controller->sucessoCadastro();
         break;
 
-    // ========================================
     // APIs DE PONTOS DE COLETA
-    // ========================================
     
     // API: Busca pontos próximos (por coordenadas)
     case '/api/pontos/buscar-proximos':
@@ -122,9 +107,7 @@ switch ($route) {
         $controller->buscarPorCep();
         break;
 
-    // ========================================
     // MATERIAIS
-    // ========================================
     case '/materiais-aceitos':
     case '/materiais_aceitos.php':
         $controller = new MaterialController();
@@ -136,29 +119,26 @@ switch ($route) {
         $controller->listar();
         break;
 
-    // ========================================
     // RECICLAGEM
-    // ========================================
     case '/reciclagem':
     case '/reciclagem.php':
         $controller = new ReciclagemController();
         $controller->index();
         break;
 
-    // ========================================
+
     // AUTENTICAÇÃO 
-    // ========================================
     case '/login':
     case '/login.php':
         $controller = new AuthController();
         
         if ($method === 'POST') {
             // Processa o login quando for POST
-            logger::error("🔐 Processando autenticação via POST");
+            logger::info("🔐 Processando autenticação via POST");
             $controller->autenticar();
         } else {
             // Exibe o formulário quando for GET
-            logger::error("📄 Exibindo formulário de login via GET");
+            logger::info("📄 Exibindo formulário de login via GET");
             $controller->login();
         }
         break;
@@ -174,11 +154,9 @@ switch ($route) {
         $controller->acessoRestrito();
         break;
 
-    // ========================================
     // 404 - NÃO ENCONTRADO
-    // ========================================
     default:
-        error_log("⚠️ Rota não encontrada: " . $route);
+        logger::error("⚠️ Rota não encontrada: " . $route);
         http_response_code(404);
         require VIEWS_PATH . '/404.php';
         break;

@@ -56,9 +56,7 @@ class Material
     public function setCreatedAt(string $createdAt): void { $this->createdAt = $createdAt; }
     public function setUpdatedAt(string $updatedAt): void { $this->updatedAt = $updatedAt; }
 
-    /**
-     * Valida os dados da entidade
-     */
+    //Valida os dados da entidade
     private function validate(): void
     {
         if (empty($this->nome)) {
@@ -70,9 +68,7 @@ class Material
         }
     }
 
-    /**
-     * Retorna o ícone FontAwesome completo
-     */
+    //Retorna o ícone FontAwesome completo
     public function getIconeCompleto(): string
     {
         if ($this->icone) {
@@ -81,9 +77,7 @@ class Material
         return 'fa-solid fa-microchip'; // ícone padrão
     }
 
-    /**
-     * Converte para array
-     */
+    //Converte para array
     public function toArray(): array
     {
         return [

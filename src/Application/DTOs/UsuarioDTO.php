@@ -16,9 +16,7 @@ class UsuarioDTO
         $this->senha = $dados['senha'] ?? '';
     }
 
-    /**
-     * Cria DTO a partir de dados POST
-     */
+    //Cria DTO a partir de dados POST
     public static function fromPost(array $post): self
     {
         return new self([

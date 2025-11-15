@@ -12,6 +12,7 @@ use EletronicoVerde\Infrastructure\Repositories\SQLitePontoColetaRepository;
 use EletronicoVerde\Infrastructure\Repositories\SQLiteMaterialRepository;
 use EletronicoVerde\Infrastructure\Security\Authentication;
 use EletronicoVerde\Infrastructure\Security\CSRF;
+use EletronicoVerde\Infrastructure\Logger;
 
 class PontoColetaController
 {
@@ -46,9 +47,7 @@ class PontoColetaController
         $this->csrf = new CSRF();
     }
 
-    /**
-     * Exibe página de pontos de coleta (mapa)
-     */
+    //Exibe página de pontos de coleta (mapa)
     public function index(): void
     {
         $pageTitle = 'Pontos de Coleta - Eletrônico Verde';
@@ -60,9 +59,7 @@ class PontoColetaController
         require_once __DIR__ . '/../Views/pontos-coleta/index.php';
     }
 
-    /**
-     * Exibe formulário de cadastro
-     */
+    //Exibe formulário de cadastro
     public function cadastro(): void
     {
         $this->auth->requerAutenticacao();
@@ -74,9 +71,7 @@ class PontoColetaController
         require_once __DIR__ . '/../Views/pontos-coleta/cadastro.php';
     }
 
-    /**
-     * Processa cadastro de ponto
-     */
+    //Processa cadastro de ponto
     public function salvar(): void
     {
         $this->auth->requerAutenticacao();
@@ -106,9 +101,7 @@ class PontoColetaController
         exit;
     }
 
-    /**
-     * Exibe lista de pontos (admin)
-     */
+    //Exibe lista de pontos (admin)
     public function consultar(): void
     {
         $this->auth->requerAutenticacao();
@@ -121,9 +114,7 @@ class PontoColetaController
         require_once __DIR__ . '/../Views/pontos-coleta/consultar.php';
     }
 
-    /**
-     * Exibe formulário de edição
-     */
+    //Exibe formulário de edição
     public function editar(): void
     {
         $this->auth->requerAutenticacao();
@@ -150,9 +141,7 @@ class PontoColetaController
         require_once __DIR__ . '/../Views/pontos-coleta/editar.php';
     }
 
-    /**
-     * Processa atualização de ponto
-     */
+    //Processa atualização de ponto
     public function atualizar(): void
     {
         $this->auth->requerAutenticacao();
@@ -188,9 +177,7 @@ class PontoColetaController
         exit;
     }
 
-    /**
-     * Exclui um ponto de coleta
-     */
+    //Exclui um ponto de coleta
     public function excluir(): void
     {
         $this->auth->requerAutenticacao();
@@ -233,9 +220,7 @@ class PontoColetaController
         exit;
     }
 
-    /**
-     * API: Busca pontos próximos a uma localização (lat/lng)
-     */
+    //API: Busca pontos próximos a uma localização (lat/lng)
     public function buscarProximos(): void
     {
         header('Content-Type: application/json');
@@ -294,7 +279,7 @@ class PontoColetaController
             ]);
             
         } catch (\Exception $e) {
-            error_log("Erro ao buscar pontos próximos: " . $e->getMessage());
+            logger::error("Erro ao buscar pontos próximos: " . $e->getMessage());
             echo json_encode([
                 'sucesso' => false,
                 'mensagem' => 'Erro ao buscar pontos de coleta.'
@@ -303,9 +288,7 @@ class PontoColetaController
         exit;
     }
 
-    /**
-     * API: Lista todos os pontos de coleta (JSON)
-     */
+    //API: Lista todos os pontos de coleta (JSON)
     public function listarTodos(): void
     {
         header('Content-Type: application/json');
@@ -314,7 +297,7 @@ class PontoColetaController
             $resultado = $this->listarUseCase->executar(true);
             echo json_encode($resultado);
         } catch (\Exception $e) {
-            error_log("Erro ao listar pontos: " . $e->getMessage());
+            logger::error("Erro ao listar pontos: " . $e->getMessage());
             echo json_encode([
                 'sucesso' => false,
                 'mensagem' => 'Erro ao buscar pontos de coleta.',
@@ -324,9 +307,7 @@ class PontoColetaController
         exit;
     }
 
-    /**
-     * Página de sucesso
-     */
+    //Página de sucesso
     public function sucessoCadastro(): void
     {
         $this->auth->requerAutenticacao();

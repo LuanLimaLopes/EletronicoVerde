@@ -19,9 +19,7 @@ class Authentication
         }
     }
 
-    /**
-     * Realiza login do usuário
-     */
+    //Realiza login do usuário
     public function login(Usuario $usuario): void
     {
         $_SESSION[self::SESSION_KEY] = true;
@@ -33,50 +31,38 @@ class Authentication
         session_regenerate_id(true);
     }
 
-    /**
-     * Realiza logout
-     */
+    //Realiza logout
     public function logout(): void
     {
         session_unset();
         session_destroy();
     }
 
-    /**
-     * Verifica se usuário está autenticado
-     */
+    //Verifica se usuário está autenticado
     public function verificarAutenticacao(): bool
     {
         return isset($_SESSION[self::SESSION_KEY]) && $_SESSION[self::SESSION_KEY] === true;
     }
 
-    /**
-     * Obtém ID do usuário autenticado
-     */
+    //Obtém ID do usuário autenticado
     public function getUsuarioId(): ?int
     {
         return $_SESSION[self::SESSION_ID_KEY] ?? null;
     }
 
-    /**
-     * Obtém nome do usuário autenticado
-     */
+    //Obtém nome do usuário autenticado
     public function getUsuarioNome(): ?string
     {
         return $_SESSION[self::SESSION_NOME_KEY] ?? null;
     }
 
-    /**
-     * Obtém email do usuário autenticado
-     */
+    //Obtém email do usuário autenticado
     public function getUsuarioEmail(): ?string
     {
         return $_SESSION[self::SESSION_EMAIL_KEY] ?? null;
     }
 
-    /**
-     * Redireciona se não estiver autenticado
-     */
+    //Redireciona se não estiver autenticado
     public function requerAutenticacao(string $redirectUrl = '/eletronicoverde/login'): void
     {
         if (!$this->verificarAutenticacao()) {
@@ -85,9 +71,7 @@ class Authentication
         }
     }
 
-    /**
-     * Redireciona se já estiver autenticado
-     */
+    //Redireciona se já estiver autenticado
     public function redirecionarSeAutenticado(string $redirectUrl = '/eletronicoverde/acesso-restrito'): void
     {
         if ($this->verificarAutenticacao()) {

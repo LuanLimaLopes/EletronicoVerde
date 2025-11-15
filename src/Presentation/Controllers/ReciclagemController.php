@@ -5,9 +5,7 @@ namespace EletronicoVerde\Presentation\Controllers;
 
 class ReciclagemController
 {
-    /**
-     * Exibe página sobre reciclagem
-     */
+    //Exibe página sobre reciclagem
     public function index(): void
     {
         $pageTitle = 'Reciclagem - Eletrônico Verde';

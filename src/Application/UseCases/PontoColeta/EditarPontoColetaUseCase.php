@@ -20,9 +20,7 @@ class EditarPontoColetaUseCase
         $this->materialRepository = $materialRepository;
     }
 
-    /**
-     * Busca ponto de coleta por ID para edição
-     */
+    //Busca ponto de coleta por ID para edição
     public function buscarPorId(int $id): array
     {
         try {
@@ -49,9 +47,7 @@ class EditarPontoColetaUseCase
         }
     }
 
-    /**
-     * Executa a atualização do ponto de coleta
-     */
+    //Executa a atualização do ponto de coleta
     public function executar(int $id, PontoColetaDTO $dto): array
     {
         try {
@@ -133,9 +129,7 @@ class EditarPontoColetaUseCase
         }
     }
 
-    /**
-     * Valida os dados do DTO
-     */
+    //Valida os dados do DTO
     private function validarDados(PontoColetaDTO $dto): void
     {
         if (empty($dto->empresa)) {
