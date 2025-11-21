@@ -146,19 +146,19 @@
         </div>
       </div>
       
-      <div class="mx-auto container mt-[15vh] min-h-screen relative flex flex-col gap-10">
+      <div class="mx-auto container mt-[15vh] min-h-screen relative flex flex-col gap-10 px-4 md:px-0">
         <h1 class="text-4xl font-bold text-black text-center fade-section">
             Contribua para a <span class="text-primary font-dm-serif-display italic">sustentabilidade</span>
         </h1>  
 
         <!-- Card 1 -->
         <div class="sust-1 z-1 relative sm:sticky h-auto md:h-[20rem] text-cinza-txt border-t-3 border-primary p-5 sm:mb-[18rem] md:mb-[20rem] sm:top-[calc(20vh+0.5em)] font-black fade-section">
-            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
-            <div class="flex flex-row justify-between items-center">
-              <span class="z-5 text-2xl md:text-3xl flex flex-row gap-5 py-5 text-primary fade-up">
+            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed] "></div>
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-10">
+              <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-primary fade-up">
                   <i class="fa-solid fa-handshake-simple text-primary"></i> Contribuição Social
               </span>
-              <span class="text-2xl md:text-3xl text-primary">(01)</span>
+              <span class="text-1xl sm:text-3xl text-primary">(01)</span>
             </div>
             <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="z-5 text-lg md:text-2xl lg:max-w-2/3 max-w-full font-bold">
@@ -174,12 +174,12 @@
   
         <!-- Card 2 -->
         <div class="sust-2 z-1 relative sm:sticky h-auto md:h-[20rem] text-cinza-txt border-t-3 border-second p-5 sm:mb-[12rem] md:mb-[14rem] sm:top-[calc(20vh+6.5em)] md:top-[calc(20vh+7em)] font-black">
-            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
-            <div class="flex flex-row justify-between items-center">
-              <span class="z-5 text-2xl md:text-3xl flex flex-row gap-5 py-5 text-second fade-up">
+            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed] "></div>
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-10">
+              <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-second fade-up">
                   <i class="fa-solid fa-brain text-second"></i> Conscientização
               </span>
-              <span class="text-2xl md:text-3xl text-second fade-up">(02)</span>
+              <span class="text-1xl sm:text-3xl text-second fade-up">(02)</span>
             </div>
             <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="text-lg md:text-2xl z-5 lg:max-w-2/3 max-w-full font-bold">
@@ -195,12 +195,12 @@
   
         <!-- Card 3 -->
         <div class="z-1 relative sm:sticky h-auto md:h-[20rem] sm:top-[calc(20vh+8.5em)] text-cinza-txt border-t-3 border-third p-5 sm:mb-[7.5rem] font-black">
-            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed]"></div>
-            <div class="flex flex-row justify-between items-center">
-              <span class="z-5 text-2xl md:text-3xl flex flex-row gap-5 py-5 text-third fade-up">
+            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed] "></div>
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-10">
+              <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-third fade-up">
                   <i class="fa-solid fa-hand-pointer text-third"></i> Facilidade de Uso
               </span>
-              <span class="text-2xl md:text-3xl text-third fade-up">(03)</span>
+              <span class="text-1xl sm:text-3xl text-third fade-up">(03)</span>
             </div>
             <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="text-lg md:text-2xl z-5 lg:max-w-2/3 max-w-full font-bold">

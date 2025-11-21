@@ -1,5 +1,5 @@
-<footer class="bg-primary relative w-full h-[30rem] md:h-[20rem] flex justify-center z-0">
-  <div class="bg-primary fixed bottom-0 h-[30rem] md:h-[20rem] w-full rounded-t-4xl justify-between p-10 flex flex-col gap-10">
+<footer class="bg-primary relative w-full h-[30rem] md:h-[25rem] flex justify-center z-0">
+  <div class="bg-primary fixed bottom-0 h-[30rem] md:h-[25rem] w-full rounded-t-4xl justify-between p-10 flex flex-col gap-10">
 
     <!-- LOGO -->
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start items-start gap-10">
@@ -22,7 +22,7 @@
       <!-- Links -->
       <div class="flex flex-col gap-8 items-start sm:items-end">
 
-        <ul class="flex flex-col gap-2 text-white text-lg text-start sm:text-right">
+        <ul class="flex flex-col gap-5 text-white text-lg text-start sm:text-right">
           <li>
             <a href="/eletronicoverde"
                class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">

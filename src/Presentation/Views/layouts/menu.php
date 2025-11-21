@@ -80,33 +80,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  window.addEventListener("scroll", () => {
-    const scrolled = window.scrollY > 50;
+window.addEventListener("scroll", () => {
+  const scrolled = window.scrollY > 50;
 
-    // Estilos do navbar baseado no scroll
-    navbar.classList.toggle("md:border", scrolled);
-    navbar.classList.toggle("md:border-[#d2d2d2cc]", scrolled);
-    navbar.classList.toggle("md:m-3", scrolled);
-    navbar.classList.toggle("md:bg-[#ffffff59]", scrolled);
-    navbar.classList.toggle("md:shadow-lg", scrolled);
-    navbar.classList.toggle("md:backdrop-blur-md", scrolled);
+  // Estilos do navbar baseado no scroll
+  navbar.classList.toggle("md:border", scrolled);
+  navbar.classList.toggle("md:border-[#d2d2d2cc]", scrolled);
+  navbar.classList.toggle("md:m-3", scrolled);
+  navbar.classList.toggle("md:bg-[#ffffff59]", scrolled);
+  navbar.classList.toggle("md:shadow-lg", scrolled);
+  navbar.classList.toggle("md:backdrop-blur-md", scrolled);
 
-    navbar1.classList.toggle("border-b", scrolled);
-    navbar1.classList.toggle("border-[#d2d2d2cc]", scrolled);
-    navbar1.classList.toggle("bg-[#ffffff59]", scrolled);
-    navbar1.classList.toggle("shadow-lg", scrolled);
-    navbar1.classList.toggle("backdrop-blur-md", scrolled);
+  navbar1.classList.toggle("border-b", scrolled);
+  navbar1.classList.toggle("border-[#d2d2d2cc]", scrolled);
+  navbar1.classList.toggle("bg-[#ffffff59]", scrolled);
+  navbar1.classList.toggle("shadow-lg", scrolled);
+  navbar1.classList.toggle("backdrop-blur-md", scrolled);
 
-    if (isHome) {
-      navLinks.forEach(link => {
-        if (!link.classList.contains("text-primary")) {
-          link.classList.toggle("text-black", scrolled);
-          link.classList.toggle("text-white", !scrolled);
-          link.classList.toggle("text-shadow-xl", !scrolled);
-        }
-      });
-    }
+  // Linhas do botão hambúrguer
+  lines.forEach(line => {
+    line.classList.toggle("bg-black", scrolled);
+    line.classList.toggle("bg-white", !scrolled);
   });
+
+  // Links
+  if (isHome) {
+    navLinks.forEach(link => {
+      const isActive = link.classList.contains("text-primary");
+
+      if (!isActive) {
+        link.classList.toggle("text-black", scrolled);
+        link.classList.toggle("text-white", !scrolled);
+      }
+    });
+  }
+});
 
 
   /* ----------------------------
@@ -142,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
              class="max-w-15 transition-all duration-150" />
         
         <span id="logo"
-              class="hidden md:block bg-primary text-white p-2 rounded-3xl rounded-tl-none border-2 border-primary relative
+              class="hidden sm:flex bg-primary text-white p-2 rounded-3xl rounded-tl-none border-2 border-primary relative
                      overflow-hidden z-1 transition-all duration-150
                      group-hover:text-primary group-hover:rounded-tr-sm group-hover:rounded-tl-3xl
                      before:absolute before:left-0 before:bottom-0 before:h-full before:w-0 before:bg-white
@@ -153,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </a>
 
     <!-- MENU DESKTOP -->
-    <ul id="ul-menu" class="hidden md:flex flex-row gap-5 lg:gap-10 font-medium text-base lg:text-lg">
+    <ul id="ul-menu" class="hidden md:flex flex-row gap-5 lg:gap-10 font-medium text-base lg:text-lg transition-all duration-300">
       <li><a href="/eletronicoverde" class="nav-item">Início</a></li>
       <li><a href="<?= BASE_URL ?>/pontos-coleta" class="nav-item">Pontos de Coleta</a></li>
       <li><a href="<?= BASE_URL ?>/materiais-aceitos" class="nav-item">Materiais Aceitos</a></li>
@@ -162,14 +170,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"
-         class="fixed bottom-0 left-0 h-1 w-0 bg-primary z-10 transition-[width] duration-100"></div>
+         class="fixed bottom-0 left-0 h-1 w-0 bg-primary z-10 transition-[width] duration-100">
+    </div>
   </div>
 
   <!-- BOTÃO MOBILE -->
   <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 z-[9999]">
-    <span class="line w-8 h-1 bg-white rounded transition-all duration-300"></span>
-    <span class="line w-8 h-1 bg-white rounded transition-all duration-300"></span>
-    <span class="line w-8 h-1 bg-white rounded transition-all duration-300"></span>
+    <span class="line w-8 h-1 bg-white rounded-full transition-all duration-300"></span>
+    <span class="line w-8 h-1 bg-white rounded-full transition-all duration-300"></span>
+    <span class="line w-8 h-1 bg-white rounded-full transition-all duration-300"></span>
   </button>
 
   <!-- MENU MOBILE (Opção A — Slide de cima) -->
