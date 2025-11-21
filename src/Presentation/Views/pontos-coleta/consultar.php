@@ -86,8 +86,8 @@
         <?php else: ?>
           <div class="text-center pt-20 flex flex-col items-center justify-center gap-5">
             <p class="text-xl">Nenhum ponto de coleta cadastrado.</p>
-            <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-second transition font-bold">
-                Cadastrar Primeiro Ponto
+            <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-second transition font-bold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-plus"></i>Cadastrar ponto de Coleta
             </a>
           </div>
         <?php endif; ?>

@@ -37,7 +37,7 @@ $csrf = new CSRF();
             <label for="password" class="font-bold text-lg w-full text-cinza-txt">Senha</label>
             <input type="password" id="password" name="password" required class="border border-gray-600 p-3 rounded-xl w-full mb-20">
             
-            <button type="submit" class="text-white bg-primary py-3 px-40 font-bold text-xl w-fit rounded-lg hover:bg-second transition-all">
+            <button type="submit" class="text-white bg-primary py-3 px-40 font-bold text-xl w-fit rounded-lg hover:bg-second transition-all cursor-pointer">
                 Entrar
             </button>
         </form>

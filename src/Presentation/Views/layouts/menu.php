@@ -25,123 +25,175 @@
 </script> -->
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.getElementById("navbar");
-    const ulMenu = document.getElementById("ul-menu");
-    
-    // 1. Definição do caminho atual e da página inicial
-    const currentPath = window.location.pathname;
-    // Ajuste: Certifique-se de que a verificação de caminhos com e sem barra final funcione
-    const normalizedPath = currentPath.endsWith('/') && currentPath.length > 1 ? currentPath.slice(0, -1) : currentPath;
+document.addEventListener("DOMContentLoaded", () => {
 
-    const isHomePage = normalizedPath === '/eletronicoverde' || normalizedPath === '/eletronicoverde/';
-    
-    // Define a cor inicial baseada na página
-    if (isHomePage) {
-      ulMenu.classList.add("text-white", "text-shadow-xl");
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const lines = btn.querySelectorAll(".line");
+
+  let open = false;
+
+  const toggleMenu = () => {
+    open = !open;
+
+    // Animação hambúrguer → X
+    lines[0].classList.toggle("rotate-45");
+    lines[0].classList.toggle("translate-y-2");
+    lines[1].classList.toggle("opacity-0");
+    lines[2].classList.toggle("-rotate-45");
+    lines[2].classList.toggle("-translate-y-2");
+
+    // Menu deslizando
+    menu.classList.toggle("-translate-y-full");
+    menu.classList.toggle("translate-y-0");
+
+    document.body.classList.toggle("overflow-hidden");
+  };
+
+  btn.addEventListener("click", toggleMenu);
+
+
+  /* ----------------------------
+        NAVBAR & ACTIVE LINK
+  ----------------------------- */
+
+  const navbar = document.getElementById("navbar");
+  const navbar1 = document.getElementById("navbar-1");
+  const ulMenu = document.getElementById("ul-menu");
+  const navLinks = ulMenu.querySelectorAll("a");
+
+  const current = window.location.pathname.replace(/\/$/, "");
+
+  const isHome = current === "/eletronicoverde";
+
+  if (isHome) {
+    ulMenu.classList.add("text-white");
+  }
+
+  navLinks.forEach(link => {
+    const path = new URL(link.href).pathname.replace(/\/$/, "");
+    if (path === current) {
+      link.classList.add("text-primary");
+      link.classList.remove("hover:text-primary");
     } else {
-      ulMenu.classList.add("text-black");
+      link.classList.add("hover:text-primary");
     }
+  });
 
-    // ----------------------------------------------------
-    // 2. Lógica de Destaque do Link Ativo (Movida para DENTRO do DOMContentLoaded)
-    // ----------------------------------------------------
-    const navLinks = ulMenu.querySelectorAll('a');
-    
-    navLinks.forEach(link => {
-        // Pega o caminho do link (ex: /eletronicoverde/materiais-aceitos)
-        const linkPath = new URL(link.href).pathname; 
-        
-        // Normaliza o linkPath para lidar com barras finais, se necessário
-        const normalizedLinkPath = linkPath.endsWith('/') && linkPath.length > 1 ? linkPath.slice(0, -1) : linkPath;
+  window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY > 50;
 
-        // Verifica se o linkPath corresponde ao caminho atual normalizado
-        if (normalizedPath === normalizedLinkPath) {
-            // Se o link corresponde à página atual, aplica o destaque:
-            link.classList.add("text-primary"); // Classe Tailwind
-            link.classList.remove("hover:text-primary"); // Remove o hover
-        } else {
-            // Garante que o link não-ativo tenha a classe hover
-            link.classList.add("hover:text-primary");
+    // Estilos do navbar baseado no scroll
+    navbar.classList.toggle("md:border", scrolled);
+    navbar.classList.toggle("md:border-[#d2d2d2cc]", scrolled);
+    navbar.classList.toggle("md:m-3", scrolled);
+    navbar.classList.toggle("md:bg-[#ffffff59]", scrolled);
+    navbar.classList.toggle("md:shadow-lg", scrolled);
+    navbar.classList.toggle("md:backdrop-blur-md", scrolled);
+
+    navbar1.classList.toggle("border-b", scrolled);
+    navbar1.classList.toggle("border-[#d2d2d2cc]", scrolled);
+    navbar1.classList.toggle("bg-[#ffffff59]", scrolled);
+    navbar1.classList.toggle("shadow-lg", scrolled);
+    navbar1.classList.toggle("backdrop-blur-md", scrolled);
+
+    if (isHome) {
+      navLinks.forEach(link => {
+        if (!link.classList.contains("text-primary")) {
+          link.classList.toggle("text-black", scrolled);
+          link.classList.toggle("text-white", !scrolled);
+          link.classList.toggle("text-shadow-xl", !scrolled);
         }
-    });
-    // ----------------------------------------------------
+      });
+    }
+  });
 
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 50) {
-        navbar.classList.add("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
-        if (isHomePage) {
-          ulMenu.classList.remove("text-white", "text-shadow-xl");
-          // Re-aplica a classe de texto preto, mas com cuidado para não sobrescrever o text-primary do link ativo
-          navLinks.forEach(link => {
-              if (!link.classList.contains('text-primary')) {
-                  link.classList.remove('text-white', 'text-shadow-xl');
-                  link.classList.add('text-black');
-              }
-          });
 
-        }
-      } else {
-        navbar.classList.remove("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
-        if (isHomePage) {
-          ulMenu.classList.remove("text-black");
-          // Re-aplica a classe de texto branco/shadow, exceto no link ativo (text-primary)
-          navLinks.forEach(link => {
-              if (!link.classList.contains('text-primary')) {
-                  link.classList.remove('text-black');
-                  link.classList.add('text-white', 'text-shadow-xl');
-              }
-          });
-        }
-      }
-    });
-});
+  /* ----------------------------
+        SCROLL PROGRESS
+  ----------------------------- */
 
-window.addEventListener('scroll', function () {
+  window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
-    
-    // Adicione esta verificação, pois o elemento pode não existir em todas as páginas se for global
-    const scrollProgress = document.getElementById('scroll-progress');
-    if (scrollProgress) {
-      scrollProgress.style.width = scrollPercent + '%';
-    }
+
+    const scrollProgress = document.getElementById("scroll-progress");
+    if (scrollProgress) scrollProgress.style.width = scrollPercent + "%";
+  });
+
 });
 </script>
 
-<div class="fixed top-0 z-50 w-full flex justify-center mx-auto">
-  <div id="navbar" class="container py-2 flex flex-row justify-between items-center relative z-10 rounded-2xl p-5 px-8 transition-all duration-300 overflow-hidden">
+
+
+<div id="navbar-1"
+     class="fixed top-0 z-50 w-full flex justify-between md:justify-center items-center px-3 transition-all duration-300 
+     md:border-none md:bg-transparent md:shadow-none md:backdrop-blur-none">
+
+  <div id="navbar"
+       class="md:container flex flex-row justify-between items-center relative rounded-2xl py-2 md:px-5 lg:px-8
+              transition-all duration-300 overflow-hidden w-fit">
+
+    <!-- LOGO -->
     <a href="/eletronicoverde" class="group transition-all duration-150 h-fit">
-      <h1 class="text-xl font-bold flex flex-row items-center gap-3.5">
-        <img src="<?= ASSETS_URL ?>/images/Logo.png" alt="Logo Eletrônico Verde" class="max-w-15 transition-all duration-150" />
-        <span id="logo" class="bg-primary text-white p-2 w-fit h-fit rounded-3xl rounded-tl-none border-2 border-primary relative overflow-hidden z-1
-        group-hover:rounded-tr-sm group-hover:rounded-tl-3xl group-hover:text-primary transition-all duration-150
-        before:absolute before:h-full before:-z-1 before:w-0 group-hover:before:w-full before:bg-white before:bottom-0 before:left-0 before:transition-all before:duration-250">
+      <h1 class="text-base lg:text-xl font-bold flex flex-row items-center gap-3.5">
+        <img src="<?= ASSETS_URL ?>/images/Logo.png" alt="Logo Eletrônico Verde"
+             class="max-w-15 transition-all duration-150" />
+        
+        <span id="logo"
+              class="hidden md:block bg-primary text-white p-2 rounded-3xl rounded-tl-none border-2 border-primary relative
+                     overflow-hidden z-1 transition-all duration-150
+                     group-hover:text-primary group-hover:rounded-tr-sm group-hover:rounded-tl-3xl
+                     before:absolute before:left-0 before:bottom-0 before:h-full before:w-0 before:bg-white
+                     before:-z-1 before:transition-all before:duration-250 group-hover:before:w-full">
           Eletrônico Verde
         </span>
       </h1>
     </a>
-    
-    <ul id="ul-menu" class="flex flex-row gap-10 font-medium text-lg">
-      <li class="relative group">
-        <a href="/eletronicoverde" class="hover:text-primary transition-all duration-150">Início</a>
-        <span class="nav-indicator"></span>
-      </li>
-      <li class="relative group">
-        <a href="<?= BASE_URL ?>/pontos-coleta" class="hover:text-primary transition-all duration-150">Pontos de Coleta</a>
-        <span class="nav-indicator"></span>
-      </li>
-      <li class="relative group">
-        <a href="<?= BASE_URL?>/materiais-aceitos" class="hover:text-primary transition-all duration-150">Materiais Aceitos</a>
-        <span class="nav-indicator"></span>
-      </li>
-      <li class="relative group">
-        <a href="<?= BASE_URL?>/reciclagem" class="hover:text-primary transition-all duration-150">Reciclagem</a>
-        <span class="nav-indicator"></span>
-      </li>
+
+    <!-- MENU DESKTOP -->
+    <ul id="ul-menu" class="hidden md:flex flex-row gap-5 lg:gap-10 font-medium text-base lg:text-lg">
+      <li><a href="/eletronicoverde" class="nav-item">Início</a></li>
+      <li><a href="<?= BASE_URL ?>/pontos-coleta" class="nav-item">Pontos de Coleta</a></li>
+      <li><a href="<?= BASE_URL ?>/materiais-aceitos" class="nav-item">Materiais Aceitos</a></li>
+      <li><a href="<?= BASE_URL ?>/reciclagem" class="nav-item">Reciclagem</a></li>
     </ul>
-    
-    <div id="scroll-progress" style="position: fixed; bottom: 0; left: 0; height: 4px; width: 0; background-color: var(--color-primary); z-index: 9999; transition: width 0.1s ease-out;"></div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress"
+         class="fixed bottom-0 left-0 h-1 w-0 bg-primary z-10 transition-[width] duration-100"></div>
   </div>
+
+  <!-- BOTÃO MOBILE -->
+  <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 z-[9999]">
+    <span class="line w-8 h-1 bg-white rounded transition-all duration-300"></span>
+    <span class="line w-8 h-1 bg-white rounded transition-all duration-300"></span>
+    <span class="line w-8 h-1 bg-white rounded transition-all duration-300"></span>
+  </button>
+
+  <!-- MENU MOBILE (Opção A — Slide de cima) -->
+  <nav id="mobile-menu"
+       class="fixed top-0 left-0 w-screen h-screen bg-third text-white backdrop-blur-md flex flex-col px-10 justify-center
+              text-3xl gap-8 transform -translate-y-full transition-transform duration-300 z-[90] font-bold">
+    <h1 class="text-base lg:text-xl font-bold flex flex-row items-center gap-3.5">
+      <img src="<?= ASSETS_URL ?>/images/Logo.png" alt="Logo Eletrônico Verde"
+           class="max-w-15 transition-all duration-150" />
+      
+      <span id="logo"
+            class="bg-primary text-white p-2 rounded-3xl rounded-tl-none border-2 border-primary relative
+                   overflow-hidden z-1 transition-all duration-150
+                   group-hover:text-primary group-hover:rounded-tr-sm group-hover:rounded-tl-3xl
+                   before:absolute before:left-0 before:bottom-0 before:h-full before:w-0 before:bg-white
+                   before:-z-1 before:transition-all before:duration-250 group-hover:before:w-full">
+        Eletrônico Verde
+      </span>
+    </h1>
+
+    <a href="/eletronicoverde">Início</a>
+    <a href="<?= BASE_URL ?>/pontos-coleta">Pontos de Coleta</a>
+    <a href="<?= BASE_URL ?>/materiais-aceitos">Materiais Aceitos</a>
+    <a href="<?= BASE_URL ?>/reciclagem">Reciclagem</a>
+  </nav>
+
 </div>

@@ -18,27 +18,36 @@
         height: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
+
+    #map-overlay {
+        transition: opacity .3s ease;
+    }
+
+    #map-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
 </style>
 
 <main class="relative z-2 bg-whitey rounded-b-[30px]">
-    <section id="pontos" class="container flex flex-col gap-15 mx-auto relative pt-30 pb-30 min-h-screen">
+    <section id="pontos" class="container flex flex-col gap-15 mx-auto relative pt-30 pb-30 min-h-screen px-5 md:px-0">
         <h1 class="text-4xl font-bold text-black text-center fade-section">
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>
 
         <div class="mx-auto container gap-5 flex flex-col h-full fade-section">
             <!-- Barra de Busca -->
-            <div class="h-fit flex flex-row gap-5">
+            <div class="h-fit flex flex-col md:flex-row gap-5">
                 <input type="text" 
                        name="search" 
                        id="search" 
                        placeholder="Digite seu CEP (ex: 13087-280)" 
-                       class="text-xl border-primary border-3 bg-white p-4 font-bold text-cinza-txt rounded-xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_5px_#04A77750]"
+                       class="text-md md:text-xl border-primary border-3 bg-white p-4 font-bold text-cinza-txt rounded-xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_5px_#04A77750]"
                        maxlength="9"> 
                 <button type="button" 
                         onclick="buscarPorCep()" 
                         id="btnBuscar"
-                        class="bg-primary text-white text-lg px-8 rounded-xl cursor-pointer font-bold hover:bg-second transition-all focus:outline-0 ">
+                        class="bg-primary text-white text-lg py-3 px-8 rounded-xl cursor-pointer font-bold hover:bg-second transition-all focus:outline-0 ">
                     Pesquisar
                 </button>
             </div>
@@ -48,8 +57,18 @@
 
             <!-- MAPA -->
             <div class="w-full h-[60vh] relative rounded-3xl overflow-hidden border-2 border-gray-200">
+    
+                <!-- Overlay que bloqueia interação no mobile -->
+                <div id="map-overlay"
+                    class="absolute inset-0 bg-transparent z-[500] flex items-center justify-center md:hidden">
+                    <span class="bg-black bg-opacity-60 text-white text-sm px-4 py-2 rounded-full backdrop-blur-md">
+                        Toque para interagir com o mapa
+                    </span>
+                </div>
+
                 <div id="map" style="width: 100%; height: 100%;"></div>
             </div>
+
 
             <!-- Lista de Pontos Encontrados -->
             <div id="resultados" class="hidden mt-5">
@@ -60,9 +79,9 @@
             </div>
 
             <div>
-                <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-fit rounded-3xl justify-center items-center flex gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
-                    Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span>
-                    <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all rounded-full"></i> 
+                <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-full md:w-fit rounded-3xl justify-between md:justify-center items-center flex flex-row md:gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
+                <p>Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span> </p></span>
+                    <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all rounded-full"></i>
                 </a>
             </div>
         </div>
@@ -353,4 +372,26 @@ document.getElementById('search').addEventListener('input', function(e) {
 
 // Inicializa o mapa quando a página carregar
 window.addEventListener('load', initMap);
+
+
+// --- BLOQUEIO DE INTERAÇÃO DO MAPA NO MOBILE ---
+
+const overlay = document.getElementById('map-overlay');
+
+// Ao tocar no overlay, ele desaparece e o mapa fica interativo
+overlay.addEventListener('touchstart', () => {
+    overlay.classList.add('hidden');
+});
+
+// Quando o usuário rolar a página, o overlay volta
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        // Não reativa enquanto a pessoa está tocando dentro do mapa
+        if (!overlay.classList.contains('hidden')) return;
+
+        // Reativa o bloqueio
+        overlay.classList.remove('hidden');
+    }
+});
+
 </script>
