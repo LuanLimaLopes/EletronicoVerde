@@ -4,7 +4,7 @@
 @layer components {
   /* Estrutura principal */
   .mat-aceitos-div {
-    @apply h-[50rem] w-full;
+    @apply min-h-[40rem] w-full px-4;
   }
 
   /* Alterna o background nas seções ímpares */
@@ -14,7 +14,7 @@
 
   /* .mat-aceitos-div-2 - container flex (padrão row) */
   .mat-aceitos-div-2 {
-    @apply mx-auto w-full flex flex-row h-full content-center flex-wrap;
+    @apply mx-auto w-full flex flex-col md:flex-row h-full flex-wrap;
   }
 
   /* Nas seções ímpares, inverter a direção */
@@ -24,7 +24,7 @@
 
   /* Conteúdo da coluna (texto) */
   .mat-aceitos-div-content {
-    @apply flex flex-col gap-4 w-1/2 justify-center items-start;
+    @apply flex flex-col gap-4 w-full md:w-1/2 justify-center items-start;
   }
 
   /* Nas ímpares, alinhar o conteúdo ao fim */
@@ -34,7 +34,7 @@
 
   /* Parágrafo dentro do content */
   .mat-aceitos-div-content p {
-    @apply max-w-[80%] font-bold text-[#333] text-left;
+    @apply max-w-full md:max-w-[80%] font-bold text-[#333] text-left;
   }
 
   /* Parágrafos nas seções ímpares alinhados à direita */
@@ -50,12 +50,12 @@
 
   /* Ícone dentro do H2 */
   .mat-aceitos-div-content h2 i {
-    @apply text-[3rem]; /* equivalente a text-5xl (3rem) */
+    @apply text-3xl md:text-5xl; /* equivalente a text-5xl (3rem) */
   }
 
   /* Grid de imagens */
   .mat-aceitos-div-imgs {
-    @apply grid gap-4 grid-cols-2 grid-rows-2 w-1/2 items-center;
+    @apply grid gap-4 grid-cols-2 grid-rows-2 w-full md:w-1/2 items-center;
   }
 
   .mat-aceitos-div-imgs div{
@@ -75,11 +75,11 @@
   }
 
   .filtro-btn.active{
-    @apply bg-fourth text-black font-bold rounded-full px-4 py-2;
+    @apply bg-fourth text-black font-bold rounded-xl md:rounded-full px-4 py-2;
   }
 
   .filtro-btn{
-    @apply transition-all h-full duration-200 bg-transparent text-base border border-gray-300 text-cinza-txt px-4 py-2 rounded-full cursor-pointer flex flex-row items-center gap-2 hover:bg-fourth hover:text-black;
+    @apply transition-all h-full w-max duration-200 bg-transparent text-sm md:text-base border border-gray-300 text-cinza-txt px-4 py-2 rounded-xl md:rounded-full cursor-pointer flex flex-col items-center justify-center md:flex-row gap-2 hover:bg-fourth hover:text-black;
   }
   
 }
@@ -87,11 +87,10 @@
 
 
 <!-- HERO SECTION -->
-<header class="w-full h-[50vh] bg-fourth flex flex-col items-center z-1 relative">
-    <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left 
-    fade-left">
-        <p class="font-bold text-primary text-xl">MATERIAIS ACEITOS</p>
-        <p class="max-w-2/3 font-bold text-4xl leading-13">
+<header class="w-full pt-20 sm:pt-0 h-[40vh] sm:h-[50vh] bg-fourth flex flex-col items-center z-1 relative">
+    <div class="mx-auto container flex flex-col gap-2 justify-center h-full text-left px-4 fade-left">
+        <p class="font-bold text-primary text-lg md:text-xl">MATERIAIS ACEITOS</p>
+        <p class="max-w-full md:max-w-2/3 font-bold text-xl md:text-2xl lg:text-3xl lg:leading-13">
             Conheça os dispositivos que podem ser reciclados e contribua para um planeta mais limpo!
         </p>
     </div>
@@ -114,7 +113,7 @@
                     <h2 class="text-3xl text-emerald-400!">
                         <i class="fa-solid fa-computer"></i> Aparelhos eletrônicos
                     </h2>
-                    <p class="text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
+                    <p class="text-lg lg:text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
                     <p class="text-base italic">Esses dispositivos contêm metais valiosos e componentes que podem ser reaproveitados, reduzindo o desperdício e a poluição.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-400 h-full is-visible p-5">
@@ -140,7 +139,7 @@
                     <h2 class="text-3xl text-emerald-500!">
                         <i class="fa-solid fa-microchip "></i> Componentes de computador
                     </h2>
-                    <p class="text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
+                    <p class="text-lg lg:text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
                     <p class="text-base italic">Partes internas como placas e processadores possuem metais e materiais recicláveis que ajudam a economizar recursos naturais.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-500 h-full is-visible p-5">
@@ -166,7 +165,7 @@
                     <h2 class="text-3xl text-emerald-600!">
                         <i class="fa-solid fa-blender"></i> Eletrodomésticos
                     </h2>
-                    <p class="text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
+                    <p class="text-lg lg:text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
                     <p class="text-base italic">Mesmo os eletrodomésticos antigos podem ter peças reaproveitadas e metais recicláveis que diminuem o impacto ambiental.</p>
                 </div>
 
@@ -193,7 +192,7 @@
                     <h2 class="text-3xl text-emerald-700!">
                         <i class="fa-solid fa-battery-full"></i> Baterias e pilhas
                     </h2>
-                    <p class="text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
+                    <p class="text-lg lg:text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
                     <p class="text-base italic">Esses itens contêm substâncias tóxicas que poluem o solo e a água, o descarte correto evita danos à natureza.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-700! h-full is-visible p-5">
@@ -219,7 +218,7 @@
                     <h2 class="text-3xl text-emerald-800!">
                         <i class="fa-solid fa-plug"></i> Cabos e fios
                     </h2>
-                    <p class="text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
+                    <p class="text-lg lg:text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
                     <p class="text-base italic">Cabos e fios possuem cobre e outros metais valiosos que podem ser recuperados e reutilizados na indústria.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-800 h-full is-visible p-5">
@@ -245,7 +244,7 @@
                     <h2 class="text-3xl text-emerald-900!">
                         <i class="fa-solid fa-keyboard"></i> Acessórios e Periféricos
                     </h2>
-                    <p class="text-2xl">Fones de ouvido, mouses, teclados e relógios digitais.</p>
+                    <p class="text-lg lg:text-2xl">Fones de ouvido, mouses, teclados e relógios digitais.</p>
                     <p class="text-sm italic">Aparelhos menores também fazem diferença! Reciclar controles, fones e carregadores ajuda a reduzir o lixo eletrônico.</p>
                 </div>
                 <div class="mat-aceitos-div-imgs  bg-emerald-900 h-full is-visible p-5">
@@ -276,18 +275,18 @@
     </div>
 </section> -->
 
-<section class="pt-[10rem] z-1 relative bg-white rounded-b-[30px]">
-    <div class="h-full">
-        <div class="container mx-auto fade-section">
-            <p class="max-w-2/3 text-justify font-medium mb-[5rem] text-cinza-txt text-2xl">
+<section class="pt-10 sm:pt-[10rem] z-1 relative bg-white rounded-b-[30px]">
+    <div class="h-full flex flex-col gap-30">
+        <div class="container mx-auto px-4 fade-section">
+            <p class="max-w-full md:max-w-2/3 text-justify font-medium text-cinza-txt text-md md:text-xl lg:text-2xl">
                 Para o descarte adequado de lixo eletrônico visando a reciclagem, 
                 é importante saber o que pode ser aproveitado e como cada item deve ser descartado. 
                 Alguns exemplos de eletrônicos que podem ser reciclados incluem:
             </p>
         </div>
 
-        <div class="container mx-auto">
-            <ul class="filtro-container flex space-x-4 mb-8">
+        <div class="container mx-auto px-4 fade-section">
+            <ul class="filtro-container flex flex-row overflow-x-scroll space-x-4">
                 <li><button class="filtro-btn active" data-filtro="todos">Todos</button></li>
                 <li><button class="filtro-btn" data-filtro="aparelhos"><i class="fa-solid fa-computer"></i>Aparelhos eletrônicos</button></li>
                 <li><button class="filtro-btn" data-filtro="componentes"><i class="fa-solid fa-microchip"></i>Componentes de computador</button></li>
@@ -299,13 +298,13 @@
         </div>
         
         <div class="mat-aceitos-div card" data-filter-item="aparelhos">
-            <div class="container mat-aceitos-div-2 fade-left">
+            <div class="container mx-auto mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content ">
-                    <h2 class="text-3xl"><i class="fa-solid fa-computer"></i> Aparelhos eletrônicos</h2>
-                    <p class="text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
+                    <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-computer"></i> Aparelhos eletrônicos</h2>
+                    <p class="text-lg lg:text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-aparelhos">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
+                        <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Celulares e smartphones</li>
                             <li>Tablets</li>
                             <li>Notebooks e ultrabooks</li>
@@ -339,11 +338,11 @@
         <div class="mat-aceitos-div card" data-filter-item="componentes">
             <div class="container mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content ">
-                    <h2 class="text-3xl"><i class="fa-solid fa-microchip"></i> Componentes de computador</h2>
-                    <p class="text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
+                    <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-microchip"></i> Componentes de computador</h2>
+                    <p class="text-lg lg:text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-componentes">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
+                        <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Placa-mãe</li>
                             <li>Memória RAM</li>
                             <li>HD e SSDs</li>
@@ -375,11 +374,11 @@
         <div class="mat-aceitos-div card" data-filter-item="eletrodomesticos">
             <div class="container mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content">
-                    <h2 class="text-3xl"><i class="fa-solid fa-blender"></i> Eletrodomésticos</h2>
-                    <p class="text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
+                    <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-blender"></i> Eletrodomésticos</h2>
+                    <p class="text-lg lg:text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-eletrodomesticos">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
+                        <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Liquidificadores</li>
                             <li>Batedeiras</li>
                             <li>Cafeteiras elétricas</li>
@@ -413,11 +412,11 @@
         <div class="mat-aceitos-div card" data-filter-item="pilhas">
             <div class="container mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content">
-                    <h2 class="text-3xl"><i class="fa-solid fa-battery-full"></i> Baterias e pilhas</h2>
-                    <p class="text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
+                    <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-battery-full"></i> Baterias e pilhas</h2>
+                    <p class="text-lg lg:text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-pilhas">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
+                        <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Pilhas comuns</li>
                             <li>Baterias de celular</li>
                             <li>Baterias de notebook</li>
@@ -447,11 +446,11 @@
         <div class="mat-aceitos-div card" data-filter-item="cabos">
             <div class="container mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content">
-                    <h2 class="text-3xl"><i class="fa-solid fa-plug"></i> Cabos e fios</h2>
-                    <p class="text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
+                    <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-plug"></i> Cabos e fios</h2>
+                    <p class="text-lg lg:text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-cabos">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
+                        <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Cabos USB</li>
                             <li>Cabos HDMI</li>
                             <li>Cabos de energia elétrica</li>
@@ -482,11 +481,11 @@
         <div class="mat-aceitos-div card" data-filter-item="acessorios">
             <div class="container mat-aceitos-div-2 fade-left">
                 <div class="mat-aceitos-div-content">
-                    <h2 class="text-3xl"><i class="fa-solid fa-keyboard"></i> Acessórios e Periféricos</h2>
-                    <p class="text-2xl">Fones de ouvido, mouses, teclados e relógios digitais.</p>
+                    <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-keyboard"></i> Acessórios e Periféricos</h2>
+                    <p class="text-lg lg:text-2xl">Fones de ouvido, mouses, teclados e relógios digitais.</p>
 
                     <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-acessorios">
-                        <ul class="grid grid-cols-2 gap-2 text-lg  list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
+                        <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Teclados</li>
                             <li>Mouses</li>
                             <li>Fones de ouvido e headsets</li>
@@ -517,8 +516,8 @@
             </div>
         </div>  
 
-        <div class="container mx-auto fade-section">
-            <p class="max-w-5/6 text-left font-medium py-30 text-cinza-txt text-2xl">
+        <div class="container mx-auto fade-section px-4">
+            <p class="max-w-full md:max-w-5/6 text-left font-medium py-30 text-cinza-txt text-md md:text-xl lg:text-2xl">
                 <b>Esses materiais contêm metais valiosos como cobre, alumínio, ouro e prata, além de plásticos que podem ser reaproveitados.</b> 
                 No entanto, <b>componentes como baterias e placas eletrônicas</b> também carregam <b>substâncias tóxicas</b> (como chumbo e mercúrio), 
                 que <b>devem ser descartados em pontos de coleta específicos</b> para evitar a contaminação ambiental. 
@@ -575,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('button[data-target]').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = document.getElementById(btn.dataset.target);
-        const expanded = target.classList.toggle('max-h-96');
+        const expanded = target.classList.toggle('max-h-200');
         btn.innerHTML = expanded ? 'Ver menos <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300 rotate-180"></i>' : 'Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>';
       });
     });

@@ -1,5 +1,5 @@
 <footer class="bg-primary relative w-full h-[30rem] md:h-[25rem] flex justify-center z-0">
-  <div class="bg-primary fixed bottom-0 h-[30rem] md:h-[25rem] w-full rounded-t-4xl justify-between p-10 flex flex-col gap-10">
+  <div class="bg-primary fixed bottom-0 h-[30rem] md:h-[25rem] w-full justify-between p-10 flex flex-col gap-10">
 
     <!-- LOGO -->
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start items-start gap-10">

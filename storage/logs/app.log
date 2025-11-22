@@ -4,3 +4,14 @@
 [2025-11-21 02:07:16] [ERROR] ⚠️ Rota não encontrada: /public/assets/images/MateriaisAceitos/cabo-rede.webp
 [2025-11-21 02:07:16] [ERROR] ⚠️ Rota não encontrada: /public/assets/images/MateriaisAceitos/cabos-energia.webp
 [2025-11-21 02:07:16] [ERROR] ⚠️ Rota não encontrada: /public/assets/images/MateriaisAceitos/headset.webp
+[2025-11-21 21:37:12] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-21 21:37:14] [INFO] 🔐 Processando autenticação via POST
+[2025-11-21 21:37:14] [INFO] === INÍCIO AUTENTICAÇÃO ===
+[2025-11-21 21:37:14] [INFO] Login tentado com: admin
+[2025-11-21 21:37:14] [ERROR] ⚠️ Não encontrado por email, tentando por NOME...
+[2025-11-21 21:37:14] [INFO] ✅ Usuário encontrado: ID=1, Nome=admin
+[2025-11-21 21:37:15] [INFO] Resultado verificação de senha: ✅ CORRETA
+[2025-11-21 21:37:15] [INFO] ✅ Login realizado com sucesso!
+[2025-11-21 21:37:15] [INFO] === FIM AUTENTICAÇÃO ===
+[2025-11-21 21:39:07] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-21 21:40:45] [INFO] 📄 Exibindo formulário de login via GET

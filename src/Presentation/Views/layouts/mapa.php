@@ -60,11 +60,12 @@
     
                 <!-- Overlay que bloqueia interação no mobile -->
                 <div id="map-overlay"
-                    class="absolute inset-0 bg-transparent z-[500] flex items-center justify-center md:hidden">
+                    class="absolute inset-0 bg-transparent z-[500] flex items-center justify-center cursor-pointer">
                     <span class="bg-black bg-opacity-60 text-white text-sm px-4 py-2 rounded-full backdrop-blur-md">
-                        Toque para interagir com o mapa
+                        Clique ou toque para interagir com o mapa
                     </span>
                 </div>
+
 
                 <div id="map" style="width: 100%; height: 100%;"></div>
             </div>
@@ -377,20 +378,35 @@ window.addEventListener('load', initMap);
 // --- BLOQUEIO DE INTERAÇÃO DO MAPA NO MOBILE ---
 
 const overlay = document.getElementById('map-overlay');
+const mapContainer = document.getElementById('map'); // ou o container externo, se tiver
 
-// Ao tocar no overlay, ele desaparece e o mapa fica interativo
-overlay.addEventListener('touchstart', () => {
+// --- ATIVAR MAPA (DESKTOP + MOBILE) ---
+function activateMap() {
     overlay.classList.add('hidden');
+    map.scrollWheelZoom.enable();
+    map.dragging.enable();
+}
+
+// Touch (mobile)
+overlay.addEventListener('touchstart', activateMap);
+
+// Click (desktop)
+overlay.addEventListener('click', activateMap);
+
+// --- DESATIVAR QUANDO O MOUSE SAIR DO MAPA (DESKTOP) ---
+mapContainer.addEventListener('mouseleave', () => {
+    overlay.classList.remove('hidden');
+    map.scrollWheelZoom.disable();
+    map.dragging.disable();
 });
 
-// Quando o usuário rolar a página, o overlay volta
+// --- DESATIVAR QUANDO A PÁGINA ROLAR (MOBILE + DESKTOP) ---
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        // Não reativa enquanto a pessoa está tocando dentro do mapa
-        if (!overlay.classList.contains('hidden')) return;
-
-        // Reativa o bloqueio
+    // Só recoloca o overlay se ele estiver escondido
+    if (overlay.classList.contains('hidden')) {
         overlay.classList.remove('hidden');
+        map.scrollWheelZoom.disable();
+        map.dragging.disable();
     }
 });
 
