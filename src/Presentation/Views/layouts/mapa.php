@@ -29,8 +29,8 @@
     }
 </style>
 
-<main class="relative z-2 bg-whitey rounded-b-[30px]">
-    <section id="pontos" class="container flex flex-col gap-15 mx-auto relative pt-30 pb-30 min-h-screen px-4 md:px-0">
+<section class="relative z-2 bg-whitey rounded-b-[30px]">
+    <div id="pontos" class="container mx-auto flex flex-col gap-15  relative pt-30 pb-30 min-h-screen px-4">
         <h1 class="text-4xl font-bold text-black text-center fade-section">
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>
@@ -41,7 +41,7 @@
                 <input type="text" 
                        name="search" 
                        id="search" 
-                       placeholder="Digite seu CEP (ex: 13087-280)" 
+                       placeholder="Digite seu CEP (ex: 13075-490)" 
                        class="text-md md:text-xl border-primary border-3 bg-white p-4 font-bold text-cinza-txt rounded-xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_5px_#04A77750]"
                        maxlength="9"> 
                 <button type="button" 
@@ -86,8 +86,8 @@
                 </a>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
