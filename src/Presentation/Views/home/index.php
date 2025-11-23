@@ -158,7 +158,7 @@
               <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-primary fade-up">
                   <i class="fa-solid fa-handshake-simple text-primary"></i> Contribuição Social
               </span>
-              <span class="text-1xl sm:text-3xl text-primary">(01)</span>
+              <span class="text-1xl sm:text-3xl text-primary fade-up">(01)</span>
             </div>
             <div class="flex flex-col justify-between gap-10 fade-up">
               <p class="z-5 text-lg md:text-2xl lg:max-w-2/3 max-w-full font-bold">
