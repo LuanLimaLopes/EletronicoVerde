@@ -24,7 +24,7 @@ $csrf = new CSRF();
             </div>
         <?php endif; ?>
 
-        <h1 class="text-4xl font-bold text-center mb-15">Entrar</h1>
+        <h1 class="text-3xl lg:text-4xl font-bold text-center mb-15">Entrar</h1>
         
         <form action="/eletronicoverde/login" method="post" class="flex flex-col gap-2 items-center lg:w-[50rem] md:w-[30rem] w-full">
             
@@ -32,12 +32,12 @@ $csrf = new CSRF();
             <?= $csrf->gerarCampoInput() ?>
             
             <label for="username" class="font-bold text-lg w-full text-cinza-txt">Usuário</label>
-            <input type="text" id="username" name="username" required class="border border-gray-600 p-3 rounded-xl w-full mb-5">
+            <input type="text" id="username" name="username" required class="border border-gray-600 p-3 rounded-xl w-full mb-5 hover:bg-fourth transition ease-out focus:outline-0 focus:border-primary focus:shadow-[0px_0px_0px_$px_#04A77750]">
             
             <label for="password" class="font-bold text-lg w-full text-cinza-txt">Senha</label>
-            <input type="password" id="password" name="password" required class="border border-gray-600 p-3 rounded-xl w-full mb-20">
+            <input type="password" id="password" name="password" required class="border border-gray-600 p-3 rounded-xl w-full mb-20 hover:bg-fourth transition ease-out focus:outline-0 focus:border-primary focus:shadow-[0px_0px_0px_3px_#04A77750]">
             
-            <button type="submit" class="text-white bg-primary py-3 px-40 font-bold text-xl w-fit rounded-lg hover:bg-second transition-all cursor-pointer">
+            <button type="submit" class="text-white bg-primary py-3 font-bold text-xl w-full rounded-lg hover:bg-second transition-all cursor-pointer">
                 Entrar
             </button>
         </form>

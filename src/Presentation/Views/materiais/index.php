@@ -286,7 +286,7 @@
         </div>
 
         <div class="container mx-auto px-4 fade-section">
-            <ul class="filtro-container flex flex-row overflow-x-scroll space-x-4">
+            <ul class="filtro-container flex flex-row overflow-x-auto space-x-4">
                 <li><button class="filtro-btn active" data-filtro="todos">Todos</button></li>
                 <li><button class="filtro-btn" data-filtro="aparelhos"><i class="fa-solid fa-computer"></i>Aparelhos eletrônicos</button></li>
                 <li><button class="filtro-btn" data-filtro="componentes"><i class="fa-solid fa-microchip"></i>Componentes de computador</button></li>

@@ -75,8 +75,8 @@
             <div id="resultados" class="hidden mt-5">
                 <h2 class="text-2xl font-bold mb-4">Pontos Próximos a Você:</h2>
                 <div id="lista-pontos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- Será preenchido via JavaScript -->
-                </div>
+                    </div>
+                <div id="paginacao-container" class="hidden"></div>
             </div>
 
             <div>
@@ -93,9 +93,13 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+// ATENÇÃO: Declaração ÚNICA de Variáveis Globais
 let map;
 let markers = [];
 let userMarker;
+let todosPontosEncontrados = []; // Armazena todos os pontos retornados pela API
+let paginaAtual = 1;
+const itensPorPagina = 3;
 
 // Inicializa o mapa
 function initMap() {
@@ -110,6 +114,9 @@ function initMap() {
     
     // Carrega todos os pontos inicialmente
     carregarTodosPontos();
+
+    // CORREÇÃO: Força o Leaflet a renderizar corretamente
+    map.invalidateSize(); 
 }
 
 // Busca CEP e converte para coordenadas
@@ -173,15 +180,17 @@ async function buscarPorCep() {
     }
 }
 
+
 // Busca pontos próximos via API
 async function buscarPontosProximos(lat, lng) {
     try {
         const response = await fetch(`/eletronicoverde/api/pontos/buscar-proximos?lat=${lat}&lng=${lng}&raio=10`);
         const data = await response.json();
         
+        // Remove marcadores antigos
+        limparMarcadores();
+
         if (data.sucesso && data.dados.length > 0) {
-            // Remove marcadores antigos
-            limparMarcadores();
             
             // Adiciona marcador do usuário
             adicionarMarcadorUsuario(lat, lng);
@@ -193,16 +202,18 @@ async function buscarPontosProximos(lat, lng) {
             
             // Centraliza mapa na localização do usuário
             map.setView([lat, lng], 13);
+            map.invalidateSize(); // CORREÇÃO: Força o redimensionamento após mover e adicionar marcadores
             
-            // Exibe lista de pontos
-            exibirListaPontos(data.dados);
+            // Armazena todos os pontos e exibe a PRIMEIRA página
+            todosPontosEncontrados = data.dados; 
+            paginaAtual = 1;
+            exibirListaPontos(todosPontosEncontrados);
             
             mostrarMensagem(`${data.dados.length} ponto(s) encontrado(s) próximo a você!`, 'sucesso');
         } else {
             mostrarMensagem('Nenhum ponto de coleta encontrado próximo a você. Mostrando todos os pontos disponíveis.', 'aviso');
             carregarTodosPontos();
         }
-        
     } catch (error) {
         console.error('Erro:', error);
         mostrarMensagem('Erro ao buscar pontos de coleta. Tente novamente.', 'erro');
@@ -221,11 +232,15 @@ async function carregarTodosPontos() {
                     adicionarMarcadorPonto(ponto);
                 }
             });
+            // Opcional: Armazenar todos os pontos iniciais, caso queira mostrar a lista no carregamento.
+            // todosPontosEncontrados = data.dados;
+            // exibirListaPontos(todosPontosEncontrados);
         }
     } catch (error) {
         console.error('Erro ao carregar pontos:', error);
     }
 }
+
 
 // Adiciona marcador do usuário
 function adicionarMarcadorUsuario(lat, lng) {
@@ -292,37 +307,131 @@ function limparMarcadores() {
     markers = [];
 }
 
-// Exibe lista de pontos
-function exibirListaPontos(pontos) {
+// Exibe lista de pontos (agora controla a paginação)
+function exibirListaPontos(pontosCompletos) {
     const resultadosDiv = document.getElementById('resultados');
     const listaPontos = document.getElementById('lista-pontos');
     
     listaPontos.innerHTML = '';
     
-    pontos.forEach((ponto, index) => {
-        const card = `
-            <div class="bg-white border-2 border-primary rounded-3xl p-4 hover:shadow-[0px_0px_0px_4px_#04A77750] transition-all duration-300 cursor-pointer" onclick="focusPonto(${index})">
-                <h3 class="text-xl font-bold text-primary mb-2">${ponto.empresa}</h3>
-                ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2"><i class="fa-solid fa-location-pin text-second"></i> <strong>${ponto.distancia} km</strong> de distância</p>` : ''}
-                <p class="text-gray-700"><i class="fa-solid fa-location-dot text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
-                <p class="text-gray-700"><i class="fa-solid fa-phone text-second"></i> ${ponto.telefone}</p>
-                <p class="text-gray-700"><i class="fa-solid fa-envelope text-second"></i> ${ponto.email}</p>
-                <p class="text-gray-700"><i class="fa-solid fa-clock text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
-                ${ponto.materiais && ponto.materiais.length > 0 ? `
-                    <div class="mt-2">
-                        <p class="font-bold text-sm">Materiais aceitos:</p>
-                        <div class="flex flex-wrap gap-1 mt-1">
-                            ${ponto.materiais.map(m => `<span class="bg-fourth text-primary text-xs px-2 py-1 rounded">${m.nome}</span>`).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-            </div>
-        `;
-        listaPontos.innerHTML += card;
-    });
+    // LÓGICA DE PAGINAÇÃO JS
+    const totalItens = pontosCompletos.length;
+    const totalPaginas = Math.ceil(totalItens / itensPorPagina);
     
-    resultadosDiv.classList.remove('hidden');
+    // Calcula o início e fim da fatia
+    const inicio = (paginaAtual - 1) * itensPorPagina;
+    const fim = inicio + itensPorPagina;
+    
+    // Fatiar o array para obter os 10 itens da página
+    const pontosDaPagina = pontosCompletos.slice(inicio, fim);
+    
+    if (pontosCompletos.length > 0) {
+        // 1. Renderiza os Cards
+        pontosDaPagina.forEach((ponto, index) => {
+            // CORREÇÃO: O índice para o mapa é o índice no array COMPLETO
+            const indexNoMapa = todosPontosEncontrados.findIndex(p => p.id === ponto.id); // Busca o índice original (assumindo que 'ponto.id' é único)
+            // Se o id não for único ou não estiver disponível, use: const indexNoMapa = inicio + index;
+            // No seu código anterior, o indexNoMapa = inicio + index estava correto se você garantir que o array 'markers' é populado na mesma ordem de 'todosPontosEncontrados'
+
+            const card = `
+                <div class="bg-white border-2 border-primary rounded-3xl p-4 hover:shadow-[0px_0px_0px_4px_#04A77750] transition-all duration-300 cursor-pointer" onclick="focusPonto(${indexNoMapa})">
+                    <h3 class="text-xl font-bold text-primary mb-2">${ponto.empresa}</h3>
+                    ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2"><i class="fa-solid fa-location-pin text-second"></i> <strong>${ponto.distancia} km</strong> de distância</p>` : ''}
+                    <p class="text-gray-700"><i class="fa-solid fa-location-dot text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-phone text-second"></i> ${ponto.telefone}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-envelope text-second"></i> ${ponto.email}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-clock text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+                    ${ponto.materiais && ponto.materiais.length > 0 ? `
+                        <div class="mt-2">
+                            <p class="font-bold text-sm">Materiais aceitos:</p>
+                            <div class="flex flex-wrap gap-1 mt-1">
+                                ${ponto.materiais.map(m => `<span class="bg-fourth text-primary text-xs px-2 py-1 rounded">${m.nome}</span>`).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            listaPontos.innerHTML += card;
+        });
+
+        // 2. Renderiza a Paginação
+        renderizarPaginacao(totalPaginas, totalItens);
+        
+        resultadosDiv.classList.remove('hidden');
+    } else {
+        resultadosDiv.classList.add('hidden');
+    }
 }
+
+// Função para mudar de página
+function irParaPagina(novaPagina) {
+    if (novaPagina < 1 || novaPagina > Math.ceil(todosPontosEncontrados.length / itensPorPagina)) {
+        return; // Sai se a página for inválida
+    }
+    paginaAtual = novaPagina;
+    exibirListaPontos(todosPontosEncontrados);
+    
+    // Rola para o topo da lista de resultados (melhor UX)
+    document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderizarPaginacao(totalPaginas, totalItens) {
+    const paginacaoContainer = document.getElementById('paginacao-container');
+    
+    if (!paginacaoContainer || totalPaginas <= 1) {
+        if (paginacaoContainer) paginacaoContainer.classList.add('hidden');
+        return;
+    }
+    
+    paginacaoContainer.classList.remove('hidden');
+    
+    // Renderiza a informação de itens
+    let html = `
+        <div class="text-sm text-gray-700 my-5">
+            Página ${paginaAtual} de ${totalPaginas} | Total de ${totalItens} pontos encontrados.
+        </div>
+        
+        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+    `;
+
+    // Botão ANTERIOR
+    html += `
+        <button onclick="irParaPagina(${paginaAtual - 1}) "
+           class="${paginaAtual <= 1 ? 'pointer-events-none cursor-pointer opacity-50' : ''} relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+    `;
+
+    // Geração dos Botões de Página
+    const maxBotoes = 5;
+    let startPage = Math.max(1, paginaAtual - Math.floor(maxBotoes / 2));
+    let endPage = Math.min(totalPaginas, startPage + maxBotoes - 1);
+
+    if (endPage - startPage + 1 < maxBotoes) {
+        startPage = Math.max(1, endPage - maxBotoes + 1);
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+        html += `
+            <button onclick="irParaPagina(${i})"
+               class="${i == paginaAtual ? 'z-10 bg-primary cursor-pointer border-primary text-white font-semibold ' : 'bg-white cursor-pointer border-gray-300 text-gray-700 hover:bg-gray-50'} relative inline-flex items-center px-4 py-2 border text-sm font-medium transition-colors">
+                ${i}
+            </button>
+        `;
+    }
+
+    // Botão PRÓXIMO
+    html += `
+        <button onclick="irParaPagina(${paginaAtual + 1})"
+           class="${paginaAtual >= totalPaginas ? 'pointer-events-none cursor-pointer opacity-50' : ''} relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </nav>
+    `;
+    
+    paginacaoContainer.innerHTML = html;
+}
+
 
 // Foca no marcador quando clicar no card
 function focusPonto(index) {
@@ -378,13 +487,14 @@ window.addEventListener('load', initMap);
 // --- BLOQUEIO DE INTERAÇÃO DO MAPA NO MOBILE ---
 
 const overlay = document.getElementById('map-overlay');
-const mapContainer = document.getElementById('map'); // ou o container externo, se tiver
+const mapContainer = document.getElementById('map'); 
 
 // --- ATIVAR MAPA (DESKTOP + MOBILE) ---
 function activateMap() {
     overlay.classList.add('hidden');
     map.scrollWheelZoom.enable();
     map.dragging.enable();
+    map.invalidateSize(); // Adicionado aqui para garantir que o mapa fique visível ao interagir
 }
 
 // Touch (mobile)
@@ -409,5 +519,4 @@ window.addEventListener('scroll', () => {
         map.dragging.disable();
     }
 });
-
 </script>

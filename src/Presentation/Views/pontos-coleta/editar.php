@@ -19,11 +19,18 @@ $csrf = new CSRF();
         flex-direction: column;
         gap: 0.5rem;
         width: 50rem;
+        width: -webkit-fill-available;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
         #form1 div{
-          width: 30rem;
+          width: -webkit-fill-available;
+        }
+    }
+
+    @media (max-width: 640px) {
+        #form1 div{
+          width: -webkit-fill-available;
         }
     }
 
@@ -36,8 +43,10 @@ $csrf = new CSRF();
 
     #form1 div input:focus, #form1 div select:focus{
         border-color: #04A777;
-        box-shadow: 0 0 0 3px rgba(4, 167, 119, 0.1);
+        box-shadow: 0 0 0 4px #04A77750;
         outline: none;
+
+
     }
 
     #form1 div input:disabled {
@@ -49,6 +58,12 @@ $csrf = new CSRF();
         font-weight: bold;
         font-size: 1.125rem;
         color: var(--color-cinza-txt);
+    }
+
+    @media (max-width: 1024px) {
+        #form1 div label{
+          font-size: 1rem;
+        }
     }
 
     .btn_cad{
@@ -70,6 +85,21 @@ $csrf = new CSRF();
         border: 2px solid var(--color-third);
         color: var(--color-third);
     }
+
+    @media (max-width: 768px) {
+        .btn_cad{
+          padding: 1rem;
+          width: -webkit-fill-available;
+          font-size: 1.125rem ;
+        }
+    }
+
+    /* @media (max-width: 640px) {
+        .btn_cad{
+          padding: 0.3rem 5rem;
+          font-size: 0.875rem;
+        }
+    } */
     
     .geo-status {
         font-size: 0.875rem;
@@ -141,17 +171,17 @@ $csrf = new CSRF();
             </div>
         <?php endif; ?>
 
-        <div class="w-full flex items-center justify-between pb-10 flex-wrap">
-            <div class="w-1/3">
-                <a href="/eletronicoverde/consultar-pontos" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
-                        before:absolute before:h-px before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar
+        <div class="w-full flex flex-col md:flex-row items-center justify-between pb-10 flex-wrap">
+            <div class="w-1/3 flex justify-center mb-20 md:mb-0">
+                <a href="/eletronicoverde/acesso-restrito" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
+                before:absolute before:h-px before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
                 </a>
             </div>
-            <div class="w-1/3 text-center">
-                <h1 class="text-4xl font-bold">Editar Ponto de Coleta</h1>
+            <div class="w-full md:w-1/3 text-center">
+                <h1 class="text-2xl md:text-3xl font-bold">Editar Ponto de Coleta</h1>
             </div>
-            <div class="w-1/3"></div>
+            <div class="hidden md:flex w-1/3"></div>
         </div>
 
         <form method="post" action="/eletronicoverde/ponto-coleta/atualizar" id="form1" onsubmit="return validarFormulario()">

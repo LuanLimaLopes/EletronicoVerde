@@ -36,14 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleMenu = () => {
     open = !open;
 
-    // Animação hambúrguer → X
     lines[0].classList.toggle("rotate-45");
     lines[0].classList.toggle("translate-y-2");
     lines[1].classList.toggle("opacity-0");
     lines[2].classList.toggle("-rotate-45");
     lines[2].classList.toggle("-translate-y-2");
 
-    // Menu deslizando
     menu.classList.toggle("-translate-y-full");
     menu.classList.toggle("translate-y-0");
 
@@ -53,74 +51,107 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.addEventListener("click", toggleMenu);
 
 
-  /* ----------------------------
-        NAVBAR & ACTIVE LINK
-  ----------------------------- */
+  // ------------------------
+  // NAVEGAÇÃO / LINKS / CORES
+  // ------------------------
+
+  const current = window.location.pathname.replace(/\/$/, "");
+  const isHome = current === "/eletronicoverde";
 
   const navbar = document.getElementById("navbar");
   const navbar1 = document.getElementById("navbar-1");
   const ulMenu = document.getElementById("ul-menu");
   const navLinks = ulMenu.querySelectorAll("a");
 
-  const current = window.location.pathname.replace(/\/$/, "");
 
-  const isHome = current === "/eletronicoverde";
-
+  // ------------------------
+  // LINKS (HOME)
+  // ------------------------
   if (isHome) {
+    // Links começam brancos
     ulMenu.classList.add("text-white");
+  } else {
+    // Outras páginas → links pretos sempre
+    ulMenu.classList.remove("text-white");
+    ulMenu.classList.add("text-black");
+
+    navLinks.forEach(link => {
+      link.classList.remove("text-white");
+      link.classList.add("text-black");
+    });
+
+    // Linhas do hambúrguer pretas sempre
+    lines.forEach(line => {
+      line.classList.remove("bg-white");
+      line.classList.add("bg-black");
+    });
   }
 
+
+  // ------------------------
+  // ACTIVE LINK
+  // ------------------------
   navLinks.forEach(link => {
     const path = new URL(link.href).pathname.replace(/\/$/, "");
-    if (path === current) {
+    const isActive = path === current;
+
+    link.classList.remove("text-primary");
+
+    if (isActive) {
       link.classList.add("text-primary");
-      link.classList.remove("hover:text-primary");
-    } else {
-      link.classList.add("hover:text-primary");
     }
   });
 
-window.addEventListener("scroll", () => {
-  const scrolled = window.scrollY > 50;
 
-  // Estilos do navbar baseado no scroll
-  navbar.classList.toggle("md:border", scrolled);
-  navbar.classList.toggle("md:border-[#d2d2d2cc]", scrolled);
-  navbar.classList.toggle("md:m-3", scrolled);
-  navbar.classList.toggle("md:bg-[#ffffff59]", scrolled);
-  navbar.classList.toggle("md:shadow-lg", scrolled);
-  navbar.classList.toggle("md:backdrop-blur-md", scrolled);
+  // ------------------------
+  // SCROLL (SOMENTE HOME)
+  // ------------------------
+  window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY > 50;
 
-  navbar1.classList.toggle("border-b", scrolled);
-  navbar1.classList.toggle("border-[#d2d2d2cc]", scrolled);
-  navbar1.classList.toggle("bg-[#ffffff59]", scrolled);
-  navbar1.classList.toggle("shadow-lg", scrolled);
-  navbar1.classList.toggle("backdrop-blur-md", scrolled);
+    // navbar estilos
+    navbar.classList.toggle("md:border", scrolled);
+    navbar.classList.toggle("md:border-[#d2d2d2cc]", scrolled);
+    navbar.classList.toggle("md:m-3", scrolled);
+    navbar.classList.toggle("md:bg-[#ffffff59]", scrolled);
+    navbar.classList.toggle("md:shadow-lg", scrolled);
+    navbar.classList.toggle("md:backdrop-blur-md", scrolled);
 
-  // Linhas do botão hambúrguer
-  lines.forEach(line => {
-    line.classList.toggle("bg-black", scrolled);
-    line.classList.toggle("bg-white", !scrolled);
+    navbar1.classList.toggle("border-b", scrolled);
+    navbar1.classList.toggle("border-[#d2d2d2cc]", scrolled);
+    navbar1.classList.toggle("bg-[#ffffff59]", scrolled);
+    navbar1.classList.toggle("shadow-lg", scrolled);
+    navbar1.classList.toggle("backdrop-blur-md", scrolled);
+
+
+    // ------------------------
+    // CORES DO MENU (HOME)
+    // ------------------------
+    if (isHome) {
+
+      // Linhas: branco → preto ao dar scroll
+      lines.forEach(line => {
+        line.classList.toggle("bg-black", scrolled);
+        line.classList.toggle("bg-white", !scrolled);
+      });
+
+      // Links: branco → preto ao dar scroll, exceto o ativo (primary)
+      navLinks.forEach(link => {
+        const isActive = link.classList.contains("text-primary");
+
+        if (!isActive) {
+          link.classList.toggle("text-black", scrolled);
+          link.classList.toggle("text-white", !scrolled);
+        }
+      });
+    }
+
   });
 
-  // Links
-  if (isHome) {
-    navLinks.forEach(link => {
-      const isActive = link.classList.contains("text-primary");
 
-      if (!isActive) {
-        link.classList.toggle("text-black", scrolled);
-        link.classList.toggle("text-white", !scrolled);
-      }
-    });
-  }
-});
-
-
-  /* ----------------------------
-        SCROLL PROGRESS
-  ----------------------------- */
-
+  // ------------------------
+  // PROGRESS BAR
+  // ------------------------
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -131,6 +162,7 @@ window.addEventListener("scroll", () => {
   });
 
 });
+
 </script>
 
 
@@ -162,10 +194,22 @@ window.addEventListener("scroll", () => {
 
     <!-- MENU DESKTOP -->
     <ul id="ul-menu" class="hidden md:flex flex-row gap-5 lg:gap-10 font-medium text-base lg:text-lg transition-all duration-300">
-      <li><a href="/eletronicoverde" class="nav-item">Início</a></li>
-      <li><a href="<?= BASE_URL ?>/pontos-coleta" class="nav-item">Pontos de Coleta</a></li>
-      <li><a href="<?= BASE_URL ?>/materiais-aceitos" class="nav-item">Materiais Aceitos</a></li>
-      <li><a href="<?= BASE_URL ?>/reciclagem" class="nav-item">Reciclagem</a></li>
+      <li class="relative group">
+        <a href="/eletronicoverde" class="hover:text-primary transition-all duration-150">Início</a>
+        <span class="nav-indicator"></span>
+      </li>
+      <li class="relative group">
+        <a href="<?= BASE_URL ?>/pontos-coleta" class="hover:text-primary transition-all duration-150">Pontos de Coleta</a>
+        <span class="nav-indicator"></span>
+      </li>
+      <li class="relative group">
+        <a href="<?= BASE_URL?>/materiais-aceitos" class="hover:text-primary transition-all duration-150">Materiais Aceitos</a>
+        <span class="nav-indicator"></span>
+      </li>
+      <li class="relative group">
+        <a href="<?= BASE_URL?>/reciclagem" class="hover:text-primary transition-all duration-150">Reciclagem</a>
+        <span class="nav-indicator"></span>
+      </li>
     </ul>
 
     <!-- SCROLL PROGRESS -->
