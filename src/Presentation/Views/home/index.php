@@ -2,6 +2,7 @@
 
 <!-- HERO SECTION -->
 <header class="relative z-5">
+
     <div class="h-screen w-full text-white relative">
       <img src="<?= ASSETS_URL ?>/images/e-waste2.png" alt="Lixo Eletrônico"
         class="absolute top-0 left-0 w-full h-screen object-cover brightness-30 z-1" />
@@ -137,7 +138,7 @@
     </div>
 
     <!-- Sustentabilidade -->
-    <section class="flex flex-col gap-15 bg-whitey relative h-fit pb-10">
+    <section class="flex flex-col gap-15 bg-whitey relative h-fit">
       <div class="flex justify-center items-center w-full top-0 position absolute mb-[5vh]">      
         <div class="relative flex justify-center items-center h-[10vh]">
           <div class="w-[2px] h-full bg-amarelo-dark relative">
@@ -153,7 +154,7 @@
 
         <!-- Card 1 -->
         <div class="sust-1 z-1 relative sm:sticky h-auto md:h-[20rem] text-cinza-txt border-t-3 border-primary p-5 sm:mb-[18rem] md:mb-[20rem] sm:top-[calc(20vh+0.5em)] font-black fade-section">
-            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed] "></div>
+            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0  "></div>
             <div class="flex flex-col sm:flex-row justify-between items-center mb-10">
               <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-primary fade-up">
                   <i class="fa-solid fa-handshake-simple text-primary"></i> Contribuição Social
@@ -174,7 +175,7 @@
   
         <!-- Card 2 -->
         <div class="sust-2 z-1 relative sm:sticky h-auto md:h-[20rem] text-cinza-txt border-t-3 border-second p-5 sm:mb-[12rem] md:mb-[14rem] sm:top-[calc(20vh+6.5em)] md:top-[calc(20vh+7em)] font-black">
-            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed] "></div>
+            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0  "></div>
             <div class="flex flex-col sm:flex-row justify-between items-center mb-10">
               <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-second fade-up">
                   <i class="fa-solid fa-brain text-second"></i> Conscientização
@@ -195,7 +196,7 @@
   
         <!-- Card 3 -->
         <div class="z-1 relative sm:sticky h-auto md:h-[20rem] sm:top-[calc(20vh+8.5em)] text-cinza-txt border-t-3 border-third p-5 sm:mb-[7.5rem] font-black">
-            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0 shadow-[inset_0px_0px_15px_#ededed] "></div>
+            <div class="z-[-2] w-full h-full bg-whitey absolute top-0 left-0  "></div>
             <div class="flex flex-col sm:flex-row justify-between items-center mb-10">
               <span class="z-5 text-2xl md:text-3xl flex flex-row items-center gap-2 md:gap-5 py-5 text-third fade-up">
                   <i class="fa-solid fa-hand-pointer text-third"></i> Facilidade de Uso

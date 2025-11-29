@@ -102,3 +102,72 @@
 [2025-11-23 21:21:31] [ERROR] ⚠️ Rota não encontrada: /404
 [2025-11-23 21:22:04] [ERROR] ⚠️ Rota não encontrada: /404
 [2025-11-23 21:22:25] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-25 03:16:01] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-25 03:27:54] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-25 03:28:03] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-25 04:31:14] [ERROR] ⚠️ Rota não encontrada: /public/assets/images/logo-white.png
+[2025-11-25 05:17:33] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-25 05:18:30] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-25 05:18:34] [INFO] 🔐 Processando autenticação via POST
+[2025-11-25 05:18:34] [INFO] === INÍCIO AUTENTICAÇÃO ===
+[2025-11-25 05:18:34] [INFO] Login tentado com: admin
+[2025-11-25 05:18:34] [ERROR] ⚠️ Não encontrado por email, tentando por NOME...
+[2025-11-25 05:18:34] [INFO] ✅ Usuário encontrado: ID=1, Nome=admin
+[2025-11-25 05:18:34] [INFO] Resultado verificação de senha: ✅ CORRETA
+[2025-11-25 05:18:34] [INFO] ✅ Login realizado com sucesso!
+[2025-11-25 05:18:34] [INFO] === FIM AUTENTICAÇÃO ===
+[2025-11-25 05:21:27] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-25 06:43:10] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:46:10] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:46:32] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:46:42] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:46:51] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:46:58] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:48:20] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:50:57] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:51:10] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:58:09] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:58:52] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 06:59:02] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:07:01] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:21:32] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:26:09] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:26:26] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:27:19] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:28:06] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:28:42] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:29:05] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:29:44] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:29:58] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:30:10] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:30:56] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:31:15] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:31:29] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:31:45] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:32:03] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:32:15] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:32:30] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:32:58] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:33:23] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:34:40] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:35:03] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:36:31] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:38:21] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:38:59] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:39:28] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-25 07:39:45] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-27 02:53:44] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-27 02:57:54] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-27 02:58:45] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-27 03:28:08] [ERROR] ⚠️ Rota não encontrada: /494
+[2025-11-27 21:28:38] [ERROR] ⚠️ Rota não encontrada: /EletronicoVerde/src/Presentation/Views/materiais/teste-materiais.php
+[2025-11-28 19:48:15] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-28 19:48:19] [INFO] 🔐 Processando autenticação via POST
+[2025-11-28 19:48:19] [INFO] === INÍCIO AUTENTICAÇÃO ===
+[2025-11-28 19:48:19] [INFO] Login tentado com: admin
+[2025-11-28 19:48:19] [ERROR] ⚠️ Não encontrado por email, tentando por NOME...
+[2025-11-28 19:48:19] [INFO] ✅ Usuário encontrado: ID=1, Nome=admin
+[2025-11-28 19:48:20] [INFO] Resultado verificação de senha: ✅ CORRETA
+[2025-11-28 19:48:20] [INFO] ✅ Login realizado com sucesso!
+[2025-11-28 19:48:20] [INFO] === FIM AUTENTICAÇÃO ===
+[2025-11-30 00:52:13] [ERROR] ⚠️ Rota não encontrada: /pontos-coletad

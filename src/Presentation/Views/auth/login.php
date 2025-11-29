@@ -32,7 +32,7 @@ $csrf = new CSRF();
             <?= $csrf->gerarCampoInput() ?>
             
             <label for="username" class="font-bold text-lg w-full text-cinza-txt">Usuário</label>
-            <input type="text" id="username" name="username" required class="border border-gray-600 p-3 rounded-xl w-full mb-5 hover:bg-fourth transition ease-out focus:outline-0 focus:border-primary focus:shadow-[0px_0px_0px_$px_#04A77750]">
+            <input type="text" id="username" name="username" required class="border border-gray-600 p-3 rounded-xl w-full mb-5 hover:bg-fourth transition ease-out focus:outline-0 focus:border-primary focus:shadow-[0px_0px_0px_3px_#04A77750]">
             
             <label for="password" class="font-bold text-lg w-full text-cinza-txt">Senha</label>
             <input type="password" id="password" name="password" required class="border border-gray-600 p-3 rounded-xl w-full mb-20 hover:bg-fourth transition ease-out focus:outline-0 focus:border-primary focus:shadow-[0px_0px_0px_3px_#04A77750]">

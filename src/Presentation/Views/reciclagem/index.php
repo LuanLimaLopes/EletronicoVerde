@@ -62,7 +62,7 @@
         </model-viewer>
     </div>
 
-    <div class="pt-10 sm:pt-[10rem] h-full flex flex-col gap-30">
+    <div class="pt-10 sm:pt-[5rem] h-full flex flex-col gap-30">
         
         <!-- Benefícios da Reciclagem -->
         <div class="container mx-auto secao-content ">
