@@ -102,3 +102,27 @@
 [2025-11-23 21:21:31] [ERROR] ⚠️ Rota não encontrada: /404
 [2025-11-23 21:22:04] [ERROR] ⚠️ Rota não encontrada: /404
 [2025-11-23 21:22:25] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-28 06:22:25] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-28 06:22:30] [INFO] 🔐 Processando autenticação via POST
+[2025-11-28 06:22:30] [INFO] === INÍCIO AUTENTICAÇÃO ===
+[2025-11-28 06:22:30] [INFO] Login tentado com: admin
+[2025-11-28 06:22:30] [ERROR] ⚠️ Não encontrado por email, tentando por NOME...
+[2025-11-28 06:22:30] [INFO] ✅ Usuário encontrado: ID=1, Nome=admin
+[2025-11-28 06:22:30] [INFO] Resultado verificação de senha: ✅ CORRETA
+[2025-11-28 06:22:30] [INFO] ✅ Login realizado com sucesso!
+[2025-11-28 06:22:30] [INFO] === FIM AUTENTICAÇÃO ===
+[2025-11-28 06:24:12] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-28 06:24:57] [ERROR] ⚠️ Rota não encontrada: /404
+[2025-11-28 06:25:09] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-28 06:27:08] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-28 06:35:38] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-30 20:51:50] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-30 20:51:54] [INFO] 🔐 Processando autenticação via POST
+[2025-11-30 20:51:54] [INFO] === INÍCIO AUTENTICAÇÃO ===
+[2025-11-30 20:51:54] [INFO] Login tentado com: admin
+[2025-11-30 20:51:54] [ERROR] ⚠️ Não encontrado por email, tentando por NOME...
+[2025-11-30 20:51:54] [INFO] ✅ Usuário encontrado: ID=1, Nome=admin
+[2025-11-30 20:51:54] [INFO] Resultado verificação de senha: ✅ CORRETA
+[2025-11-30 20:51:54] [INFO] ✅ Login realizado com sucesso!
+[2025-11-30 20:51:54] [INFO] === FIM AUTENTICAÇÃO ===
+[2025-11-30 21:15:56] [INFO] 📄 Exibindo formulário de login via GET
