@@ -20,7 +20,7 @@
         <a href="#pontos" class="group flex flex-row items-center w-fit h-fit">
           <span class="text-xl bg-fourth text-black w-fit h-fit pl-5 rounded-full flex items-center gap-5 border-2 border-fourth
           group-hover:text-fourth transition-all duration-150 relative z-10 overflow-hidden
-          after:bg-primary after:absolute after:w-0 after:h-full after:right-0 after:top-0 after:z-[-5] after:transition-all after:duration-450 hover:after:w-full after:rounded-full">
+          after:bg-primary after:absolute after:w-0 after:h-full after:right-0 after:top-0 after:z-[-5] after:transition-all after:duration-450 hover:after:w-full after:rounded-full ">
               Pontos de Coleta 
               <i class="fa-solid fa-arrow-right-long text-2xl bg-primary text-black p-4 w-fit h-fit rounded-full group-hover:text-fourth transition-all duration-150"></i>
           </span> 

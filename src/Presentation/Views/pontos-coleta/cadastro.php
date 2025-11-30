@@ -19,7 +19,6 @@ $csrf = new CSRF();
         flex-direction: column;
         gap: 0.5rem;
         width: 50rem;
-        width: -webkit-fill-available;
     }
 
     @media (max-width: 768px) {
@@ -189,38 +188,38 @@ $csrf = new CSRF();
       
       <div>
         <label for="empresa">Empresa</label>
-        <input type="text" id="empresa" name="txtempresa" required>
+        <input type="text" id="empresa" name="txtempresa" placeholder="Nome da empresa" required>
       </div>
       
       <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="txtemail" required>
+        <input type="email" id="email" name="txtemail" placeholder="contato@empresa.com" required>
       </div>
       
       <div>
         <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" name="txttelefone" placeholder="(00) 00000-0000" required>
+        <input type="text" id="telefone" name="txttelefone" placeholder="(00) 00000-0000" maxlength="15" required>
       </div>
 
       <div>
         <label for="cep">CEP</label>
-        <input type="text" id="cep" name="txtcep" placeholder="00000-000" required>
+        <input type="text" id="cep" name="txtcep" placeholder="00000-000" maxlength="9" required>
         <small class="text-gray-600">Digite o CEP e saia do campo para buscar automaticamente</small>
       </div>
 
       <div>
         <label for="endereco">Endereço (Rua)</label>
-        <input type="text" id="endereco" name="txtendereco" required>
+        <input type="text" id="endereco" name="txtendereco" placeholder="Avenida Exemplo" required>
       </div>
 
       <div>
         <label for="bairro">Bairro</label>
-        <input type="text" id="bairro" name="txtbairro" required>
+        <input type="text" id="bairro" name="txtbairro" placeholder="Centro"  required>
       </div>
 
       <div>
         <label for="cidade">Cidade</label>
-        <input type="text" id="cidade" name="txtcidade" required>
+        <input type="text" id="cidade" name="txtcidade" placeholder="São Paulo" required>
       </div>
 
       <div>
@@ -230,12 +229,12 @@ $csrf = new CSRF();
 
       <div>
         <label for="complemento">Complemento</label>
-        <input type="text" id="complemento" name="txtcomplemento">
+        <input type="text" id="complemento" name="txtcomplemento" placeholder="Opcional (bloco, sala, loja...)">
       </div>
 
       <div>
         <label for="numero">Número</label>
-        <input type="text" id="numero" name="txtnumero" required>
+        <input type="text" id="numero" name="txtnumero" placeholder="123" required>
         <small class="text-gray-600">Preencha o número para buscar as coordenadas automaticamente</small>
       </div>
 
@@ -251,7 +250,7 @@ $csrf = new CSRF();
       
       <div>
         <label for="materiais">Materiais Aceitos</label>
-        <select multiple name="materiais_ids[]" id="materiais" class="h-40" required>
+        <select multiple name="materiais_ids[]" id="materiais" class="h-fit" required>
           <?php foreach ($materiais as $material): ?>
             <option value="<?= $material->getId() ?>">
               <?= htmlspecialchars($material->getNome()) ?>
