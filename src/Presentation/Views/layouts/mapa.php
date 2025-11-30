@@ -4,12 +4,26 @@
     .leaflet-popup-content {
         margin: 10px;
         max-width: 300px;
+        font-family: 'Inter', sans-serif;
     }
+
+    .leaflet-popup-content p{
+        display: flex;
+        gap: 0.5rem;
+        
+    }
+
     .leaflet-popup-content h3 {
         color: #04A777;
         font-weight: bold;
         margin-bottom: 8px;
     }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip{
+        background-color: #f9f9f920;
+        backdrop-filter: blur(20px);
+        border: 1px solid #ffffff8c;
+    }
+
     .user-marker {
         background-color: #4285F4;
         border: 3px solid white;
@@ -35,19 +49,19 @@
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>
 
-        <div class="mx-auto container gap-5 flex flex-col h-full fade-section">
+        <div class="mx-auto container gap-2 flex flex-col h-full fade-section">
             <!-- Barra de Busca -->
-            <div class="h-fit flex flex-col md:flex-row gap-5">
+            <div class="h-fit flex flex-col md:flex-row gap-2">
                 <input type="text" 
                        name="search" 
                        id="search" 
                        placeholder="Digite seu CEP (ex: 13075-490)" 
-                       class="text-md md:text-xl border-primary border-3 bg-white p-4 font-bold text-cinza-txt rounded-xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_5px_#04A77750]"
-                       maxlength="9"> 
+                       class="text-md md:text-xl border-second border-2 bg-white p-4 font-bold text-cinza-txt rounded-3xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_3px_#33735750]"
+                       maxlength="9">
                 <button type="button" 
                         onclick="buscarPorCep()" 
                         id="btnBuscar"
-                        class="bg-primary text-white text-lg py-3 px-8 rounded-xl cursor-pointer font-bold hover:bg-second transition-all focus:outline-0 ">
+                        class="bg-second text-white text-lg py-3 px-10 rounded-3xl cursor-pointer font-bold hover:bg-third transition-all focus:outline-0 ">
                     Pesquisar
                 </button>
             </div>
@@ -56,7 +70,7 @@
             <div id="mensagem" class="hidden p-4 rounded-lg"></div>
 
             <!-- MAPA -->
-            <div class="w-full h-[60vh] relative rounded-3xl overflow-hidden border-2 border-gray-200">
+            <div class="w-full h-[60vh] relative rounded-3xl overflow-hidden border-2 border-second">
     
                 <!-- Overlay que bloqueia interação no mobile -->
                 <div id="map-overlay"

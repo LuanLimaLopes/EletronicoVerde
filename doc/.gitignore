@@ -2,7 +2,7 @@
 
 
 # Logs
-storage/logs/*.log
+storage/logs/app.log
 .log
 
 # Sistema Operacional

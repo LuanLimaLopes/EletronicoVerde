@@ -1,10 +1,10 @@
 <footer class="bg-primary relative w-full h-[30rem] md:h-[25rem] flex justify-center z-0">
   <div class="bg-primary fixed bottom-0 h-[30rem] md:h-[25rem] w-full justify-between p-10 flex flex-col gap-10">
 
-    <!-- LOGO -->
+
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start items-start gap-10">
 
-      <!-- Logo -->
+
       <a href="/eletronicoverde" class="group transition-all duration-150">
         <h1 class="text-base lg:text-xl font-bold flex flex-row items-center gap-3.5">
           <img src="<?= ASSETS_URL ?>/images/Logo branca.png"
@@ -19,7 +19,6 @@
         </h1>
       </a>
 
-      <!-- Links -->
       <div class="flex flex-col gap-8 items-start sm:items-end">
 
         <ul class="flex flex-col gap-5 text-white text-lg text-start sm:text-right">
@@ -52,7 +51,7 @@
           </li>
         </ul>
 
-        <!-- Botão -->
+
         <a href="<?= BASE_URL ?>/login"
            class="text-white border border-white px-4 py-2 rounded-4xl relative transition-all duration-300 overflow-hidden hover:text-primary z-1
                   before:absolute before:h-full before:-z-1 before:w-0 hover:before:w-full before:bg-white before:bottom-0 before:left-0 before:transition-all before:duration-300">
@@ -63,7 +62,6 @@
 
     </div>
 
-    <!-- COPYRIGHT -->
     <p class="text-center text-white w-full">
       © 2025 Eletrônico Verde. Todos os direitos reservados.
     </p>

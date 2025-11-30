@@ -194,8 +194,9 @@ $csrf = new CSRF();
 
             <div>
                 <label for="empresa">Empresa</label>
-                <input type="text" id="empresa" name="txtempresa" 
+                <input type="text" id="empresa" name="txtempresa"
                        value="<?= htmlspecialchars($pontoColeta['empresa']) ?>" 
+                       placeholder="Nome da empresa"
                        required>
             </div>
 
@@ -203,6 +204,7 @@ $csrf = new CSRF();
                 <label for="email">Email</label>
                 <input type="email" id="email" name="txtemail" 
                        value="<?= htmlspecialchars($pontoColeta['email']) ?>" 
+                       placeholder="contato@empresa.com"
                        required>
             </div>
 
@@ -210,6 +212,7 @@ $csrf = new CSRF();
                 <label for="telefone">Telefone</label>
                 <input type="text" id="telefone" name="txttelefone" 
                        value="<?= htmlspecialchars($pontoColeta['telefone']) ?>" 
+                       maxlength="15"
                        placeholder="(00) 00000-0000"
                        required>
             </div>
@@ -218,6 +221,7 @@ $csrf = new CSRF();
                 <label for="cep">CEP</label>
                 <input type="text" id="cep" name="txtcep" 
                        value="<?= htmlspecialchars($pontoColeta['cep']) ?>" 
+                       maxlength="9"
                        placeholder="00000-000"
                        required>
                 <small class="text-gray-600">Digite o CEP e saia do campo para buscar automaticamente</small>
@@ -227,6 +231,7 @@ $csrf = new CSRF();
                 <label for="endereco">Endereço (Rua)</label>
                 <input type="text" id="endereco" name="txtendereco" 
                        value="<?= htmlspecialchars($pontoColeta['endereco']) ?>" 
+                       placeholder="Avenida Exemplo"
                        required>
             </div>
 
@@ -234,6 +239,7 @@ $csrf = new CSRF();
                 <label for="bairro">Bairro</label>
                 <input type="text" id="bairro" name="txtbairro" 
                        value="<?= htmlspecialchars($pontoColeta['bairro'] ?? '') ?>"
+                       placeholder="Centro"
                        required>
             </div>
 
@@ -241,6 +247,7 @@ $csrf = new CSRF();
                 <label for="cidade">Cidade</label>
                 <input type="text" id="cidade" name="txtcidade" 
                        value="<?= htmlspecialchars($pontoColeta['cidade'] ?? '') ?>"
+                       placeholder="São Paulo"
                        required>
             </div>
 
@@ -255,13 +262,15 @@ $csrf = new CSRF();
             <div>
                 <label for="complemento">Complemento</label>
                 <input type="text" id="complemento" name="txtcomplemento" 
-                       value="<?= htmlspecialchars($pontoColeta['complemento'] ?? '') ?>">
+                       value="<?= htmlspecialchars($pontoColeta['complemento'] ?? '') ?>"
+                       placeholder="Opcional (bloco, sala, loja...)">
             </div>
 
             <div>
                 <label for="numero">Número</label>
                 <input type="text" id="numero" name="txtnumero" 
                        value="<?= htmlspecialchars($pontoColeta['numero']) ?>" 
+                       placeholder="123"
                        required>
                 <small class="text-gray-600">Preencha o número para buscar as coordenadas automaticamente</small>
             </div>

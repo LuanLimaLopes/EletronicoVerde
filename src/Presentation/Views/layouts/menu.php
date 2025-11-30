@@ -1,29 +1,3 @@
-<!-- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.getElementById("navbar");
-    const ulMenu = document.getElementById("ul-menu");
-
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 50) {
-        navbar.classList.add("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
-        ulMenu.classList.remove("text-white", "text-shadow-xl");
-        ulMenu.classList.add("text-black");
-      } else {
-        navbar.classList.remove("border", "border-[#d2d2d2cc]", "m-3", "bg-[#ffffff59]", "shadow-lg", "backdrop-blur-md");
-        ulMenu.classList.add("text-white", "text-shadow-xl");
-        ulMenu.classList.remove("text-black");
-      }
-    });
-  });
-
-  window.addEventListener('scroll', function () {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    document.getElementById('scroll-progress').style.width = scrollPercent + '%';
-  });
-</script> -->
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
