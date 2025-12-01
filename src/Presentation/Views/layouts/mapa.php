@@ -10,7 +10,6 @@
     .leaflet-popup-content p{
         display: flex;
         gap: 0.5rem;
-        margin-bottom: 17px !important;
         
     }
 
@@ -20,7 +19,7 @@
         margin-bottom: 8px;
     }
     .leaflet-popup-content-wrapper, .leaflet-popup-tip{
-        background-color: #ffffff70;
+        background-color: #f9f9f920;
         backdrop-filter: blur(20px);
         border: 1px solid #ffffff8c;
     }
@@ -187,27 +186,28 @@ async function buscarPorCep() {
 }
 
 
-
 // Busca pontos próximos via API
 async function buscarPontosProximos(lat, lng) {
     try {
-        console.log('🔍 Buscando pontos próximos a:', lat, lng);
-        
         const response = await fetch(`/eletronicoverde/api/pontos/buscar-proximos?lat=${lat}&lng=${lng}&raio=10`);
         const data = await response.json();
         
-        console.log('📦 Resposta da API de pontos:', data);
-        
-        // Remove marcadores antigos (EXCETO o do usuário)
+        // Remove marcadores antigos
         limparMarcadores();
 
         if (data.sucesso && data.dados.length > 0) {
-            console.log(`✅ ${data.dados.length} pontos encontrados`);
+            
+            // Adiciona marcador do usuário
+            adicionarMarcadorUsuario(lat, lng);
             
             // Adiciona marcadores dos pontos
             data.dados.forEach(ponto => {
                 adicionarMarcadorPonto(ponto);
             });
+            
+            // Centraliza mapa na localização do usuário
+            map.setView([lat, lng], 13);
+            map.invalidateSize(); // CORREÇÃO: Força o redimensionamento após mover e adicionar marcadores
             
             // Armazena todos os pontos e exibe a PRIMEIRA página
             todosPontosEncontrados = data.dados; 
@@ -216,12 +216,11 @@ async function buscarPontosProximos(lat, lng) {
             
             mostrarMensagem(`${data.dados.length} ponto(s) encontrado(s) próximo a você!`, 'sucesso');
         } else {
-            console.log('⚠️ Nenhum ponto encontrado próximo');
             mostrarMensagem('Nenhum ponto de coleta encontrado próximo a você. Mostrando todos os pontos disponíveis.', 'aviso');
             carregarTodosPontos();
         }
     } catch (error) {
-        console.error('💥 Erro ao buscar pontos:', error);
+        console.error('Erro:', error);
         mostrarMensagem('Erro ao buscar pontos de coleta. Tente novamente.', 'erro');
     }
 }
@@ -282,40 +281,26 @@ function adicionarMarcadorPonto(ponto) {
     
     const marker = L.marker([ponto.latitude, ponto.longitude], { icon: pontoIcon })
         .addTo(map);
+
+
     
     // Conteúdo do popup
     const popupContent = `
         <div style="max-width: 300px;">
             <h3 style="color: #04A777; font-weight: bold; margin-bottom: 8px;">${ponto.empresa}</h3>
-            ${ponto.distancia ? `<p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
-            <p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
-            <p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${ponto.telefone}</p>
-            <p style="color: #666; font-size: clamp(10px, 12px, 14px); word-break: break-all;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
-            <p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+            ${ponto.distancia ? `<p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
+            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
+            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${formatarTelefone(ponto.telefone)}</p>
+            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
+            <p style="color: #666; font-size: 14px; margin-bottom: 8px;"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
             ${ponto.materiais && ponto.materiais.length > 0 ? `
-                <div style="margin-top: 8px; margin-bottom: 17px !important;">
-                    <span style="font-weight: bold; color: #333; font-size: clamp(10px, 12px, 14px);; margin-bottom: 10px;">Materiais aceitos:</span>
+                <div style="margin-top: 8px;">
+                    <p style="font-weight: bold; color: #333; font-size: 13px; margin-bottom: 5px;">Materiais aceitos:</p>
                     <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                         ${ponto.materiais.map(m => `<span style="background: #D3FFF2; color: #04A777; padding: 2px 8px; border-radius: 4px; font-size: 11px;">${m.nome}</span>`).join('')}
                     </div>
                 </div>
             ` : ''}
-            <a href="https://www.google.com/maps?q=${ponto.latitude},${ponto.longitude}" 
-            target="_blank" 
-            style="
-                    display: inline-block;
-                    background: #04A777;
-                    color: white;
-                    padding: 8px 12px;
-                    border-radius: 6px;
-                    text-decoration: none;
-                    font-weight: bold;
-                    text-align: center;
-                    width: 100%;               
-                    font-size: clamp(10px, 12px, 14px); 
-            ">
-            Abrir no Google Maps
-            </a>
         </div>
     `;
     
@@ -360,7 +345,7 @@ function exibirListaPontos(pontosCompletos) {
                     <h3 class="text-xl font-bold text-primary mb-2">${ponto.empresa}</h3>
                     ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2"><i class="fa-solid fa-location-pin text-second"></i> <strong>${ponto.distancia} km</strong> de distância</p>` : ''}
                     <p class="text-gray-700"><i class="fa-solid fa-location-dot text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
-                    <p class="text-gray-700"><i class="fa-solid fa-phone text-second"></i> ${ponto.telefone}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-phone text-second"></i> ${formatarTelefone(ponto.telefone)}</p>
                     <p class="text-gray-700"><i class="fa-solid fa-envelope text-second"></i> ${ponto.email}</p>
                     <p class="text-gray-700"><i class="fa-solid fa-clock text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
                     ${ponto.materiais && ponto.materiais.length > 0 ? `
@@ -541,4 +526,29 @@ window.addEventListener('scroll', () => {
         map.dragging.disable();
     }
 });
+
+function formatarTelefone(numero) {
+    if (!numero) return '';
+    
+    // Se vier exatamente "Telefone não informado"
+    if (numero.trim().toLowerCase() === "telefone não informado") {
+        return "Telefone não informado";
+    }
+
+    // Remove tudo que não for número
+    numero = numero.replace(/\D/g, '');
+
+    // Formato 11 dígitos -> (XX) XXXXX-XXXX
+    if (numero.length === 11) {
+        return numero.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    }
+
+    // Formato 10 dígitos -> (XX) XXXX-XXXX
+    if (numero.length === 10) {
+        return numero.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    }
+
+    // Se não bater com nenhum formato, retorna como veio
+    return numero;
+}
 </script>
