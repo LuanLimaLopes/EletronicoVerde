@@ -10,6 +10,7 @@
     .leaflet-popup-content p{
         display: flex;
         gap: 0.5rem;
+        margin-bottom: 17px !important;
         
     }
 
@@ -19,7 +20,7 @@
         margin-bottom: 8px;
     }
     .leaflet-popup-content-wrapper, .leaflet-popup-tip{
-        background-color: #f9f9f920;
+        background-color: #ffffff70;
         backdrop-filter: blur(20px);
         border: 1px solid #ffffff8c;
     }
@@ -286,19 +287,35 @@ function adicionarMarcadorPonto(ponto) {
     const popupContent = `
         <div style="max-width: 300px;">
             <h3 style="color: #04A777; font-weight: bold; margin-bottom: 8px;">${ponto.empresa}</h3>
-            ${ponto.distancia ? `<p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${ponto.telefone}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 8px;"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+            ${ponto.distancia ? `<p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
+            <p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
+            <p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${ponto.telefone}</p>
+            <p style="color: #666; font-size: clamp(10px, 12px, 14px); word-break: break-all;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
+            <p style="color: #666; font-size: clamp(10px, 12px, 14px);"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
             ${ponto.materiais && ponto.materiais.length > 0 ? `
-                <div style="margin-top: 8px;">
-                    <p style="font-weight: bold; color: #333; font-size: 13px; margin-bottom: 5px;">Materiais aceitos:</p>
+                <div style="margin-top: 8px; margin-bottom: 17px !important;">
+                    <span style="font-weight: bold; color: #333; font-size: clamp(10px, 12px, 14px);; margin-bottom: 10px;">Materiais aceitos:</span>
                     <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                         ${ponto.materiais.map(m => `<span style="background: #D3FFF2; color: #04A777; padding: 2px 8px; border-radius: 4px; font-size: 11px;">${m.nome}</span>`).join('')}
                     </div>
                 </div>
             ` : ''}
+            <a href="https://www.google.com/maps?q=${ponto.latitude},${ponto.longitude}" 
+            target="_blank" 
+            style="
+                    display: inline-block;
+                    background: #04A777;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    text-align: center;
+                    width: 100%;               
+                    font-size: clamp(10px, 12px, 14px); 
+            ">
+            Abrir no Google Maps
+            </a>
         </div>
     `;
     
