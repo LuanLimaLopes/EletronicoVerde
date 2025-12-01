@@ -4,7 +4,7 @@
     <div class="container mx-auto py-30 p-5">
       <?php
         // --- CONFIGURAÇÃO DE PAGINAÇÃO ---
-        $itensPorPagina = 5;
+        $itensPorPagina = 10;
 
         // 1. Determinar a página atual (lê da URL, ex: ?pagina=2)
         $paginaAtual = isset($_GET['pagina']) && is_numeric($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
