@@ -19,7 +19,6 @@ $csrf = new CSRF();
         flex-direction: column;
         gap: 0.5rem;
         width: 50rem;
-        width: -webkit-fill-available;
     }
 
     @media (max-width: 768px) {
@@ -316,9 +315,18 @@ $csrf = new CSRF();
     <small class="text-gray-600">Selecione os materiais aceitos</small>
 </div>
 
+            <div>
+                <label for="latitude">Latitude</label>
+                <input id="latitude" name="latitude" value="<?= htmlspecialchars($pontoColeta['latitude'] ?? '') ?>">
+            </div>
+            <div>
+                <label for="longitude">Longitude</label>
+                <input id="longitude" name="longitude" value="<?= htmlspecialchars($pontoColeta['longitude'] ?? '') ?>">
+            </div>
+
             <!-- Campos hidden para coordenadas -->
-            <input type="hidden" id="latitude" name="latitude" value="<?= htmlspecialchars($pontoColeta['latitude'] ?? '') ?>">
-            <input type="hidden" id="longitude" name="longitude" value="<?= htmlspecialchars($pontoColeta['longitude'] ?? '') ?>">
+            
+            
 
             <div id="geoStatus" class="hidden geo-status"></div>
 
