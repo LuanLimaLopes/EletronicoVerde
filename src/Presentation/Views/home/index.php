@@ -95,28 +95,31 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 h-full container mx-auto">
         
         <div class="rounded-3xl bg-emerald-950 p-5 gap-10 text-white text-center flex items-center justify-center flex-col lg:row-span-2 sm:row-span-2  fade-up">
-          <h2 class="text-5xl font-bold text-primary font-dm-serif-display">62 milhões</h2>
+          <h2 class="text-5xl font-bold text-primary font-dm-serif-display">
+              <span class="counter" data-suffix=" milhões">62</span>
+          </h2>
+
           <p class="text-xl">Toneladas de lixo eletrônico foram geradas no mundo em 2022</p>
         </div>
         
         <div class="rounded-3xl bg-emerald-900 p-5 gap-5 text-white text-center flex items-center justify-center flex-col lg:col-span-2 sm:col-span-1  fade-up">
-          <h2 class="text-5xl font-bold text-amarelo font-dm-serif-display">5º</h2>
+          <h2 class="text-5xl font-bold text-amarelo font-dm-serif-display"><span class="counter" data-suffix="º">5</span></h2>
           <p class="text-xl">O Brasil é o 5º maior produtor de lixo eletrônico do mundo, gerando cerca de 2,4 milhões de toneladas por ano.</p>
         </div>
         
         <div class="rounded-3xl bg-emerald-200 p-5 gap-5 text-white text-center flex items-center justify-center flex-col fade-up">
-          <h2 class="text-5xl font-bold text-emerald-700 font-dm-serif-display">22,3%</h2>
+          <h2 class="text-5xl font-bold text-emerald-700 font-dm-serif-display"> <span class="counter" data-suffix="%">22,3</span></h2>
           <p class="text-xl text-black">Do lixo eletrônico global foi reciclado corretamente em 2022</p>
         </div>
         
         <div class="rounded-3xl bg-amarelo p-5 gap-5 text-white text-center flex items-center justify-center flex-col  fade-up">
-          <h2 class="text-5xl font-bold text-emerald-900 font-dm-serif-display">87%</h2>
+          <h2 class="text-5xl font-bold text-emerald-900 font-dm-serif-display"><span class="counter" data-suffix="%">87</span></h2>
           <p class="text-xl text-black">Dos brasileiros afirmam guardar aparelhos eletrônicos sem uso em casa</p>
         </div>
 
         <div class="rounded-3xl bg-emerald-600 p-5 gap-5 relative text-white text-center flex items-center justify-center flex-col lg:col-span-2  md:col-span-1 fade-up">
           <div class="flex flex-col gap-5 ">
-            <h2 class="text-5xl font-bold text-emerald-950 font-dm-serif-display">40 milhões</h2>
+            <h2 class="text-5xl font-bold text-emerald-950 font-dm-serif-display"><span class="counter" data-suffix=" milhões">40</span></h2>
             <p class="text-xl text-amarelo">De toneladas de metais preciosos, como ouro, prata e cobre, são descartadas anualmente em dispositivos eletrônicos.</p>
           </div>
           <div>

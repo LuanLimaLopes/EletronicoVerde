@@ -1,5 +1,5 @@
 <head>
-  <Title>Acesso restrito</Title>
+  <Title>Acesso restrito - Eletrônico Verde</Title>
 </head>
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 

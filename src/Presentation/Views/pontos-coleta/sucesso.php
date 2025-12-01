@@ -1,3 +1,7 @@
+<head>
+  <Title>Operação realizada com sucesso  - Eletrônico Verde</Title>
+</head>
+
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <main class="relative z-2 mx-auto pt-30 pb-30 p-5 rounded-b-[30px] bg-whitey h-[100vh] flex flex-col items-center justify-center">

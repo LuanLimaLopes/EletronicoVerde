@@ -1,3 +1,7 @@
+<head>
+    <title>404 - Página não encontrada</title>
+</head>
+
 <?php require_once __DIR__ . '/layouts/header.php'; ?>
 
 

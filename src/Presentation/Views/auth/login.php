@@ -1,5 +1,5 @@
 <head>
-  <Title>Login</Title>
+  <Title>Login - Eletrônico Verde</Title>
 </head>
 <?php 
 

@@ -1,5 +1,5 @@
 <head>
-  <Title>Cadastrar</Title>
+  <Title>Cadastrar Ponto de Coleta - Eletrônico Verde</Title>
 </head>
 <?php 
 require_once __DIR__ . '/../layouts/header.php';

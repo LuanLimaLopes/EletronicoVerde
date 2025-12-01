@@ -19,7 +19,7 @@
         margin-bottom: 8px;
     }
     .leaflet-popup-content-wrapper, .leaflet-popup-tip{
-        background-color: #f9f9f920;
+        background-color: #f9f9f980;
         backdrop-filter: blur(20px);
         border: 1px solid #ffffff8c;
     }
@@ -41,36 +41,64 @@
         opacity: 0;
         pointer-events: none;
     }
+
+    .leaflet-control-zoom-in, .leaflet-control-zoom-out{
+
+        background-color: var(--color-second) !important;
+        color: #fff !important;
+        border-radius: 10px !important;
+        width: 40px !important;
+        display: flex !important;
+        height: 40px !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover{
+        background-color: #037a5e !important;
+    }
+
+    .leaflet-control-zoom{
+        border: none !important;
+    }
 </style>
 
 <section class="relative z-2 bg-whitey rounded-b-[30px]">
-    <div id="pontos" class="container mx-auto flex flex-col gap-15  relative pt-30 pb-30 min-h-screen px-4">
+    <div id="pontos" class="container mx-auto flex flex-col gap-15 relative pt-30 pb-30 min-h-screen px-4">
         <h1 class="text-4xl font-bold text-black text-center fade-section">
             Encontre o <span class="text-primary font-dm-serif-display italic">ponto de coleta</span> mais próximo de você
         </h1>
 
-        <div class="mx-auto container gap-2 flex flex-col h-full fade-section">
+        
+
+        <div class="mx-auto container flex flex-col h-full fade-section">
+
+        <!-- Mensagens -->
+            <div id="mensagem" class="hidden p-4 rounded-lg"></div>
+
             <!-- Barra de Busca -->
-            <div class="h-fit flex flex-col md:flex-row gap-2">
+            <div class="h-fit flex flex-col md:flex-row">
                 <input type="text" 
                        name="search" 
                        id="search" 
                        placeholder="Digite seu CEP (ex: 13075-490)" 
-                       class="text-md md:text-xl border-second border-2 bg-white p-4 font-bold text-cinza-txt rounded-3xl w-full hover:bg-fourth transition ease-out focus:outline-0 focus:shadow-[0px_0px_0px_3px_#33735750]"
+                       class="text-md md:text-xl border-second border-2 border-b-0 bg-white px-4 py-3 md:px-4 shadow-xs font-bold text-cinza-txt rounded-t-2xl md:rounded-tl-2xl md:rounded-tr-none w-full hover:bg-fourth transition ease-out focus:outline-0 focus:bg-fourth"
                        maxlength="9">
+                <button id="btn-limpar-busca" 
+                        class="bg-third hover:bg-third/70 text-white text-lg py-3 px-10 rounded-none border-second border-2 border-b-0 cursor-pointer font-bold transition-all focus:outline-0 hidden">
+                    Limpar
+                </button>
                 <button type="button" 
                         onclick="buscarPorCep()" 
                         id="btnBuscar"
-                        class="bg-second text-white text-lg py-3 px-10 rounded-3xl cursor-pointer font-bold hover:bg-third transition-all focus:outline-0 ">
+                        class="bg-second text-white text-lg py-3 px-10 rounded-none md:rounded-tr-2xl border-second border-2 border-b-0 cursor-pointer font-bold hover:bg-third transition-all focus:outline-0 ">
                     Pesquisar
                 </button>
+                
             </div>
 
-            <!-- Mensagens -->
-            <div id="mensagem" class="hidden p-4 rounded-lg"></div>
-
             <!-- MAPA -->
-            <div class="w-full h-[60vh] relative rounded-3xl overflow-hidden border-2 border-second">
+            <div class="w-full h-[60vh] relative rounded-b-2xl overflow-hidden border-2 border-second">
     
                 <!-- Overlay que bloqueia interação no mobile -->
                 <div id="map-overlay"
@@ -93,7 +121,7 @@
                 <div id="paginacao-container" class="hidden"></div>
             </div>
 
-            <div>
+            <div class="mt-5">
                 <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-full md:w-fit rounded-3xl justify-between md:justify-center items-center flex flex-row md:gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
                 <p>Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span> </p></span>
                     <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all rounded-full"></i>
@@ -114,6 +142,44 @@ let userMarker;
 let todosPontosEncontrados = []; // Armazena todos os pontos retornados pela API
 let paginaAtual = 1;
 const itensPorPagina = 3;
+
+async function limparBuscaCep() {
+
+    // 1. Limpa marcadores do mapa
+    limparMarcadores();
+
+    // 2. Esconde botão de limpar
+    document.getElementById('btn-limpar-busca').classList.add('hidden');
+
+    // 3. Limpa o input de CEP
+    document.getElementById('search').value = "";
+
+    // 4. Oculta a lista de resultados
+    document.getElementById('resultados').classList.add('hidden');
+    document.getElementById('lista-pontos').innerHTML = "";
+    document.getElementById('paginacao-container').classList.add('hidden');
+
+    // 5. Remove o marcador do usuário, se existir
+    if (userMarker) {
+        map.removeLayer(userMarker);
+        userMarker = null;
+    }
+
+    // 6. Carrega novamente TODOS os pontos
+    await carregarTodosPontos();
+
+    // 7. Centraliza o mapa novamente na posição inicial
+    map.setView([-22.9068, -47.0632], 12); // Campinas
+    
+    // 8. Reseta paginação
+    paginaAtual = 1;
+
+    mostrarMensagem("Busca limpa! Exibindo todos os pontos novamente.", "sucesso");
+}
+
+document.getElementById("btn-limpar-busca")
+        .addEventListener("click", limparBuscaCep);
+
 
 // Inicializa o mapa
 function initMap() {
@@ -213,6 +279,15 @@ async function buscarPontosProximos(lat, lng) {
             todosPontosEncontrados = data.dados; 
             paginaAtual = 1;
             exibirListaPontos(todosPontosEncontrados);
+            document.getElementById('btn-limpar-busca').classList.remove('hidden');
+            
+            async function limparBuscaCep() {
+
+}
+
+document.getElementById("btn-limpar-busca")
+        .addEventListener("click", limparBuscaCep);
+
             
             mostrarMensagem(`${data.dados.length} ponto(s) encontrado(s) próximo a você!`, 'sucesso');
         } else {
@@ -224,6 +299,8 @@ async function buscarPontosProximos(lat, lng) {
         mostrarMensagem('Erro ao buscar pontos de coleta. Tente novamente.', 'erro');
     }
 }
+
+
 
 // Carrega todos os pontos no mapa (inicial)
 async function carregarTodosPontos() {
@@ -270,8 +347,8 @@ function adicionarMarcadorPonto(ponto) {
     const pontoIcon = L.icon({
         iconUrl: 'data:image/svg+xml;base64,' + btoa(`
             <svg width="32" height="40" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 24 16 24s16-12 16-24c0-8.8-7.2-16-16-16z" fill="#04A777"/>
-                <circle cx="16" cy="16" r="8" fill="white"/>
+                <path d="M16 0C7.2 0 0 7.2 0 16c0 12 16 24 16 24s16-12 16-24c0-8.8-7.2-16-16-16z" fill="#337357"/>
+                <circle cx="16" cy="16" r="8" fill="#D3FFF2"/>
             </svg>
         `),
         iconSize: [32, 40],
@@ -288,11 +365,11 @@ function adicionarMarcadorPonto(ponto) {
     const popupContent = `
         <div style="max-width: 300px;">
             <h3 style="color: #04A777; font-weight: bold; margin-bottom: 8px;">${ponto.empresa}</h3>
-            ${ponto.distancia ? `<p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${formatarTelefone(ponto.telefone)}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 5px;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
-            <p style="color: #666; font-size: 14px; margin-bottom: 8px;"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+            ${ponto.distancia ? `<p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
+            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
+            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${formatarTelefone(ponto.telefone)}</p>
+            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
+            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 8px;"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
             ${ponto.materiais && ponto.materiais.length > 0 ? `
                 <div style="margin-top: 8px;">
                     <p style="font-weight: bold; color: #333; font-size: 13px; margin-bottom: 5px;">Materiais aceitos:</p>
@@ -378,8 +455,6 @@ function irParaPagina(novaPagina) {
     paginaAtual = novaPagina;
     exibirListaPontos(todosPontosEncontrados);
     
-    // Rola para o topo da lista de resultados (melhor UX)
-    document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function renderizarPaginacao(totalPaginas, totalItens) {
@@ -451,7 +526,7 @@ function focusPonto(index) {
 // Mostra mensagem
 function mostrarMensagem(texto, tipo) {
     const mensagemDiv = document.getElementById('mensagem');
-    mensagemDiv.className = 'p-4 rounded-lg ';
+    mensagemDiv.className = 'p-4 rounded-lg mb-5 ';
     
     if (tipo === 'sucesso') {
         mensagemDiv.className += 'bg-green-100 border border-green-400 text-green-700';

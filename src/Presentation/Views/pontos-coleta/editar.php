@@ -1,5 +1,5 @@
 <head>
-    <title>Editar</title>
+    <title>Editar Ponto de Coleta - Eletrônico Verde</title>
 </head>
 
 <?php 
@@ -385,11 +385,11 @@ $csrf = new CSRF();
 
             <div id="campoForm">
                 <label for="latitude">Latitude</label>
-                <input id="latitude" name="latitude" value="<?= htmlspecialchars($pontoColeta['latitude'] ?? '') ?>">
+                <input type="text" id="latitude" name="latitude" value="<?= htmlspecialchars($pontoColeta['latitude'] ?? '') ?>">
             </div>
             <div id="campoForm">
                 <label for="longitude">Longitude</label>
-                <input id="longitude" name="longitude" value="<?= htmlspecialchars($pontoColeta['longitude'] ?? '') ?>">
+                <input type="text" id="longitude" name="longitude" value="<?= htmlspecialchars($pontoColeta['longitude'] ?? '') ?>">
             </div>
 
             <div id="geoStatus" class="hidden geo-status"></div>

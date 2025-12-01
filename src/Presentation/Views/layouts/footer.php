@@ -24,7 +24,7 @@
         <ul class="flex flex-col gap-5 text-white text-lg text-start sm:text-right">
           <li>
             <a href="/eletronicoverde"
-               class="relative transition-all duration-150 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
+               class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
                Início
             </a>
           </li>
@@ -83,6 +83,48 @@
     }, { threshold: 0.4 });
 
     targets.forEach(t => observer.observe(t));
+
+function animateCounters() {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+        const suffix = counter.dataset.suffix || "";
+        const target = parseFloat(counter.textContent.replace(",", "."));
+
+        if (isNaN(target)) return;
+
+        let current = 0;
+        const duration = 3000;
+        const frames = 60;
+        const increment = target / frames;
+        let frame = 0;
+
+        const interval = setInterval(() => {
+            frame++;
+            current += increment;
+
+            counter.textContent = current.toFixed(target % 1 !== 0 ? 1 : 0) + suffix;
+
+            if (frame >= frames) {
+                counter.textContent = target + suffix;
+                clearInterval(interval);
+            }
+        }, duration / frames);
+    });
+}
+
+let started = false;
+const section = document.querySelector("section");
+
+window.addEventListener("scroll", () => {
+    if (started) return;
+
+    const sectionPos = section.getBoundingClientRect();
+    if (sectionPos.top < window.innerHeight * 0.8) {
+        started = true;
+        animateCounters();
+    }
+});
 </script>
 
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materiais</title>
+    <title>Materiais - Eletrônico Verde</title>
     <?php require_once __DIR__ . '/../layouts/header.php'; ?>
     <style  type="text/tailwindcss">
 @layer components {
@@ -133,7 +133,7 @@
                     <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-computer"></i> Aparelhos eletrônicos</h2>
                     <p class="text-lg lg:text-2xl">Celulares, tablets, computadores, notebooks, impressoras e televisores.</p>
 
-                    <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-aparelhos">
+                    <div class="overflow-hidden transition-all duration-500 max-h-200" id="list-aparelhos">
                         <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Celulares e smartphones</li>
                             <li>Tablets</li>
@@ -151,7 +151,7 @@
                     </div>
 
                     <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-aparelhos">
-                        Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
+                        Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300"></i>
                     </button>
 
                     <p class="text-base italic frase">Esses dispositivos contêm metais valiosos e componentes que podem ser reaproveitados, reduzindo o desperdício e a poluição.</p>
@@ -171,7 +171,7 @@
                     <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-microchip"></i> Componentes de computador</h2>
                     <p class="text-lg lg:text-2xl">Placas-mãe, processadores, HDs, memórias RAM e placas de vídeo.</p>
 
-                    <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-componentes">
+                    <div class="overflow-hidden transition-all duration-500 max-h-200" id="list-componentes">
                         <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Placa-mãe</li>
                             <li>Memória RAM</li>
@@ -187,7 +187,7 @@
                     </div>
 
                     <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-componentes">
-                        Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
+                        Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300"></i>
                     </button>
 
                     <p class="text-base italic frase">Partes internas como placas e processadores possuem metais e materiais recicláveis que ajudam a economizar recursos naturais.</p>
@@ -207,7 +207,7 @@
                     <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-blender"></i> Eletrodomésticos</h2>
                     <p class="text-lg lg:text-2xl">Micro-ondas, geladeiras, máquinas de lavar e fogões.</p>
 
-                    <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-eletrodomesticos">
+                    <div class="overflow-hidden transition-all duration-500 max-h-200" id="list-eletrodomesticos">
                         <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Liquidificadores</li>
                             <li>Batedeiras</li>
@@ -225,7 +225,7 @@
                     </div>
 
                     <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-eletrodomesticos">
-                        Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
+                        Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300"></i>
                     </button>
 
                     <p class="text-base italic frase">Mesmo os eletrodomésticos antigos podem ter peças reaproveitadas e metais recicláveis que diminuem o impacto ambiental.</p>
@@ -245,7 +245,7 @@
                     <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-battery-full"></i> Baterias e pilhas</h2>
                     <p class="text-lg lg:text-2xl">Tanto de aparelhos eletrônicos quanto de dispositivos pequenos, como controle remoto.</p>
 
-                    <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-pilhas">
+                    <div class="overflow-hidden transition-all duration-500 max-h-200" id="list-pilhas">
                         <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Pilhas comuns</li>
                             <li>Baterias de celular</li>
@@ -259,7 +259,7 @@
                     </div>
 
                     <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-pilhas">
-                        Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
+                        Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300"></i>
                     </button>
 
                     <p class="text-base italic frase">Esses itens contêm substâncias tóxicas que poluem o solo e a água, o descarte correto evita danos à natureza.</p>
@@ -279,7 +279,7 @@
                     <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-plug"></i> Cabos e fios</h2>
                     <p class="text-lg lg:text-2xl">Cabos de energia, carregadores, cabos USB e HDMI</p>
 
-                    <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-cabos">
+                    <div class="overflow-hidden transition-all duration-500 max-h-200" id="list-cabos">
                         <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Cabos USB</li>
                             <li>Cabos HDMI</li>
@@ -293,7 +293,7 @@
                     </div>
 
                     <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-cabos">
-                        Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
+                        Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300"></i>
                     </button>
                     
                     <p class="text-base italic frase">Cabos e fios possuem cobre e outros metais valiosos que podem ser recuperados e reutilizados na indústria.</p>
@@ -314,7 +314,7 @@
                     <h2 class="text-xl lg:text-3xl"><i class="fa-solid fa-keyboard"></i> Acessórios e Periféricos</h2>
                     <p class="text-lg lg:text-2xl">Fones de ouvido, mouses, teclados e relógios digitais.</p>
 
-                    <div class="overflow-hidden transition-all duration-500 max-h-0" id="list-acessorios">
+                    <div class="overflow-hidden transition-all duration-500 max-h-200" id="list-acessorios">
                         <ul class="grid grid-cols-2 gap-2 text-sm md:text-lg list-disc list-inside gap-x-5 bg-whitey text-black p-5 rounded-xl">
                             <li>Teclados</li>
                             <li>Mouses</li>
@@ -332,7 +332,7 @@
                     </div>
 
                     <button class="text-second hover:bg-third hover:text-white p-3 rounded-3xl transition-all duration-200 text-base cursor-pointer font-bold mb-2" data-target="list-acessorios">
-                        Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>
+                        Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300"></i>
                     </button>
 
                     <p class="text-sm italic frase">Aparelhos menores também fazem diferença! Reciclar controles, fones e carregadores ajuda a reduzir o lixo eletrônico.</p>
@@ -402,12 +402,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelectorAll('button[data-target]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = document.getElementById(btn.dataset.target);
-        const expanded = target.classList.toggle('max-h-200');
-        btn.innerHTML = expanded ? 'Ver menos <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300 rotate-180"></i>' : 'Ver mais itens <i class="fa-solid fa-chevron-down ml-2 transition-transform duration-300"></i>';
-      });
+        btn.addEventListener('click', () => {
+            const target = document.getElementById(btn.dataset.target);
+
+            if (target.classList.contains('max-h-200')) {
+            // FECHAR
+            target.classList.remove('max-h-200');
+            target.classList.add('max-h-0');
+
+            btn.innerHTML = 'Ver mais itens <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300 rotate-180"></i>';
+            } 
+            else {
+            // ABRIR
+            target.classList.remove('max-h-0');
+            target.classList.add('max-h-200');
+
+            btn.innerHTML = 'Ver menos <i class="fa-solid fa-chevron-up ml-2 transition-transform duration-300 "></i>';
+            }
+        });
     });
+
 
 });
 </script>
