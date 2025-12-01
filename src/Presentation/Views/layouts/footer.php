@@ -5,7 +5,7 @@
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start items-start gap-10">
 
 
-      <a href="/eletronicoverde" class="group transition-all duration-150">
+      <a href="/EletronicoVerde" class="group transition-all duration-150">
         <h1 class="text-base lg:text-xl font-bold flex flex-row items-center gap-3.5">
           <img src="<?= ASSETS_URL ?>/images/Logo branca.png"
                alt="Logo Eletrônico Verde"
@@ -23,7 +23,7 @@
 
         <ul class="flex flex-col gap-5 text-white text-lg text-start sm:text-right">
           <li>
-            <a href="/eletronicoverde"
+            <a href="/EletronicoVerde"
                class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
                Início
             </a>

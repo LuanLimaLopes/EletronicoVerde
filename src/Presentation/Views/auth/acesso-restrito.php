@@ -38,15 +38,19 @@
     </header>
 
     <div class="flex justify-center flex-col gap-6 items-center flex-wrap w-full min-h-[60vh] sm:min-h-[50vh] px-4 md:px-0 py-10 fade-section">
-        <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-primary sm:w-[25rem] md:w-[30rem] text-white px-6 md:px-10 py-5 md:py-8 rounded-lg hover:bg-primary/80 transition font-bold text-md md:text-xl flex flex-row items-center justify-center gap-5">
+        <a href="/EletronicoVerde/pontos-coleta/cadastro" class="bg-primary sm:w-[25rem] md:w-[30rem] text-white px-6 md:px-10 py-5 md:py-8 rounded-lg hover:bg-primary/80 transition font-bold text-md md:text-xl flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-plus"></i> Cadastrar ponto de coleta
         </a>
         
-        <a href="/eletronicoverde/consultar-pontos" class="bg-white sm:w-[25rem] md:w-[30rem] border-2 border-primary text-primary px-6 md:px-10 py-5 md:py-8 rounded-lg hover:bg-primary hover:text-white transition font-bold text-md md:text-xl flex flex-row items-center justify-center gap-5">
+        <a href="/EletronicoVerde/consultar-pontos" class="bg-white sm:w-[25rem] md:w-[30rem] border-2 border-primary text-primary px-6 md:px-10 py-5 md:py-8 rounded-lg hover:bg-primary hover:text-white transition font-bold text-md md:text-xl flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-list"></i> Consultar pontos de coleta
         </a>
         
+<<<<<<< Updated upstream
         <a href="/eletronicoverde/logout" class="border border-red-500 w-fit text-red-500 px-6 md:px-10 py-5 mt-10 md:py-8 rounded-lg hover:bg-red-600 hover:text-white transition font-bold text-md md:text-lg flex flex-row items-center justify-center gap-5">
+=======
+        <a href="/EletronicoVerde/logout" class="border border-red-500 w-fit text-red-500 px-6 md:px-10 py-5 mt-10 md:py-8 rounded-lg hover:bg-red-600 transition font-bold text-md md:text-lg flex flex-row items-center justify-center gap-5">
+>>>>>>> Stashed changes
             <i class="fa-solid fa-right-from-bracket"></i> Sair
         </a>
     </div>

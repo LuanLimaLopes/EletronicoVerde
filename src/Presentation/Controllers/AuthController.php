@@ -13,7 +13,7 @@ class AuthController
     private AutenticarUsuarioUseCase $autenticarUseCase;
     private Authentication $auth;
     private CSRF $csrf;
-    private string $baseUrl = '/eletronicoverde'; 
+    private string $baseUrl = '/EletronicoVerde'; 
 
     public function __construct()
     {
@@ -92,7 +92,7 @@ class AuthController
     public function redirecionarSeAutenticado(string $redirectUrl = null): void
 {
     if ($this->verificarAutenticacao()) {
-        $url = $redirectUrl ?? (defined('BASE_URL') ? BASE_URL . '/eletronicoverde/acesso-restrito' : '/eletronicoverde/acesso-restrito');
+        $url = $redirectUrl ?? (defined('BASE_URL') ? BASE_URL . '/EletronicoVerde/acesso-restrito' : '/EletronicoVerde/acesso-restrito');
         header("Location: $url");
         exit;
     }

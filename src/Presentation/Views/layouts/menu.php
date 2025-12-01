@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------
 
   const current = window.location.pathname.replace(/\/$/, "");
-  const isHome = current === "/eletronicoverde";
+  const isHome = current === "/EletronicoVerde";
 
   const navbar = document.getElementById("navbar");
   const navbar1 = document.getElementById("navbar-1");
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
               transition-all duration-300 overflow-hidden w-fit">
 
     <!-- LOGO -->
-    <a href="/eletronicoverde" class="group transition-all duration-150 h-fit">
+    <a href="/EletronicoVerde" class="group transition-all duration-150 h-fit">
       <h1 class="text-base lg:text-xl font-bold flex flex-row items-center gap-3.5">
         <img src="<?= ASSETS_URL ?>/images/Logo.png" alt="Logo Eletrônico Verde"
              class="max-w-15 transition-all duration-150" />
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- MENU DESKTOP -->
     <ul id="ul-menu" class="hidden md:flex flex-row gap-5 lg:gap-10 font-medium text-base lg:text-lg transition-all duration-300">
       <li class="relative group">
-        <a href="/eletronicoverde" class="hover:text-primary transition-all duration-150">Início</a>
+        <a href="/EletronicoVerde" class="hover:text-primary transition-all duration-150">Início</a>
         <span class="nav-indicator"></span>
       </li>
       <li class="relative group">
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </span>
     </h1>
 
-    <a href="/eletronicoverde">Início</a>
+    <a href="/EletronicoVerde">Início</a>
     <a href="<?= BASE_URL ?>/pontos-coleta">Pontos de Coleta</a>
     <a href="<?= BASE_URL ?>/materiais-aceitos">Materiais Aceitos</a>
     <a href="<?= BASE_URL ?>/reciclagem">Reciclagem</a>

@@ -24,15 +24,15 @@
         
         <!-- Botões de Ação -->
         <div class="flex gap-4 flex-wrap justify-center">
-            <a href="/eletronicoverde/acesso-restrito" class="bg-primary text-white flex flex-row items-center justify-center gap-3 px-8 py-3 rounded-lg font-bold hover:bg-second transition-all">
+            <a href="/EletronicoVerde/acesso-restrito" class="bg-primary text-white flex flex-row items-center justify-center gap-3 px-8 py-3 rounded-lg font-bold hover:bg-second transition-all">
                 <i class="fa-solid fa-home"></i> Voltar ao Painel
             </a>
             
-            <a href="/eletronicoverde/pontos-coleta/cadastro" class="bg-white border-2 border-primary text-primary flex flex-row items-center justify-center gap-5 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all">
+            <a href="/EletronicoVerde/pontos-coleta/cadastro" class="bg-white border-2 border-primary text-primary flex flex-row items-center justify-center gap-5 px-8 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-all">
                 <i class="fa-solid fa-plus"></i> Cadastrar Outro Ponto
             </a>
             
-            <a href="/eletronicoverde/consultar-pontos" class="bg-white border-2 border-second text-second flex flex-row items-center justify-center gap-5 px-8 py-3 rounded-lg font-bold hover:bg-second hover:text-white transition-all">
+            <a href="/EletronicoVerde/consultar-pontos" class="bg-white border-2 border-second text-second flex flex-row items-center justify-center gap-5 px-8 py-3 rounded-lg font-bold hover:bg-second hover:text-white transition-all">
                 <i class="fa-solid fa-list"></i> Ver Todos os Pontos
             </a>
         </div>

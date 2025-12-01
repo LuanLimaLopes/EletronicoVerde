@@ -1,6 +1,6 @@
 Options -Indexes
 RewriteEngine On
-RewriteBase /eletronicoverde/
+RewriteBase /EletronicoVerde
 
 # Permitir arquivos estáticos (se existirem)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -8,7 +8,8 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 # Redirecionar outras requisições para index.php
-RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]  # Corrigido: captura tudo após a base e passa como ?route=
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]  # Corrigido: captura tudo após a 
+RewriteRule ^(.*)$ index.php [L]
 
 # Cabeçalhos de segurança (só aplicam se mod_headers estiver carregado)
 <IfModule mod_headers.c>

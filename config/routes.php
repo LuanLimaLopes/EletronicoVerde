@@ -13,10 +13,22 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // 2. PROCESSA A ROTA
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$base = '/eletronicoverde';
+$base = '/EletronicoVerde'; // O base path que você definiu
 
-// Remove o base path
-$route = str_replace($base, '', $requestUri);
+// ⚠️ CORREÇÃO: Limpeza Robusta e Case-Insensitive
+
+// A. Tenta remover o base path com str_ireplace (ignora maiúsculas/minúsculas)
+$route = str_ireplace($base, '', $requestUri);
+
+// B. Remove o index.php que o Apache pode ter reescrito (se a requisição não usou ?route=)
+$route = str_ireplace('/index.php', '', $route);
+
+// C. Se o HTACCESS enviou a rota via ?route= (seu código original), use-a.
+if (isset($_GET['route']) && !empty($_GET['route'])) {
+    $route = '/' . trim($_GET['route'], '/');
+}
+
+// ⚠️ FIM DA CORREÇÃO
 
 // Se a rota estiver vazia ou for apenas "/", define como "/"
 if (empty($route) || $route === '') {
@@ -27,7 +39,6 @@ if (empty($route) || $route === '') {
 if ($route !== '/' && substr($route, -1) === '/') {
     $route = rtrim($route, '/');
 }
-
 // 3. CONEXÃO COM BANCO
 $connection = SQLiteConnection::getInstance();
 

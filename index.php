@@ -7,18 +7,23 @@ require_once __DIR__ . '/config/autoload.php';
 // Autoload 
 spl_autoload_register(function ($class) {
     $prefix = 'EletronicoVerde\\';
-    $base_dir = __DIR__ . '/src/';
-    
     $len = strlen($prefix);
+
+    
     if (strncmp($prefix, $class, $len) !== 0) {
         return;
     }
-    
+
     $relative_class = substr($class, $len);
-    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
-    
-    if (!file_exists($file)) {
-        $file = __DIR__ . '/config/' . basename($file);
+    $class_path = str_replace('\\', '/', $relative_class) . '.php';
+
+   
+    if (strpos($class_path, 'config/') === 0) {
+        $file = __DIR__ . '/' . $class_path; // Procura diretamente na pasta 'config' na raiz
+    } 
+   
+    else {
+        $file = __DIR__ . '/src/' . $class_path; // Procura dentro da pasta 'src'
     }
 
     if (file_exists($file)) {
@@ -29,7 +34,7 @@ spl_autoload_register(function ($class) {
 // Importar todas as classes necessárias ANTES do try-catch
 use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
 use EletronicoVerde\Infrastructure\Logger;
-use EletronicoVerde\Config\Database;
+use EletronicoVerde\config\database;
 use EletronicoVerde\Presentation\Controllers\HomeController;
 use EletronicoVerde\Presentation\Controllers\PontoColetaController;
 use EletronicoVerde\Presentation\Controllers\MaterialController;

@@ -77,14 +77,14 @@ class PontoColetaController
         $this->auth->requerAutenticacao();
         
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /eletronicoverde/cadastro-pontos');
+            header('Location: /EletronicoVerde/cadastro-pontos');
             exit;
         }
 
         // Validar CSRF
         if (!$this->csrf->validarRequisicao()) {
             $_SESSION['erro'] = 'Token de segurança inválido. Tente novamente.';
-            header('Location: /eletronicoverde/cadastro-pontos');
+            header('Location: /EletronicoVerde/cadastro-pontos');
             exit;
         }
 
@@ -93,10 +93,10 @@ class PontoColetaController
 
         if ($resultado['sucesso']) {
             $_SESSION['sucesso'] = $resultado['mensagem'];
-            header('Location: /eletronicoverde/sucesso-cadastro');
+            header('Location: /EletronicoVerde/sucesso-cadastro');
         } else {
             $_SESSION['erro'] = $resultado['mensagem'];
-            header('Location: /eletronicoverde/cadastro-pontos');
+            header('Location: /EletronicoVerde/cadastro-pontos');
         }
         exit;
     }
@@ -120,7 +120,7 @@ class PontoColetaController
         $this->auth->requerAutenticacao();
         
         if (!isset($_GET['id'])) {
-            header('Location: /eletronicoverde/consultar-pontos');
+            header('Location: /EletronicoVerde/consultar-pontos');
             exit;
         }
 
@@ -129,7 +129,7 @@ class PontoColetaController
 
         if (!$resultado['sucesso']) {
             $_SESSION['erro'] = $resultado['mensagem'];
-            header('Location: /eletronicoverde/consultar-pontos');
+            header('Location: /EletronicoVerde/consultar-pontos');
             exit;
         }
 
@@ -147,19 +147,19 @@ class PontoColetaController
         $this->auth->requerAutenticacao();
         
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /eletronicoverde/consultar-pontos');
+            header('Location: /EletronicoVerde/consultar-pontos');
             exit;
         }
 
         // Validar CSRF
         if (!$this->csrf->validarRequisicao()) {
             $_SESSION['erro'] = 'Token de segurança inválido.';
-            header('Location: /eletronicoverde/consultar-pontos');
+            header('Location: /EletronicoVerde/consultar-pontos');
             exit;
         }
 
         if (!isset($_POST['id'])) {
-            header('Location: /eletronicoverde/consultar-pontos');
+            header('Location: /EletronicoVerde/consultar-pontos');
             exit;
         }
 
@@ -169,10 +169,10 @@ class PontoColetaController
 
         if ($resultado['sucesso']) {
             $_SESSION['sucesso'] = $resultado['mensagem'];
-            header('Location: /eletronicoverde/sucesso-cadastro');
+            header('Location: /EletronicoVerde/sucesso-cadastro');
         } else {
             $_SESSION['erro'] = $resultado['mensagem'];
-            header("Location: /eletronicoverde/editar-ponto?id=$id");
+            header("Location: /EletronicoVerde/editar-ponto?id=$id");
         }
         exit;
     }
@@ -183,7 +183,7 @@ class PontoColetaController
         $this->auth->requerAutenticacao();
         
         if (!isset($_GET['id'])) {
-            header('Location: /eletronicoverde/consultar-pontos');
+            header('Location: /EletronicoVerde/consultar-pontos');
             exit;
         }
 
@@ -196,7 +196,7 @@ class PontoColetaController
             $_SESSION['erro'] = $resultado['mensagem'];
         }
 
-        header('Location: /eletronicoverde/consultar-pontos');
+        header('Location: /EletronicoVerde/consultar-pontos');
         exit;
     }
 

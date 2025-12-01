@@ -2,7 +2,7 @@
 // Caminhos do sistema
 define('BASE_PATH', dirname(__DIR__));
 define('PUBLIC_PATH', BASE_PATH . '/public');
-define('BASE_URL', '/eletronicoverde');
+define('BASE_URL', '/EletronicoVerde');
 
 // nova constante: URL pública do diretório public
 define('PUBLIC_URL', rtrim(BASE_URL, '/') . '/public');

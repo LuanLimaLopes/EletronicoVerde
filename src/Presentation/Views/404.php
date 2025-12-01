@@ -23,7 +23,7 @@
             </div>
             <div class="flex flex-col gap-10 justify-center items-center relative z-10">
                 <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-cinza-txt">Conexão perdida. Componente não encontrado.</p>
-                <a href="/eletronicoverde" class="bg-primary font-bold text-md sm:text-lg md:text-xl lg:text-2xl text-white p-4 w-fit h-fit rounded-3xl rounded-tl-none border-2 border-primary relative overflow-hidden z-1
+                <a href="/EletronicoVerde" class="bg-primary font-bold text-md sm:text-lg md:text-xl lg:text-2xl text-white p-4 w-fit h-fit rounded-3xl rounded-tl-none border-2 border-primary relative overflow-hidden z-1
                 hover:rounded-tr-sm hover:rounded-tl-3xl hover:text-primary transition-all duration-150 hover:shadow-lg hover:scale-105
                 before:absolute before:h-full before:-z-1 before:w-0 hover:before:w-full before:bg-white before:bottom-0 before:left-0 before:transition-all before:duration-250">
                 Voltar para a página inicial</a>

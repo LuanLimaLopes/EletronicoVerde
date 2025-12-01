@@ -4,7 +4,7 @@
 
 <?php 
 require_once __DIR__ . '/../layouts/header.php';
-require_once __DIR__ . '/../../../Infrastructure/security/CSRF.php';
+require_once __DIR__ . '/../../../Infrastructure/Security/CSRF.php';
 use EletronicoVerde\Infrastructure\Security\CSRF;
 
 $csrf = new CSRF();
@@ -230,7 +230,7 @@ $csrf = new CSRF();
 
         <div class="w-full flex flex-col md:flex-row items-center justify-between pb-10 flex-wrap">
             <div class="w-1/3 flex justify-center mb-20 md:mb-0">
-                <a href="/eletronicoverde/consultar-pontos" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
+                <a href="/EletronicoVerde/consultar-pontos" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
                 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">
                 <i class="fa-solid fa-arrow-left"></i> Voltar
                 </a>
@@ -241,7 +241,7 @@ $csrf = new CSRF();
             <div class="hidden md:flex w-1/3"></div>
         </div>
 
-        <form method="post" action="/eletronicoverde/ponto-coleta/atualizar" id="form1" onsubmit="return validarFormulario()">
+        <form method="post" action="/EletronicoVerde/ponto-coleta/atualizar" id="form1" onsubmit="return validarFormulario()">
             <div id="formDiv">
             <!-- Token CSRF -->
             <?= $csrf->gerarCampoInput() ?>
@@ -498,5 +498,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script src="/eletronicoverde/scripts/geocode_pontos.js"></script>
+<script src="/EletronicoVerde/scripts/geocode_pontos.js"></script>
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

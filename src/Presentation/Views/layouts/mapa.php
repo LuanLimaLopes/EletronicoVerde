@@ -122,7 +122,7 @@
             </div>
 
             <div class="mt-5">
-                <a href="/eletronicoverde/materiais-aceitos" class="group p-5 bg-fourth w-full md:w-fit rounded-3xl justify-between md:justify-center items-center flex flex-row md:gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
+                <a href="/EletronicoVerde/materiais-aceitos" class="group p-5 bg-fourth w-full md:w-fit rounded-3xl justify-between md:justify-center items-center flex flex-row md:gap-2 font-bold text-cinza-txt hover:bg-primary hover:text-white transition-all">
                 <p>Saiba quais são os <span class="text-primary group-hover:text-white transition-all">materiais aceitos</span> </p></span>
                     <i class="fa-solid fa-arrow-right text-2xl group-hover:-rotate-45 transition-all rounded-full"></i>
                 </a>
@@ -217,7 +217,7 @@ async function buscarPorCep() {
         console.log('🔍 Buscando CEP:', cep);
         
         // 🔥 AGORA USA SEU PRÓPRIO BACKEND
-        const response = await fetch(`/eletronicoverde/api/geocoding/buscar-cep?cep=${cep}`);
+        const response = await fetch(`/EletronicoVerde/api/geocoding/buscar-cep?cep=${cep}`);
         const data = await response.json();
         
         console.log('📦 Dados recebidos:', data);
@@ -255,7 +255,7 @@ async function buscarPorCep() {
 // Busca pontos próximos via API
 async function buscarPontosProximos(lat, lng) {
     try {
-        const response = await fetch(`/eletronicoverde/api/pontos/buscar-proximos?lat=${lat}&lng=${lng}&raio=10`);
+        const response = await fetch(`/EletronicoVerde/api/pontos/buscar-proximos?lat=${lat}&lng=${lng}&raio=10`);
         const data = await response.json();
         
         // Remove marcadores antigos
@@ -305,7 +305,7 @@ document.getElementById("btn-limpar-busca")
 // Carrega todos os pontos no mapa (inicial)
 async function carregarTodosPontos() {
     try {
-        const response = await fetch('/eletronicoverde/api/pontos/listar-todos');
+        const response = await fetch('/EletronicoVerde/api/pontos/listar-todos');
         const data = await response.json();
         
         if (data.sucesso && data.dados.length > 0) {

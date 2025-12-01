@@ -1,7 +1,7 @@
 <?php
 // config/database.php
 
-namespace EletronicoVerde\Config;
+namespace EletronicoVerde\config;
 
 use EletronicoVerde\Infrastructure\Database\SQLiteConnection;
 use EletronicoVerde\Infrastructure\Logger;
