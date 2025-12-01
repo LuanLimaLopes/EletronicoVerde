@@ -222,71 +222,80 @@ class PontoColetaController
 
     //API: Busca pontos próximos a uma localização (lat/lng)
     public function buscarProximos(): void
-    {
-        header('Content-Type: application/json');
-        
-        $latitude = $_GET['lat'] ?? null;
-        $longitude = $_GET['lng'] ?? null;
-        $raio = $_GET['raio'] ?? 10; // raio em km
-        
-        if (!$latitude || !$longitude) {
-            echo json_encode([
-                'sucesso' => false,
-                'mensagem' => 'Latitude e longitude são obrigatórias'
-            ]);
-            exit;
-        }
-        
-        try {
-            // Buscar todos os pontos ativos
-            $resultado = $this->listarUseCase->executar(true);
-            $pontos = $resultado['dados'] ?? [];
-            
-            // Filtrar pontos próximos usando fórmula de Haversine
-            $pontosProximos = array_filter($pontos, function($ponto) use ($latitude, $longitude, $raio) {
-                if (!$ponto['latitude'] || !$ponto['longitude']) {
-                    return false;
-                }
-                
-                $distancia = $this->calcularDistancia(
-                    $latitude, 
-                    $longitude, 
-                    $ponto['latitude'], 
-                    $ponto['longitude']
-                );
-                
-                return $distancia <= $raio;
-            });
-            
-            // Adicionar distância a cada ponto
-            $pontosComDistancia = array_map(function($ponto) use ($latitude, $longitude) {
-                $ponto['distancia'] = round($this->calcularDistancia(
-                    $latitude, 
-                    $longitude, 
-                    $ponto['latitude'], 
-                    $ponto['longitude']
-                ), 2);
-                return $ponto;
-            }, $pontosProximos);
-            
-            // Ordenar por distância
-            usort($pontosComDistancia, fn($a, $b) => $a['distancia'] <=> $b['distancia']);
-            
-            echo json_encode([
-                'sucesso' => true,
-                'dados' => array_values($pontosComDistancia),
-                'total' => count($pontosComDistancia)
-            ]);
-            
-        } catch (\Exception $e) {
-            logger::error("Erro ao buscar pontos próximos: " . $e->getMessage());
-            echo json_encode([
-                'sucesso' => false,
-                'mensagem' => 'Erro ao buscar pontos de coleta.'
-            ]);
-        }
+{
+    header('Content-Type: application/json');
+    
+    $latitude = $_GET['lat'] ?? null;
+    $longitude = $_GET['lng'] ?? null;
+    $raio = $_GET['raio'] ?? 10;
+    
+    if (!$latitude || !$longitude) {
+        echo json_encode([
+            'sucesso' => false,
+            'mensagem' => 'Latitude e longitude são obrigatórias'
+        ]);
         exit;
     }
+    
+    try {
+        logger::info("🔍 Buscando pontos próximos a: lat=$latitude, lng=$longitude, raio=$raio km");
+        
+        // Buscar todos os pontos ativos
+        $resultado = $this->listarUseCase->executar(true);
+        $pontos = $resultado['dados'] ?? [];
+        
+        logger::info("📍 Total de pontos ativos: " . count($pontos));
+        
+        // Filtrar pontos próximos usando fórmula de Haversine
+        $pontosProximos = array_filter($pontos, function($ponto) use ($latitude, $longitude, $raio) {
+            if (!$ponto['latitude'] || !$ponto['longitude']) {
+                logger::info("⚠️ Ponto sem coordenadas: " . $ponto['empresa']);
+                return false;
+            }
+            
+            $distancia = $this->calcularDistancia(
+                $latitude, 
+                $longitude, 
+                $ponto['latitude'], 
+                $ponto['longitude']
+            );
+            
+            logger::info("📏 Distância de '{$ponto['empresa']}': {$distancia} km (limite: {$raio} km)");
+            
+            return $distancia <= $raio;
+        });
+        
+        logger::info("✅ Pontos dentro do raio: " . count($pontosProximos));
+        
+        // Adicionar distância a cada ponto
+        $pontosComDistancia = array_map(function($ponto) use ($latitude, $longitude) {
+            $ponto['distancia'] = round($this->calcularDistancia(
+                $latitude, 
+                $longitude, 
+                $ponto['latitude'], 
+                $ponto['longitude']
+            ), 2);
+            return $ponto;
+        }, $pontosProximos);
+        
+        // Ordenar por distância
+        usort($pontosComDistancia, fn($a, $b) => $a['distancia'] <=> $b['distancia']);
+        
+        echo json_encode([
+            'sucesso' => true,
+            'dados' => array_values($pontosComDistancia),
+            'total' => count($pontosComDistancia)
+        ]);
+        
+    } catch (\Exception $e) {
+        logger::error("💥 Erro ao buscar pontos próximos: " . $e->getMessage());
+        echo json_encode([
+            'sucesso' => false,
+            'mensagem' => 'Erro ao buscar pontos de coleta.'
+        ]);
+    }
+    exit;
+}
 
     //API: Lista todos os pontos de coleta (JSON)
     public function listarTodos(): void

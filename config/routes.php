@@ -101,11 +101,11 @@ switch ($route) {
         $controller->listarTodos();
         break;
 
-    // API: Busca por CEP (deprecated - use buscar-proximos)
-    case '/api/pontos/buscar-cep':
-        $controller = new PontoColetaController();
-        $controller->buscarPorCep();
-        break;
+    // API de Geocodificação
+    case '/api/geocoding/buscar-cep':
+    $controller = new \EletronicoVerde\Presentation\Controllers\GeocodingController();
+    $controller->buscarCoordenadas();
+    break;
 
     // MATERIAIS
     case '/materiais-aceitos':

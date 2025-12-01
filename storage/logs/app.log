@@ -1,0 +1,208 @@
+[2025-11-30 23:31:20] [INFO] 🔍 Buscando CEP: 13082230
+[2025-11-30 23:31:20] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13082230/json/
+[2025-11-30 23:31:21] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:31:21] [INFO] ✅ CEP encontrado: {"cep":"13082-230","logradouro":"Rua Adelino de Abreu","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:31:21] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Adelino+de+Abreu%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:31:22] [INFO] 🔍 Geocodificando via Photon: https://photon.komoot.io/api/?q=Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&limit=1
+[2025-11-30 23:31:23] [INFO] ✅ Geocodificado via Photon
+[2025-11-30 23:31:23] [INFO] ✅ Coordenadas encontradas: lat=-22.8476825, lng=-47.1190068
+[2025-11-30 23:31:23] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8476825, lng=-47.1190068, raio=10 km
+[2025-11-30 23:31:23] [INFO] 📍 Total de pontos ativos: 9
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 10.818024133639 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.2096243624539 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 20.970994988185 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.77466736885 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 10.30772482059 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 13.278769116486 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 9.4091805499161 km (limite: 10 km)
+[2025-11-30 23:31:23] [INFO] ✅ Pontos dentro do raio: 2
+[2025-11-30 23:31:32] [INFO] 🔍 Buscando CEP: 13080190
+[2025-11-30 23:31:32] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13080190/json/
+[2025-11-30 23:31:33] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:31:33] [INFO] ✅ CEP encontrado: {"cep":"13080-190","logradouro":"Rua Maestro Francisco Manoel da Silva","complemento":"","bairro":"Jardim Santa Genebra","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:31:33] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Maestro+Francisco+Manoel+da+Silva%2C+Jardim+Santa+Genebra%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:31:35] [INFO] ✅ Geocodificado via Nominatim
+[2025-11-30 23:31:35] [INFO] ✅ Coordenadas encontradas: lat=-22.8488715, lng=-47.075813
+[2025-11-30 23:31:35] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8488715, lng=-47.075813, raio=10 km
+[2025-11-30 23:31:35] [INFO] 📍 Total de pontos ativos: 9
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 7.0661004979506 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1188000993652 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 21.101273614204 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.355213670373 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 8.02254249893 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 11.997562587691 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 10.031616054571 km (limite: 10 km)
+[2025-11-30 23:31:35] [INFO] ✅ Pontos dentro do raio: 3
+[2025-11-30 23:35:03] [INFO] 🔍 Buscando CEP: 13082230
+[2025-11-30 23:35:03] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13082230/json/
+[2025-11-30 23:35:05] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:35:05] [INFO] ✅ CEP encontrado: {"cep":"13082-230","logradouro":"Rua Adelino de Abreu","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:35:05] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Adelino+de+Abreu%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:35:06] [ERROR] ❌ Não foi possível geocodificar o endereço
+[2025-11-30 23:35:14] [INFO] 🔍 Buscando CEP: 13080190
+[2025-11-30 23:35:14] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13080190/json/
+[2025-11-30 23:35:15] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:35:15] [INFO] ✅ CEP encontrado: {"cep":"13080-190","logradouro":"Rua Maestro Francisco Manoel da Silva","complemento":"","bairro":"Jardim Santa Genebra","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:35:15] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Maestro+Francisco+Manoel+da+Silva%2C+Jardim+Santa+Genebra%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:35:16] [INFO] ✅ Geocodificado via Nominatim
+[2025-11-30 23:35:16] [INFO] ✅ Coordenadas encontradas: lat=-22.8488715, lng=-47.075813
+[2025-11-30 23:35:16] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8488715, lng=-47.075813, raio=10 km
+[2025-11-30 23:35:16] [INFO] 📍 Total de pontos ativos: 9
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 7.0661004979506 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1188000993652 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 21.101273614204 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.355213670373 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 8.02254249893 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 11.997562587691 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 10.031616054571 km (limite: 10 km)
+[2025-11-30 23:35:16] [INFO] ✅ Pontos dentro do raio: 3
+[2025-11-30 23:35:44] [INFO] 🔍 Buscando CEP: 13082230
+[2025-11-30 23:35:44] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13082230/json/
+[2025-11-30 23:35:45] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:35:45] [INFO] ✅ CEP encontrado: {"cep":"13082-230","logradouro":"Rua Adelino de Abreu","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:35:45] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Adelino+de+Abreu%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:35:46] [ERROR] ❌ Não foi possível geocodificar o endereço
+[2025-11-30 23:36:50] [INFO] 🔍 Buscando CEP: 13088037
+[2025-11-30 23:36:50] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13088037/json/
+[2025-11-30 23:36:51] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:36:51] [INFO] ✅ CEP encontrado: {"cep":"13088-037","logradouro":"Rua Rubens Trefiglio","complemento":"","bairro":"Vila Nogueira","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:36:51] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Rubens+Trefiglio%2C+Vila+Nogueira%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:36:52] [ERROR] ❌ Não foi possível geocodificar o endereço
+[2025-11-30 23:39:25] [INFO] 🔍 Buscando CEP: 16075725
+[2025-11-30 23:39:25] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/16075725/json/
+[2025-11-30 23:39:26] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:39:26] [INFO] ✅ CEP encontrado: {"cep":"16075-725","logradouro":"Rua Ant\u00f4nio de Godoy","complemento":"de 846\/847 a 1018\/1019","bairro":"S\u00e3o Sebasti\u00e3o","localidade":"Ara\u00e7atuba","uf":"SP"}
+[2025-11-30 23:39:26] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Ant%C3%B4nio+de+Godoy%2C+S%C3%A3o+Sebasti%C3%A3o%2C+Ara%C3%A7atuba%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:39:27] [ERROR] ❌ Não foi possível geocodificar o endereço
+[2025-11-30 23:40:32] [INFO] 🔍 Buscando CEP: 13080190
+[2025-11-30 23:40:32] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13080190/json/
+[2025-11-30 23:40:33] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:40:33] [INFO] ✅ CEP encontrado: {"cep":"13080-190","logradouro":"Rua Maestro Francisco Manoel da Silva","complemento":"","bairro":"Jardim Santa Genebra","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:40:33] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Maestro+Francisco+Manoel+da+Silva%2C+Jardim+Santa+Genebra%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:40:34] [INFO] ✅ Geocodificado via Nominatim
+[2025-11-30 23:40:34] [INFO] ✅ Coordenadas encontradas: lat=-22.8488715, lng=-47.075813
+[2025-11-30 23:40:34] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8488715, lng=-47.075813, raio=10 km
+[2025-11-30 23:40:34] [INFO] 📍 Total de pontos ativos: 9
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 7.0661004979506 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1188000993652 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 21.101273614204 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.355213670373 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 8.02254249893 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 11.997562587691 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 10.031616054571 km (limite: 10 km)
+[2025-11-30 23:40:34] [INFO] ✅ Pontos dentro do raio: 3
+[2025-11-30 23:43:30] [INFO] 📄 Exibindo formulário de login via GET
+[2025-11-30 23:52:42] [INFO] 🔍 Buscando CEP: 13082200
+[2025-11-30 23:52:42] [INFO] 🔍 Tentando ViaCEP: https://viacep.com.br/ws/13082200/json/
+[2025-11-30 23:52:43] [INFO] ✅ CEP encontrado via ViaCEP
+[2025-11-30 23:52:43] [INFO] ✅ CEP encontrado: {"cep":"13082-200","logradouro":"Rua Felinto de Almeida","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-11-30 23:52:43] [INFO] 🔍 Geocodificando via Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Felinto+de+Almeida%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-11-30 23:52:44] [INFO] ✅ Geocodificado via Nominatim
+[2025-11-30 23:52:44] [INFO] ✅ Coordenadas encontradas: lat=-22.8498226, lng=-47.1214195
+[2025-11-30 23:52:44] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8498226, lng=-47.1214195, raio=10 km
+[2025-11-30 23:52:44] [INFO] 📍 Total de pontos ativos: 9
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 10.935687141228 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1071664343925 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 20.746281330264 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.610581843981 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 10.293815079166 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 13.168837678007 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 9.1902257728884 km (limite: 10 km)
+[2025-11-30 23:52:44] [INFO] ✅ Pontos dentro do raio: 2
+[2025-11-30 22:53:49] [ERROR] Erro na conexão SQLite: could not find driver
+[2025-11-30 22:56:01] [ERROR] Erro na conexão SQLite: could not find driver
+[2025-12-01 00:02:49] [INFO] 🔍 Buscando CEP: 13082230
+[2025-12-01 00:02:49] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13082230/json/
+[2025-12-01 00:02:50] [INFO] ✅ CEP encontrado: {"cep":"13082-230","logradouro":"Rua Adelino de Abreu","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:02:50] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Adelino+de+Abreu%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:02:51] [ERROR] ❌ Falha ao geocodificar
+[2025-12-01 00:02:57] [INFO] 🔍 Buscando CEP: 13080190
+[2025-12-01 00:02:57] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13080190/json/
+[2025-12-01 00:02:58] [INFO] ✅ CEP encontrado: {"cep":"13080-190","logradouro":"Rua Maestro Francisco Manoel da Silva","complemento":"","bairro":"Jardim Santa Genebra","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:02:58] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Maestro+Francisco+Manoel+da+Silva%2C+Jardim+Santa+Genebra%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:03:00] [INFO] ✅ Coordenadas encontradas: lat=-22.8488715, lng=-47.075813
+[2025-12-01 00:03:00] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8488715, lng=-47.075813, raio=10 km
+[2025-12-01 00:03:00] [INFO] 📍 Total de pontos ativos: 9
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 7.0661004979506 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1188000993652 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 21.101273614204 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.355213670373 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 8.02254249893 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 11.997562587691 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 10.031616054571 km (limite: 10 km)
+[2025-12-01 00:03:00] [INFO] ✅ Pontos dentro do raio: 3
+[2025-12-01 00:03:11] [INFO] 🔍 Buscando CEP: 13088037
+[2025-12-01 00:03:11] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13088037/json/
+[2025-12-01 00:03:11] [INFO] ✅ CEP encontrado: {"cep":"13088-037","logradouro":"Rua Rubens Trefiglio","complemento":"","bairro":"Vila Nogueira","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:03:11] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Rubens+Trefiglio%2C+Vila+Nogueira%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:03:13] [ERROR] ❌ Falha ao geocodificar
+[2025-11-30 23:08:52] [ERROR] Erro na conexão SQLite: could not find driver
+[2025-12-01 00:13:14] [INFO] 🔍 Buscando CEP: 13088037
+[2025-12-01 00:13:14] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13088037/json/
+[2025-12-01 00:13:14] [INFO] ✅ CEP encontrado: {"cep":"13088-037","logradouro":"Rua Rubens Trefiglio","complemento":"","bairro":"Vila Nogueira","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:13:14] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Rubens+Trefiglio%2C+Vila+Nogueira%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:13:15] [ERROR] ❌ Falha ao geocodificar
+[2025-12-01 00:13:26] [INFO] 🔍 Buscando CEP: 13082230
+[2025-12-01 00:13:26] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13082230/json/
+[2025-12-01 00:13:26] [INFO] ✅ CEP encontrado: {"cep":"13082-230","logradouro":"Rua Adelino de Abreu","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:13:26] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Adelino+de+Abreu%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:13:28] [ERROR] ❌ Falha ao geocodificar
+[2025-12-01 00:13:33] [INFO] 🔍 Buscando CEP: 13080190
+[2025-12-01 00:13:33] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13080190/json/
+[2025-12-01 00:13:34] [INFO] ✅ CEP encontrado: {"cep":"13080-190","logradouro":"Rua Maestro Francisco Manoel da Silva","complemento":"","bairro":"Jardim Santa Genebra","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:13:34] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Maestro+Francisco+Manoel+da+Silva%2C+Jardim+Santa+Genebra%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:13:37] [INFO] ✅ Coordenadas encontradas: lat=-22.8488715, lng=-47.075813
+[2025-12-01 00:13:37] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8488715, lng=-47.075813, raio=10 km
+[2025-12-01 00:13:37] [INFO] 📍 Total de pontos ativos: 9
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 7.0661004979506 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1188000993652 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 21.101273614204 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.355213670373 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 8.02254249893 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 11.997562587691 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 10.031616054571 km (limite: 10 km)
+[2025-12-01 00:13:37] [INFO] ✅ Pontos dentro do raio: 3
+[2025-12-01 00:20:17] [INFO] 🔍 Buscando CEP: 16075725
+[2025-12-01 00:20:17] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/16075725/json/
+[2025-12-01 00:20:18] [INFO] ✅ CEP encontrado: {"cep":"16075-725","logradouro":"Rua Ant\u00f4nio de Godoy","complemento":"de 846\/847 a 1018\/1019","bairro":"S\u00e3o Sebasti\u00e3o","localidade":"Ara\u00e7atuba","uf":"SP"}
+[2025-12-01 00:20:18] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Ant%C3%B4nio+de+Godoy%2C+S%C3%A3o+Sebasti%C3%A3o%2C+Ara%C3%A7atuba%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:20:20] [ERROR] ❌ Falha ao geocodificar
+[2025-12-01 00:20:28] [INFO] 📄 Exibindo formulário de login via GET
+[2025-12-01 00:20:32] [INFO] 📄 Exibindo formulário de login via GET
+[2025-12-01 00:21:50] [INFO] 🔍 Buscando CEP: 13082230
+[2025-12-01 00:21:50] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13082230/json/
+[2025-12-01 00:21:50] [INFO] ✅ CEP encontrado: {"cep":"13082-230","logradouro":"Rua Adelino de Abreu","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:21:50] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Adelino+de+Abreu%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:21:57] [ERROR] ❌ Falha ao geocodificar
+[2025-12-01 00:22:04] [INFO] 🔍 Buscando CEP: 13082200
+[2025-12-01 00:22:04] [INFO] 🔍 ViaCEP: https://viacep.com.br/ws/13082200/json/
+[2025-12-01 00:22:05] [INFO] ✅ CEP encontrado: {"cep":"13082-200","logradouro":"Rua Felinto de Almeida","complemento":"","bairro":"Jardim S\u00e3o Marcos","localidade":"Campinas","uf":"SP"}
+[2025-12-01 00:22:05] [INFO] 🔍 Nominatim: https://nominatim.openstreetmap.org/search?q=Rua+Felinto+de+Almeida%2C+Jardim+S%C3%A3o+Marcos%2C+Campinas%2C+SP%2C+Brasil&format=json&limit=1&addressdetails=1
+[2025-12-01 00:22:07] [INFO] ✅ Coordenadas encontradas: lat=-22.8498226, lng=-47.1214195
+[2025-12-01 00:22:07] [INFO] 🔍 Buscando pontos próximos a: lat=-22.8498226, lng=-47.1214195, raio=10 km
+[2025-12-01 00:22:07] [INFO] 📍 Total de pontos ativos: 9
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Carrefour Campinas – Vila Brandina': 10.935687141228 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] ⚠️ Ponto sem coordenadas: Centro de Educação Ambiental – CEA Nova Europa
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Ecoponto Jardim Eulina campinas': 5.1071664343925 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Ecoponto Jardim Marisa campinas': 20.746281330264 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] ⚠️ Ponto sem coordenadas: Ecoponto Jardins Diversos 
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Reciclar – Cooperativa de Reciclagem (Jardim Proença)': 11.610581843981 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Reversis – Reciclagem de Eletrônicos e Informática Reversis': 10.293815079166 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Selektron Reciclagem Eletro-Eletrônicos e Digital Diário da Cidad': 13.168837678007 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] 📏 Distância de 'Sucatas e Metais BS Diário da Cidade': 9.1902257728884 km (limite: 10 km)
+[2025-12-01 00:22:07] [INFO] ✅ Pontos dentro do raio: 2
+[2025-12-01 00:22:33] [INFO] 📄 Exibindo formulário de login via GET

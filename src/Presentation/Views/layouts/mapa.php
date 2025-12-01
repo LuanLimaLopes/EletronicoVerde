@@ -148,45 +148,36 @@ async function buscarPorCep() {
     mostrarMensagem('Buscando localização...', 'info');
     
     try {
-        // 1. Busca CEP via ViaCEP (API brasileira gratuita)
-        const cepResponse = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const cepData = await cepResponse.json();
+        console.log('🔍 Buscando CEP:', cep);
         
-        if (cepData.erro) {
-            mostrarMensagem('CEP não encontrado', 'erro');
-            btnBuscar.disabled = false;
-            btnBuscar.textContent = 'Pesquisar';
-            return;
-        }
+        // 🔥 AGORA USA SEU PRÓPRIO BACKEND
+        const response = await fetch(`/eletronicoverde/api/geocoding/buscar-cep?cep=${cep}`);
+        const data = await response.json();
         
-        // 2. Monta endereço completo
-        const endereco = `${cepData.logradouro}, ${cepData.bairro}, ${cepData.localidade}, ${cepData.uf}, Brasil`;
+        console.log('📦 Dados recebidos:', data);
         
-        // 3. Geocodifica usando Nominatim (OpenStreetMap - gratuito)
-        const geoResponse = await fetch(
-            `https://nominatim.openstreetmap.org/search?` + 
-            `q=${encodeURIComponent(endereco)}` +
-            `&format=json&limit=1`,
-            {
-                headers: {
-                    'User-Agent': 'EletronicoVerde/1.0'
-                }
-            }
-        );
-        
-        const geoData = await geoResponse.json();
-        
-        if (geoData && geoData.length > 0) {
-            const lat = parseFloat(geoData[0].lat);
-            const lng = parseFloat(geoData[0].lon);
+        if (data.sucesso) {
+            const lat = data.latitude;
+            const lng = data.longitude;
             
-            buscarPontosProximos(lat, lng);
+            console.log('✅ Coordenadas:', lat, lng);
+            
+            // 🎯 ADICIONA O MARCADOR DO USUÁRIO NO MAPA
+            adicionarMarcadorUsuario(lat, lng);
+            
+            // 🎯 CENTRALIZA O MAPA NA LOCALIZAÇÃO
+            map.setView([lat, lng], 15);
+            
+            // 🎯 BUSCA PONTOS PRÓXIMOS
+            await buscarPontosProximos(lat, lng);
+            
         } else {
-            mostrarMensagem('Não foi possível localizar o endereço', 'erro');
+            console.error('❌ Erro:', data.mensagem);
+            mostrarMensagem(data.mensagem, 'erro');
         }
         
     } catch (error) {
-        console.error('Erro ao buscar CEP:', error);
+        console.error('💥 Erro fatal:', error);
         mostrarMensagem('Erro ao buscar CEP. Tente novamente.', 'erro');
     } finally {
         btnBuscar.disabled = false;
@@ -195,28 +186,27 @@ async function buscarPorCep() {
 }
 
 
+
 // Busca pontos próximos via API
 async function buscarPontosProximos(lat, lng) {
     try {
+        console.log('🔍 Buscando pontos próximos a:', lat, lng);
+        
         const response = await fetch(`/eletronicoverde/api/pontos/buscar-proximos?lat=${lat}&lng=${lng}&raio=10`);
         const data = await response.json();
         
-        // Remove marcadores antigos
+        console.log('📦 Resposta da API de pontos:', data);
+        
+        // Remove marcadores antigos (EXCETO o do usuário)
         limparMarcadores();
 
         if (data.sucesso && data.dados.length > 0) {
-            
-            // Adiciona marcador do usuário
-            adicionarMarcadorUsuario(lat, lng);
+            console.log(`✅ ${data.dados.length} pontos encontrados`);
             
             // Adiciona marcadores dos pontos
             data.dados.forEach(ponto => {
                 adicionarMarcadorPonto(ponto);
             });
-            
-            // Centraliza mapa na localização do usuário
-            map.setView([lat, lng], 13);
-            map.invalidateSize(); // CORREÇÃO: Força o redimensionamento após mover e adicionar marcadores
             
             // Armazena todos os pontos e exibe a PRIMEIRA página
             todosPontosEncontrados = data.dados; 
@@ -225,11 +215,12 @@ async function buscarPontosProximos(lat, lng) {
             
             mostrarMensagem(`${data.dados.length} ponto(s) encontrado(s) próximo a você!`, 'sucesso');
         } else {
+            console.log('⚠️ Nenhum ponto encontrado próximo');
             mostrarMensagem('Nenhum ponto de coleta encontrado próximo a você. Mostrando todos os pontos disponíveis.', 'aviso');
             carregarTodosPontos();
         }
     } catch (error) {
-        console.error('Erro:', error);
+        console.error('💥 Erro ao buscar pontos:', error);
         mostrarMensagem('Erro ao buscar pontos de coleta. Tente novamente.', 'erro');
     }
 }
