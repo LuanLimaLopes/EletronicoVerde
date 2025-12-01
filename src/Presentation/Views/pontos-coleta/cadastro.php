@@ -1,3 +1,6 @@
+<head>
+  <Title>Cadastrar</Title>
+</head>
 <?php 
 require_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../../../Infrastructure/security/CSRF.php';
