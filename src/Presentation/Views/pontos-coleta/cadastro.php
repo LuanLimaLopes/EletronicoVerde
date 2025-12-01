@@ -248,17 +248,26 @@ $csrf = new CSRF();
         <input type="time" id="hora_encerrar" name="txthora_encerrar" required>
       </div>
       
-      <div>
-        <label for="materiais">Materiais Aceitos</label>
-        <select multiple name="materiais_ids[]" id="materiais" class="h-fit" required>
-          <?php foreach ($materiais as $material): ?>
-            <option value="<?= $material->getId() ?>">
-              <?= htmlspecialchars($material->getNome()) ?>
-            </option>
-          <?php endforeach; ?>
-        </select>
-        <small class="text-gray-600">Segure Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos itens</small>
-      </div>
+      <div id="materiais" class="">
+
+        <?php 
+        $materiaisSelecionados = array_column($pontoColeta['materiais'] ?? [], 'id');
+
+        foreach ($materiais as $material): 
+            $checked = in_array($material->getId(), $materiaisSelecionados) ? 'checked' : '';
+        ?>
+            <label class="flex items-center gap-2">
+                <input 
+                    type="checkbox" 
+                    name="materiais_ids[]" 
+                    value="<?= $material->getId() ?>" 
+                    <?= $checked ?>
+                >
+                <?= htmlspecialchars($material->getNome()) ?>
+            </label>
+        <?php endforeach; ?>
+
+    </div>
       
       <!-- Campos hidden para coordenadas -->
       <input type="hidden" id="latitude" name="latitude">

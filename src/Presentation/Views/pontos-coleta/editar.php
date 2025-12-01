@@ -290,20 +290,31 @@ $csrf = new CSRF();
             </div>
 
             <div>
-                <label for="materiais">Materiais Aceitos</label>
-                <select multiple name="materiais_ids[]" id="materiais" class="h-40" required>
-                    <?php 
-                    $materiaisSelecionados = array_column($pontoColeta['materiais'] ?? [], 'id');
-                    foreach ($materiais as $material): 
-                    ?>
-                        <option value="<?= $material->getId() ?>" 
-                                <?= in_array($material->getId(), $materiaisSelecionados) ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($material->getNome()) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-                <small class="text-gray-600">Segure Ctrl (Windows) ou Cmd (Mac) para selecionar múltiplos itens</small>
-            </div>
+    <label for="materiais">Materiais Aceitos</label>
+
+    <div id="materiais" class="">
+
+        <?php 
+        $materiaisSelecionados = array_column($pontoColeta['materiais'] ?? [], 'id');
+
+        foreach ($materiais as $material): 
+            $checked = in_array($material->getId(), $materiaisSelecionados) ? 'checked' : '';
+        ?>
+            <label class="flex items-center gap-2">
+                <input 
+                    type="checkbox" 
+                    name="materiais_ids[]" 
+                    value="<?= $material->getId() ?>" 
+                    <?= $checked ?>
+                >
+                <?= htmlspecialchars($material->getNome()) ?>
+            </label>
+        <?php endforeach; ?>
+
+    </div>
+
+    <small class="text-gray-600">Selecione os materiais aceitos</small>
+</div>
 
             <!-- Campos hidden para coordenadas -->
             <input type="hidden" id="latitude" name="latitude" value="<?= htmlspecialchars($pontoColeta['latitude'] ?? '') ?>">
