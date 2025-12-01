@@ -24,28 +24,28 @@
         <ul class="flex flex-col gap-5 text-white text-lg text-start sm:text-right">
           <li>
             <a href="/eletronicoverde"
-               class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
+               class="relative transition-all duration-150 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
                Início
             </a>
           </li>
 
           <li>
             <a href="<?= BASE_URL ?>/pontos-coleta"
-               class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
+               class="relative transition-all duration-150 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
                Pontos de Coleta
             </a>
           </li>
 
           <li>
             <a href="<?= BASE_URL ?>/materiais-aceitos"
-               class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
+               class="relative transition-all duration-150 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
                Materiais Aceitos
             </a>
           </li>
 
           <li>
             <a href="<?= BASE_URL ?>/reciclagem"
-               class="relative transition-all duration-150 before:absolute before:h-[1px] before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
+               class="relative transition-all duration-150 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-white before:-bottom-1 before:left-0 before:transition-all before:duration-150">
                Reciclagem
             </a>
           </li>

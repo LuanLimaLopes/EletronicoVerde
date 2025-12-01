@@ -14,52 +14,64 @@ $csrf = new CSRF();
         align-items: center;
     }
 
-    #form1 div{
+    #formDiv{
+      width: 50rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    #campoForm{
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        width: 50rem;
+    }
+
+    #hora_inicio, #hora_encerrar{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     @media (max-width: 768px) {
-        #form1 div{
+        #formDiv{
           width: -webkit-fill-available;
         }
     }
 
     @media (max-width: 640px) {
-        #form1 div{
+        #formDiv{
           width: -webkit-fill-available;
         }
     }
 
-    #form1 div input, #form1 div select{
-        border: 1px solid #4a5565;
-        padding: 0.75rem;
+    #form1 #campoForm input[type="text"],
+    #campoForm input[type="time"],
+    #campoForm input[type="email"], 
+    #form1 #campoForm select{
+        padding: 0.625rem 0.75rem;
+        border: 1px solid oklch(92.8% .006 264.531);
         border-radius: 10px;
         transition: all 0.3s ease;
+        background-color: oklch(0.98 0 0 / 1);
+        box-shadow: 0 1px 2px 0 #0000000d;
     }
 
-    #form1 div input:focus, #form1 div select:focus{
+    #form1 #campoForm input[type="text"]:focus,
+    #campoForm input[type="time"]:focus,
+    #campoForm input[type="email"]:focus, 
+    #form1 #campoForm select:focus{
         border-color: #04A777;
-        box-shadow: 0 0 0 4px #04A77750;
+        box-shadow: 0 0 0 3px #04A77750;
         outline: none;
     }
 
-    #form1 div input:disabled {
-        background-color: #f3f4f6;
-        cursor: not-allowed;
-        color: #6b7280;
-    }
-
-    #form1 div label{
-        font-weight: bold;
+    #form1 #campoForm label{
         font-size: 1.125rem;
-        color: var(--color-cinza-txt);
     }
 
     @media (max-width: 1024px) {
-        #form1 div label{
+        #form1 #campoForm label{
           font-size: 1rem;
         }
     }
@@ -91,6 +103,56 @@ $csrf = new CSRF();
           font-size: 1.125rem ;
         }
     }
+
+    /* @media (max-width: 640px) {
+        .btn_cad{
+          padding: 0.3rem 5rem;
+          font-size: 0.875rem;
+        }
+    } */
+/* Remove aparência padrão */
+
+.custom-checkbox input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: oklch(0.98 0 0 / 1);
+    margin: 0;
+    font: inherit;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Ícone do check (feito com pseudo-elemento) */
+.custom-checkbox input[type="checkbox"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    transition: 0.2s ease-in-out;
+    background-color: #04A777;
+    border-radius: 2px;
+}
+
+.custom-checkbox input[type="checkbox"]:checked{
+    border-color: #04A777;
+}
+
+/* Quando marcado */
+.custom-checkbox input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+/* Hover */
+.custom-checkbox input[type="checkbox"]:hover {
+    border-color: #038a65;
+}
+
     
     .geo-status {
         font-size: 0.875rem;
@@ -149,28 +211,6 @@ $csrf = new CSRF();
         100% { transform: translateY(-50%) rotate(360deg); }
     }
 
-    /* Estilo para os checkboxes de não informado */
-    .checkbox-nao-informado {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-        font-size: 0.875rem;
-        color: #6b7280;
-        font-weight: normal;
-    }
-
-    .checkbox-nao-informado input[type="checkbox"] {
-        width: auto;
-        cursor: pointer;
-    }
-
-    .checkbox-nao-informado label {
-        font-weight: normal;
-        font-size: 0.875rem;
-        color: #6b7280;
-        cursor: pointer;
-    }
 </style>
 
 <main class="relative z-2 bg-white rounded-b-[30px]">
@@ -186,7 +226,7 @@ $csrf = new CSRF();
 
         <div class="w-full flex flex-col md:flex-row items-center justify-between pb-10 flex-wrap">
             <div class="w-1/3 flex justify-center mb-20 md:mb-0">
-                <a href="/eletronicoverde/acesso-restrito" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
+                <a href="/eletronicoverde/consultar-pontos" class="relative transition-all duration-150 text-third font-bold p-1 text-xl hover:text-primary
                 before:absolute before:h-px before:w-0 hover:before:w-full before:bg-primary before:bottom-0 before:left-0 before:transition-all before:duration-150">
                 <i class="fa-solid fa-arrow-left"></i> Voltar
                 </a>
@@ -197,15 +237,15 @@ $csrf = new CSRF();
             <div class="hidden md:flex w-1/3"></div>
         </div>
 
-        <form method="post" action="/eletronicoverde/ponto-coleta/atualizar" id="form1">
-            
+        <form method="post" action="/eletronicoverde/ponto-coleta/atualizar" id="form1" onsubmit="return validarFormulario()">
+            <div id="formDiv">
             <!-- Token CSRF -->
             <?= $csrf->gerarCampoInput() ?>
             
             <!-- ID Hidden -->
             <input type="hidden" name="id" value="<?= htmlspecialchars($pontoColeta['id']) ?>">
 
-            <div>
+            <div id="campoForm">
                 <label for="empresa">Empresa</label>
                 <input type="text" id="empresa" name="txtempresa"
                        value="<?= htmlspecialchars($pontoColeta['empresa']) ?>" 
@@ -213,32 +253,34 @@ $csrf = new CSRF();
                        required>
             </div>
 
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="txtemail" 
-                       value="<?= htmlspecialchars($pontoColeta['email']) ?>" 
-                       placeholder="contato@empresa.com"
-                       required>
-                <div class="checkbox-nao-informado">
-                    <input type="checkbox" id="emailNaoInformado" onchange="toggleEmailNaoInformado()">
-                    <label for="emailNaoInformado">Email não informado</label>
+            <div class="grid gap-6 md:grid-cols-2"> 
+                <div id="campoForm">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="txtemail" 
+                        value="<?= htmlspecialchars($pontoColeta['email']) ?>" 
+                        placeholder="contato@empresa.com"
+                        required>
+                    <label for="emailNaoInformado" class="custom-checkbox flex items-center gap-2">
+                        <input type="checkbox" id="emailNaoInformado" onchange="toggleEmailNaoInformado()">  
+                        Email não informado
+                    </label>
+                </div>
+
+                <div id="campoForm">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="txttelefone" 
+                        value="<?= htmlspecialchars($pontoColeta['telefone']) ?>" 
+                        maxlength="15"
+                        placeholder="(00) 00000-0000"
+                        required>
+                    <label for="telefoneNaoInformado" class="custom-checkbox flex items-center gap-2"> 
+                        <input  type="checkbox" id="telefoneNaoInformado" onchange="toggleTelefoneNaoInformado()">   
+                        Telefone não informado
+                    </label> 
                 </div>
             </div>
 
-            <div>
-                <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="txttelefone" 
-                       value="<?= htmlspecialchars($pontoColeta['telefone']) ?>" 
-                       maxlength="15"
-                       placeholder="(00) 00000-0000"
-                       required>
-                <div class="checkbox-nao-informado">
-                    <input type="checkbox" id="telefoneNaoInformado" onchange="toggleTelefoneNaoInformado()">
-                    <label for="telefoneNaoInformado">Telefone não informado</label>
-                </div>
-            </div>
-
-            <div>
+            <div id="campoForm">
                 <label for="cep">CEP</label>
                 <input type="text" id="cep" name="txtcep" 
                        value="<?= htmlspecialchars($pontoColeta['cep']) ?>" 
@@ -247,79 +289,81 @@ $csrf = new CSRF();
                        required>
                 <small class="text-gray-600">Digite o CEP e saia do campo para buscar automaticamente</small>
             </div>
+            <div class="grid gap-6 mb-6 md:grid-cols-2"> 
+                <div id="campoForm">
+                    <label for="endereco">Endereço (Rua)</label>
+                    <input type="text" id="endereco" name="txtendereco" 
+                        value="<?= htmlspecialchars($pontoColeta['endereco']) ?>" 
+                        placeholder="Avenida Exemplo"
+                        required>
+                </div>
 
-            <div>
-                <label for="endereco">Endereço (Rua)</label>
-                <input type="text" id="endereco" name="txtendereco" 
-                       value="<?= htmlspecialchars($pontoColeta['endereco']) ?>" 
-                       placeholder="Avenida Exemplo"
-                       required>
+                <div id="campoForm">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" name="txtbairro" 
+                        value="<?= htmlspecialchars($pontoColeta['bairro'] ?? '') ?>"
+                        placeholder="Centro"
+                        required>
+                </div>
+
+                <div id="campoForm">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="txtcidade" 
+                        value="<?= htmlspecialchars($pontoColeta['cidade'] ?? '') ?>"
+                        placeholder="São Paulo"
+                        required>
+                </div>
+
+                <div id="campoForm">
+                    <label for="estado">Estado (UF)</label>
+                    <input type="text" id="estado" name="txtestado" 
+                        value="<?= htmlspecialchars($pontoColeta['estado'] ?? '') ?>"
+                        maxlength="2" placeholder="SP"
+                        required>
+                </div>
+
+                <div id="campoForm">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" name="txtcomplemento" 
+                        value="<?= htmlspecialchars($pontoColeta['complemento'] ?? '') ?>"
+                        placeholder="Opcional (bloco, sala, loja...)">
+                </div>
+
+                <div id="campoForm">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="txtnumero" 
+                        value="<?= htmlspecialchars($pontoColeta['numero']) ?>" 
+                        placeholder="123"
+                        required>
+                    <small class="text-gray-600">Preencha o número para buscar as coordenadas automaticamente</small>
+                </div>
+
+                <div id="campoForm">
+                    <label for="hora_inicio">Hora Início</label>
+                    <input type="time" id="hora_inicio" name="txthora_inicio" 
+                        value="<?= htmlspecialchars($pontoColeta['hora_inicio']) ?>" 
+                        required>
+                </div>
+
+                <div id="campoForm">
+                    <label for="hora_encerrar">Hora Encerramento</label>
+                    <input type="time" id="hora_encerrar" name="txthora_encerrar" 
+                        value="<?= htmlspecialchars($pontoColeta['hora_encerrar']) ?>" 
+                        required>
+                </div>
             </div>
 
-            <div>
-                <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="txtbairro" 
-                       value="<?= htmlspecialchars($pontoColeta['bairro'] ?? '') ?>"
-                       placeholder="Centro"
-                       required>
-            </div>
+            <div class="flex flex-col gap-[0.5rem]">
+                <label class="text-[1.125rem]">Materiais Aceitos</label>
+                <div id="materiais" class="grid gap-3 mb-6 md:grid-cols-3">
 
-            <div>
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="txtcidade" 
-                       value="<?= htmlspecialchars($pontoColeta['cidade'] ?? '') ?>"
-                       placeholder="São Paulo"
-                       required>
-            </div>
-
-            <div>
-                <label for="estado">Estado (UF)</label>
-                <input type="text" id="estado" name="txtestado" 
-                       value="<?= htmlspecialchars($pontoColeta['estado'] ?? '') ?>"
-                       maxlength="2" placeholder="SP"
-                       required>
-            </div>
-
-            <div>
-                <label for="complemento">Complemento</label>
-                <input type="text" id="complemento" name="txtcomplemento" 
-                       value="<?= htmlspecialchars($pontoColeta['complemento'] ?? '') ?>"
-                       placeholder="Opcional (bloco, sala, loja...)">
-            </div>
-
-            <div>
-                <label for="numero">Número</label>
-                <input type="text" id="numero" name="txtnumero" 
-                       value="<?= htmlspecialchars($pontoColeta['numero']) ?>" 
-                       placeholder="123"
-                       required>
-                <small class="text-gray-600">Preencha o número para buscar as coordenadas automaticamente</small>
-            </div>
-
-            <div>
-                <label for="hora_inicio">Hora Início</label>
-                <input type="time" id="hora_inicio" name="txthora_inicio" 
-                       value="<?= htmlspecialchars($pontoColeta['hora_inicio']) ?>" 
-                       required>
-            </div>
-
-            <div>
-                <label for="hora_encerrar">Hora Encerramento</label>
-                <input type="time" id="hora_encerrar" name="txthora_encerrar" 
-                       value="<?= htmlspecialchars($pontoColeta['hora_encerrar']) ?>" 
-                       required>
-            </div>
-
-            <div>
-                <label for="materiais">Materiais Aceitos</label>
-                <div id="materiais">
                     <?php 
                     $materiaisSelecionados = array_column($pontoColeta['materiais'] ?? [], 'id');
 
                     foreach ($materiais as $material): 
                         $checked = in_array($material->getId(), $materiaisSelecionados) ? 'checked' : '';
                     ?>
-                        <label class="flex items-center gap-2">
+                        <label class="flex items-center gap-2 custom-checkbox">
                             <input 
                                 type="checkbox" 
                                 name="materiais_ids[]" 
@@ -329,23 +373,24 @@ $csrf = new CSRF();
                             <?= htmlspecialchars($material->getNome()) ?>
                         </label>
                     <?php endforeach; ?>
+
                 </div>
+
                 <small class="text-gray-600">Selecione os materiais aceitos</small>
             </div>
 
-            <div>
+            <div id="campoForm">
                 <label for="latitude">Latitude</label>
                 <input id="latitude" name="latitude" value="<?= htmlspecialchars($pontoColeta['latitude'] ?? '') ?>">
             </div>
-            
-            <div>
+            <div id="campoForm">
                 <label for="longitude">Longitude</label>
                 <input id="longitude" name="longitude" value="<?= htmlspecialchars($pontoColeta['longitude'] ?? '') ?>">
             </div>
 
             <div id="geoStatus" class="hidden geo-status"></div>
-
             <input type="submit" class="btn_cad" value="Salvar Alterações">
+            </div>
         </form>
     </div>
 </main>
@@ -366,6 +411,7 @@ function toggleEmailNaoInformado() {
         emailInput.removeAttribute('required');
         emailInput.style.backgroundColor = '#f3f4f6';
         emailInput.style.cursor = 'not-allowed';
+        emailInput.style.color = '#6b7280';
         
         // Remover validação de email
         emailInput.type = 'text';
@@ -376,6 +422,7 @@ function toggleEmailNaoInformado() {
         emailInput.setAttribute('required', 'required');
         emailInput.style.backgroundColor = '';
         emailInput.style.cursor = '';
+        emailInput.style.color = '';
         
         // Restaurar validação de email
         emailInput.type = 'email';
@@ -397,6 +444,7 @@ function toggleTelefoneNaoInformado() {
         telefoneInput.removeAttribute('required');
         telefoneInput.style.backgroundColor = '#f3f4f6';
         telefoneInput.style.cursor = 'not-allowed';
+        telefoneInput.style.color = '#6b7280';
     } else {
         // Restaurar o valor anterior ou limpar o campo
         telefoneInput.value = telefoneInput.dataset.valorAnterior || '';
@@ -404,6 +452,8 @@ function toggleTelefoneNaoInformado() {
         telefoneInput.setAttribute('required', 'required');
         telefoneInput.style.backgroundColor = '';
         telefoneInput.style.cursor = '';
+        telefoneInput.style.color = '';
+        
     }
 }
 
