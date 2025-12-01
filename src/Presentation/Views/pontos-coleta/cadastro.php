@@ -44,13 +44,12 @@ $csrf = new CSRF();
         border-color: #04A777;
         box-shadow: 0 0 0 4px #04A77750;
         outline: none;
-
-
     }
 
     #form1 div input:disabled {
         background-color: #f3f4f6;
         cursor: not-allowed;
+        color: #6b7280;
     }
 
     #form1 div label{
@@ -92,13 +91,6 @@ $csrf = new CSRF();
           font-size: 1.125rem ;
         }
     }
-
-    /* @media (max-width: 640px) {
-        .btn_cad{
-          padding: 0.3rem 5rem;
-          font-size: 0.875rem;
-        }
-    } */
     
     .geo-status {
         font-size: 0.875rem;
@@ -132,7 +124,6 @@ $csrf = new CSRF();
         border-left: 4px solid #dc2626;
     }
     
-    /* Loader animado */
     .loading {
         position: relative;
         pointer-events: none;
@@ -156,6 +147,29 @@ $csrf = new CSRF();
     @keyframes spin {
         0% { transform: translateY(-50%) rotate(0deg); }
         100% { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    /* Estilo para os checkboxes de não informado */
+    .checkbox-nao-informado {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: normal;
+    }
+
+    .checkbox-nao-informado input[type="checkbox"] {
+        width: auto;
+        cursor: pointer;
+    }
+
+    .checkbox-nao-informado label {
+        font-weight: normal;
+        font-size: 0.875rem;
+        color: #6b7280;
+        cursor: pointer;
     }
 </style>
 
@@ -182,7 +196,7 @@ $csrf = new CSRF();
       <div class="hidden md:flex w-1/3"></div>
     </div>
 
-    <form action="/eletronicoverde/pontos-coleta/salvar" method="POST" id="form1" onsubmit="return validarFormulario()">
+    <form action="/eletronicoverde/pontos-coleta/salvar" method="POST" id="form1">
       
       <?= $csrf->gerarCampoInput() ?>
       
@@ -194,11 +208,19 @@ $csrf = new CSRF();
       <div>
         <label for="email">Email</label>
         <input type="email" id="email" name="txtemail" placeholder="contato@empresa.com" required>
+        <div class="checkbox-nao-informado">
+          <input type="checkbox" id="emailNaoInformado" onchange="toggleEmailNaoInformado()">
+          <label for="emailNaoInformado">Email não informado</label>
+        </div>
       </div>
       
       <div>
         <label for="telefone">Telefone</label>
         <input type="text" id="telefone" name="txttelefone" placeholder="(00) 00000-0000" maxlength="15" required>
+        <div class="checkbox-nao-informado">
+          <input type="checkbox" id="telefoneNaoInformado" onchange="toggleTelefoneNaoInformado()">
+          <label for="telefoneNaoInformado">Telefone não informado</label>
+        </div>
       </div>
 
       <div>
@@ -214,7 +236,7 @@ $csrf = new CSRF();
 
       <div>
         <label for="bairro">Bairro</label>
-        <input type="text" id="bairro" name="txtbairro" placeholder="Centro"  required>
+        <input type="text" id="bairro" name="txtbairro" placeholder="Centro" required>
       </div>
 
       <div>
@@ -248,8 +270,7 @@ $csrf = new CSRF();
         <input type="time" id="hora_encerrar" name="txthora_encerrar" required>
       </div>
       
-      <div id="materiais" class="">
-
+      <div id="materiais">
         <?php 
         $materiaisSelecionados = array_column($pontoColeta['materiais'] ?? [], 'id');
 
@@ -266,8 +287,7 @@ $csrf = new CSRF();
                 <?= htmlspecialchars($material->getNome()) ?>
             </label>
         <?php endforeach; ?>
-
-    </div>
+      </div>
       
       <!-- Campos hidden para coordenadas -->
       <input type="hidden" id="latitude" name="latitude">
@@ -281,6 +301,86 @@ $csrf = new CSRF();
   </div>
 </main>
 
+<script>
+// Função para gerenciar o checkbox de Email Não Informado
+function toggleEmailNaoInformado() {
+    const checkbox = document.getElementById('emailNaoInformado');
+    const emailInput = document.getElementById('email');
+    
+    if (checkbox.checked) {
+        // Salvar o valor anterior (caso o usuário já tenha digitado algo)
+        emailInput.dataset.valorAnterior = emailInput.value;
+        
+        // Definir o texto padrão mas NÃO desabilitar (usar readonly)
+        emailInput.value = 'Email não informado';
+        emailInput.readOnly = true;
+        emailInput.removeAttribute('required');
+        emailInput.style.backgroundColor = '#f3f4f6';
+        emailInput.style.cursor = 'not-allowed';
+        
+        // Remover validação de email
+        emailInput.type = 'text';
+    } else {
+        // Restaurar o valor anterior ou limpar o campo
+        emailInput.value = emailInput.dataset.valorAnterior || '';
+        emailInput.readOnly = false;
+        emailInput.setAttribute('required', 'required');
+        emailInput.style.backgroundColor = '';
+        emailInput.style.cursor = '';
+        
+        // Restaurar validação de email
+        emailInput.type = 'email';
+    }
+}
+
+// Função para gerenciar o checkbox de Telefone Não Informado
+function toggleTelefoneNaoInformado() {
+    const checkbox = document.getElementById('telefoneNaoInformado');
+    const telefoneInput = document.getElementById('telefone');
+    
+    if (checkbox.checked) {
+        // Salvar o valor anterior (caso o usuário já tenha digitado algo)
+        telefoneInput.dataset.valorAnterior = telefoneInput.value;
+        
+        // Definir o texto padrão mas NÃO desabilitar (usar readonly)
+        telefoneInput.value = 'Telefone não informado';
+        telefoneInput.readOnly = true;
+        telefoneInput.removeAttribute('required');
+        telefoneInput.style.backgroundColor = '#f3f4f6';
+        telefoneInput.style.cursor = 'not-allowed';
+    } else {
+        // Restaurar o valor anterior ou limpar o campo
+        telefoneInput.value = telefoneInput.dataset.valorAnterior || '';
+        telefoneInput.readOnly = false;
+        telefoneInput.setAttribute('required', 'required');
+        telefoneInput.style.backgroundColor = '';
+        telefoneInput.style.cursor = '';
+    }
+}
+
+// Adicionar evento de submit ao formulário
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form1');
+    
+    form.addEventListener('submit', function(e) {
+        
+        const emailInput = document.getElementById('email');
+        const telefoneInput = document.getElementById('telefone');
+        const emailCheckbox = document.getElementById('emailNaoInformado');
+        const telefoneCheckbox = document.getElementById('telefoneNaoInformado');
+        
+        // Garantir que os valores estão corretos
+        if (emailCheckbox.checked) {
+            emailInput.value = 'Email não informado';
+        }
+        
+        if (telefoneCheckbox.checked) {
+            telefoneInput.value = 'Telefone não informado';
+        }
+        
+    });
+});
+</script>
 
 <script src="/eletronicoverde/scripts/geocode_pontos.js"></script>
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>

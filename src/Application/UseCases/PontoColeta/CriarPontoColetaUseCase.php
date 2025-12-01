@@ -111,12 +111,21 @@ class CriarPontoColetaUseCase
             throw new \InvalidArgumentException('CEP é obrigatório.');
         }
 
-        if (empty($dto->telefone)) {
+        // ✅ Validação de telefone: aceita "Telefone não informado" como valor válido
+        if (empty($dto->telefone) || trim($dto->telefone) === '') {
             throw new \InvalidArgumentException('Telefone é obrigatório.');
         }
+        // Aceita explicitamente "Telefone não informado"
+        // Qualquer outro valor também é aceito (a entidade PontoColeta faz a validação de formato)
 
-        if (empty($dto->email)) {
+        // ✅ Validação de email: aceita "Email não informado" como valor válido
+        if (empty($dto->email) || trim($dto->email) === '') {
             throw new \InvalidArgumentException('Email é obrigatório.');
+        }
+        // Aceita explicitamente "Email não informado"
+        // Se não for "Email não informado", valida o formato
+        if ($dto->email !== 'Email não informado' && !filter_var($dto->email, FILTER_VALIDATE_EMAIL)) {
+            throw new \InvalidArgumentException('Email inválido.');
         }
 
         if (empty($dto->horaInicio)) {

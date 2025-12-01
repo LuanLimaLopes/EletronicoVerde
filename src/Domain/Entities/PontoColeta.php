@@ -166,11 +166,13 @@ class PontoColeta
             throw new \InvalidArgumentException("Endereço é obrigatório.");
         }
 
-        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+        // ✅ Validação de email: aceita "Email não informado" OU valida formato
+        if ($this->email !== 'Email não informado' && !filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             throw new \InvalidArgumentException("Email inválido.");
         }
 
-        if (strlen($this->cep) !== 8) {
+        // ✅ Validação de CEP: não valida se for "Telefone não informado"
+        if ($this->telefone !== 'Telefone não informado' && strlen($this->cep) !== 8) {
             throw new \InvalidArgumentException("CEP inválido. Deve conter 8 dígitos.");
         }
     }
@@ -181,9 +183,13 @@ class PontoColeta
         return preg_replace('/[^0-9]/', '', $cep);
     }
 
-    //Remove caracteres especiais do telefone
+    //Remove caracteres especiais do telefone (exceto se for "Telefone não informado")
     private function sanitizeTelefone(string $telefone): string
     {
+        // ✅ Se for "Telefone não informado", não sanitiza
+        if ($telefone === 'Telefone não informado') {
+            return $telefone;
+        }
         return preg_replace('/[^0-9]/', '', $telefone);
     }
 
@@ -216,6 +222,11 @@ class PontoColeta
     //Retorna telefone formatado
     public function getTelefoneFormatado(): string
     {
+        // ✅ Se for "Telefone não informado", retorna sem formatar
+        if ($this->telefone === 'Telefone não informado') {
+            return $this->telefone;
+        }
+        
         $length = strlen($this->telefone);
         
         if ($length === 11) {
