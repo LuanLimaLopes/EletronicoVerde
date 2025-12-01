@@ -103,7 +103,7 @@
                 <!-- Overlay que bloqueia interação no mobile -->
                 <div id="map-overlay"
                     class="absolute inset-0 bg-transparent z-[500] flex items-center justify-center cursor-pointer">
-                    <span class="bg-black bg-opacity-60 text-white text-sm px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="bg-black bg-opacity-50 text-white text-sm px-4 py-2 rounded-full backdrop-blur-md">
                         Clique ou toque para interagir com o mapa
                     </span>
                 </div>
@@ -365,11 +365,11 @@ function adicionarMarcadorPonto(ponto) {
     const popupContent = `
         <div style="max-width: 300px;">
             <h3 style="color: #04A777; font-weight: bold; margin-bottom: 8px;">${ponto.empresa}</h3>
-            ${ponto.distancia ? `<p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-location-pin text-second"></i> Distância:</strong> ${ponto.distancia} km</p>` : ''}
-            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-location-dot text-second"></i></strong> ${ponto.endereco}, ${ponto.numero}</p>
-            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-phone text-second"></i></strong> ${formatarTelefone(ponto.telefone)}</p>
-            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 5px;"><strong><i class="fa-solid fa-envelope text-second"></i></strong> ${ponto.email}</p>
-            <p style="color: #000; font-size:  (10px, 12px, 14px); margin-bottom: 8px;"><strong><i class="fa-solid fa-clock text-second"></i></strong> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+            ${ponto.distancia ? `<p style="color: #000; font-size:  clamp(10px, 12px, 14px); margin-bottom: 5px;"><i class="fa-solid fa-location-pin mr-1 text-second"></i> Distância: ${ponto.distancia} km</p>` : ''}
+            <p style="color: #000; font-size:  clamp(10px, 12px, 14px); margin-bottom: 5px;"><i class="fa-solid fa-location-dot mr-1 text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
+            <p style="color: #000; font-size:  clamp(10px, 12px, 14px); margin-bottom: 5px;"><i class="fa-solid fa-phone mr-1 text-second"></i> ${formatarTelefone(ponto.telefone)}</p>
+            <p style="color: #000; font-size:  clamp(10px, 12px, 14px); margin-bottom: 5px;"><i class="fa-solid fa-envelope mr-1 text-second"></i> ${ponto.email}</p>
+            <p style="color: #000; font-size:  clamp(10px, 12px, 14px); margin-bottom: 8px;"><i class="fa-solid fa-clock mr-1 text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
             ${ponto.materiais && ponto.materiais.length > 0 ? `
                 <div style="margin-top: 8px;">
                     <p style="font-weight: bold; color: #333; font-size: 13px; margin-bottom: 5px;">Materiais aceitos:</p>
@@ -378,6 +378,25 @@ function adicionarMarcadorPonto(ponto) {
                     </div>
                 </div>
             ` : ''}
+
+            <a href="https://www.google.com/maps?q=${ponto.latitude},${ponto.longitude}" 
+            target="_blank" 
+            style="
+                    display: inline-block;
+                    background: #04A777;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    text-align: center;
+                    width: 100%;               
+                    font-size: clamp(10px, 12px, 14px); 
+                    margin-top: 10px;
+            ">
+            Abrir no Google Maps
+            </a>
+
         </div>
     `;
     
@@ -420,11 +439,11 @@ function exibirListaPontos(pontosCompletos) {
             const card = `
                 <div class="bg-white border-2 border-primary rounded-3xl p-4 hover:shadow-[0px_0px_0px_4px_#04A77750] transition-all duration-300 cursor-pointer" onclick="focusPonto(${indexNoMapa})">
                     <h3 class="text-xl font-bold text-primary mb-2">${ponto.empresa}</h3>
-                    ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2"><i class="fa-solid fa-location-pin text-second"></i> <strong>${ponto.distancia} km</strong> de distância</p>` : ''}
-                    <p class="text-gray-700"><i class="fa-solid fa-location-dot text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
-                    <p class="text-gray-700"><i class="fa-solid fa-phone text-second"></i> ${formatarTelefone(ponto.telefone)}</p>
-                    <p class="text-gray-700"><i class="fa-solid fa-envelope text-second"></i> ${ponto.email}</p>
-                    <p class="text-gray-700"><i class="fa-solid fa-clock text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
+                    ${ponto.distancia ? `<p class="text-sm text-gray-600 mb-2"><i class="fa-solid fa-location-pin mr-1 text-second"></i>${ponto.distancia} km de distância</p>` : ''}
+                    <p class="text-gray-700"><i class="fa-solid fa-location-dot mr-1 text-second"></i> ${ponto.endereco}, ${ponto.numero}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-phone mr-1 text-second"></i> ${formatarTelefone(ponto.telefone)}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-envelope mr-1 text-second"></i> ${ponto.email}</p>
+                    <p class="text-gray-700"><i class="fa-solid fa-clock mr-1 text-second"></i> ${ponto.hora_inicio} - ${ponto.hora_encerrar}</p>
                     ${ponto.materiais && ponto.materiais.length > 0 ? `
                         <div class="mt-2">
                             <p class="font-bold text-sm">Materiais aceitos:</p>

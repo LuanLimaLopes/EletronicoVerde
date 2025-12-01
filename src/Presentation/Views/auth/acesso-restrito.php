@@ -46,7 +46,7 @@
             <i class="fa-solid fa-list"></i> Consultar pontos de coleta
         </a>
         
-        <a href="/eletronicoverde/logout" class="border border-red-500 w-fit text-red-500 px-6 md:px-10 py-5 mt-10 md:py-8 rounded-lg hover:bg-red-600 transition font-bold text-md md:text-lg flex flex-row items-center justify-center gap-5">
+        <a href="/eletronicoverde/logout" class="border border-red-500 w-fit text-red-500 px-6 md:px-10 py-5 mt-10 md:py-8 rounded-lg hover:bg-red-600 hover:text-white transition font-bold text-md md:text-lg flex flex-row items-center justify-center gap-5">
             <i class="fa-solid fa-right-from-bracket"></i> Sair
         </a>
     </div>

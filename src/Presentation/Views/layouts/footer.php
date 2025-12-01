@@ -84,47 +84,65 @@
 
     targets.forEach(t => observer.observe(t));
 
-function animateCounters() {
-    const counters = document.querySelectorAll(".counter");
+// Contador animado
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
 
-    counters.forEach(counter => {
-        const suffix = counter.dataset.suffix || "";
-        const target = parseFloat(counter.textContent.replace(",", "."));
+  function animateCounter(counter) {
+    const target = parseFloat(counter.dataset.target);
+    const suffix = counter.dataset.suffix || "";
+    const duration = 2000;
+    const startTime = performance.now();
 
-        if (isNaN(target)) return;
+    const isDecimal = counter.dataset.isDecimal === "true";
 
-        let current = 0;
-        const duration = 3000;
-        const frames = 60;
-        const increment = target / frames;
-        let frame = 0;
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
 
-        const interval = setInterval(() => {
-            frame++;
-            current += increment;
+      let value = target * progress;
 
-            counter.textContent = current.toFixed(target % 1 !== 0 ? 1 : 0) + suffix;
+      // Se o número original tinha vírgula, mantém 1 casa decimal
+      if (isDecimal) {
+        value = (value).toFixed(1).replace(".", ",");
+      } else {
+        value = Math.floor(value);
+      }
 
-            if (frame >= frames) {
-                counter.textContent = target + suffix;
-                clearInterval(interval);
-            }
-        }, duration / frames);
-    });
-}
+      counter.textContent = value + suffix;
 
-let started = false;
-const section = document.querySelector("section");
-
-window.addEventListener("scroll", () => {
-    if (started) return;
-
-    const sectionPos = section.getBoundingClientRect();
-    if (sectionPos.top < window.innerHeight * 0.8) {
-        started = true;
-        animateCounters();
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
     }
+
+    requestAnimationFrame(update);
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+
+        let raw = counter.textContent.trim();
+
+        if (raw.includes(",")) {
+          counter.dataset.isDecimal = "true";
+          counter.dataset.target = raw.replace("%", "").replace(".", "").replace(",", ".");
+        } else {
+          counter.dataset.isDecimal = "false";
+          counter.dataset.target = raw.replace(/\D/g, "");
+        }
+
+        animateCounter(counter);
+        obs.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(counter => observer.observe(counter));
 });
+
 </script>
 
 
