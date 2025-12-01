@@ -1,3 +1,6 @@
+<head>
+  <Title>Acesso restrito</Title>
+</head>
 <?php require_once __DIR__ . '/../layouts/header.php'; ?>
 
 <main class="relative z-2 bg-white rounded-b-[30px]">

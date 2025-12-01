@@ -1,6 +1,11 @@
-<?php require_once __DIR__ . '/../layouts/header.php'; ?>
-
-<style  type="text/tailwindcss">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais</title>
+    <?php require_once __DIR__ . '/../layouts/header.php'; ?>
+    <style  type="text/tailwindcss">
 @layer components {
   /* Estrutura principal */
   .mat-aceitos-div {
@@ -85,6 +90,8 @@
 }
 </style>
 
+</head>
+<body>
 
 <!-- HERO SECTION -->
 <header class="w-full pt-20 sm:pt-0 h-[40vh] sm:h-[50vh] bg-fourth flex flex-col items-center z-1 relative">
@@ -406,3 +413,13 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <?php require_once __DIR__ . '/../layouts/footer.php'; ?>
+
+</body>
+</html>
+
+
+
+
+
+
+
